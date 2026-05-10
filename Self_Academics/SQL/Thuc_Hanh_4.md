@@ -189,7 +189,7 @@ Gọi SP
 
 ### 2.1 Khái niệm
 
-**Trigger** là SP đặc biệt — **tự động kích hoạt** khi có sự kiện DML (INSERT/UPDATE/DELETE) xảy ra trên một bảng cụ thể. Người dùng không gọi trigger trực tiếp.
+**Trigger** là SP đặc biệt — **tự động kích hoạt** khi có sự kiện DML (INSERT/UPDATE/DELETE) xảy ra trên một bảng cụ thể. Người dùng không gọi trigger trực tiếp. 
 
 **Đặc điểm quan trọng nhất — hai bảng ảo:**
 
@@ -473,3 +473,4 @@ Theo tài liệu gốc: làm các bài tập về Stored Procedure, Cursor, Trig
 ---
 
 *Processed from: `Inbox/HuongDanTucHanh_V_P_F.md`*
+Nhớ học nhé đồ dốt
