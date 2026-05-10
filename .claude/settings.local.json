@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(New-Item -ItemType Directory -Path \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Self_Academics\\\\SQL\" -Force)",
+      "Bash(Out-Null)",
+      "Bash(New-Item -ItemType Directory -Path \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\Archive\" -Force)",
+      "Bash(Write-Output \"Directories created.\")"
+    ]
+  }
+}
