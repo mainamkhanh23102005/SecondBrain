@@ -473,4 +473,3 @@ Theo tài liệu gốc: làm các bài tập về Stored Procedure, Cursor, Trig
 ---
 
 *Processed from: `Inbox/HuongDanTucHanh_V_P_F.md`*
-Nhớ học nhé đồ dốt
