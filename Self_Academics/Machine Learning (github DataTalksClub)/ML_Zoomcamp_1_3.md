@@ -136,3 +136,9 @@ Ranking is a supervised ML problem type where the goal is to **order a set of it
 
 - **Lesson 1.4:** The bigger picture — how to organize ML projects end-to-end using the **CRISP-DM** methodology (Cross-Industry Standard Process for Data Mining)
 - **Later in the course:** Deep dives into regression (next lesson) and binary classification (primary focus of the course)
+
+---
+
+### Related Notes
+
+[[ML_Zoomcamp_1_1]] | [[ML_Zoomcamp_1_2]] | [[ML_Zoomcamp_1_4]] | [[ML_Zoomcamp_1_5]]

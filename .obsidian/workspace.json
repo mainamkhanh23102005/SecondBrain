@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_4.md",
+                "file": "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ML_Zoomcamp_1_4"
+              "title": "ML_Zoomcamp_1_2"
             }
           },
           {
@@ -194,8 +194,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -211,8 +210,15 @@
   },
   "active": "4d53f795367e7826",
   "lastOpenFiles": [
-    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_3.md",
+    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_5.md",
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_4.md",
+    "Inbox/Archive/ML Zoomcamp 1.5 - Model Selection Process.md",
+    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_4.md.tmp.23508.12255e01c428",
+    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_2.md.tmp.23508.8ed1fdbf0bc5",
+    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_5.md.tmp.23508.b51323de4f9a",
+    "Inbox/ML Zoomcamp 1.5 - Model Selection Process.md",
+    "Inbox/ML Zoomcamp 1.5 - Model Selection Process",
+    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_3.md",
     "Inbox/Archive/ML Zoomcamp 1.4 - CRISP-DM.md",
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_4.md.tmp.23508.af0f65ddd4cc",
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_2.md",
@@ -231,22 +237,15 @@
     "Inbox/ML Zoomcamp 1.1 - Introduction to Machine Learning",
     "Inbox/ML Zoomcamp 1.2 - ML vs Rule-Based Systems",
     "Self_Academics/Machine Learning (github DataTalksClub)/Untitled.md",
-    "Self_Academics/Machine Learning (github DataTalksClub)",
     "Self_Academics/SQL/Thuc_Hanh_4.md",
     "Self_Academics/SQL/Thuc_Hanh_2.md",
     "Inbox/HuongDanTucHanh_V_P_F.md",
     "Inbox/Archive/HuongDanTucHanh_V_P_F.md",
-    "Self_Academics/SQL/Thuc_Hanh_4.md.tmp.13296.f382b6e894d4",
-    "Self_Academics/SQL/Thuc_Hanh_4.md.tmp.13296.876b0f9ff4eb",
     "Self_Academics/SQL/Bai_Tap_4.md",
     "Inbox/Archive/Huongdanthuchanh_So3.md",
     "5.md",
     "_agent/skills/Book_Summarizer.md",
     "Inbox/Archive/Baitapthuchanh_So4.md",
-    "Inbox/Archive/Huongdanthuchanh_So2.md",
-    "Self_Academics/SQL/Bai_Tap_4.md.tmp.13296.e25606c49743",
-    "_agent/skills/Master_Synthesizer.md",
-    "Inbox/Huongdanthuchanh_So2.md",
     "_agent/skills/Untitled.canvas"
   ]
 }

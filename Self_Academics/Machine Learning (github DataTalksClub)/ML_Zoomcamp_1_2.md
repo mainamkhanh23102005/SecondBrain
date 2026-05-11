@@ -239,3 +239,9 @@ The optimal threshold depends on the **cost asymmetry** between false positives 
   - Implement the rule-based spam filter in Python, then convert each rule to a binary feature.
   - Train a `LogisticRegression` or `DecisionTreeClassifier` (scikit-learn) on the feature matrix and observe which features receive the highest weights/importance scores.
   - Experiment with different classification thresholds and plot the precision-recall tradeoff (PR curve).
+
+---
+
+### Related Notes
+
+[[ML_Zoomcamp_1_1]] | [[ML_Zoomcamp_1_3]] | [[ML_Zoomcamp_1_4]] | [[ML_Zoomcamp_1_5]]

@@ -203,3 +203,9 @@ The most common mistake with CRISP-DM is treating it as a **waterfall**: a one-t
 
 - **Lesson 1.5:** Deeper focus on the **Modeling** phase — how to systematically select and evaluate machine learning models (the core technical skill of the course).
 - **Future sessions:** Logistic regression, decision trees, ensemble methods, neural networks — each explored in the context of the modeling phase of CRISP-DM.
+
+---
+
+### Related Notes
+
+[[ML_Zoomcamp_1_1]] | [[ML_Zoomcamp_1_2]] | [[ML_Zoomcamp_1_3]] | [[ML_Zoomcamp_1_5]]

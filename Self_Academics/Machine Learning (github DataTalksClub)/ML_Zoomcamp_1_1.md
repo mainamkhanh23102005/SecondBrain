@@ -148,3 +148,9 @@ The split enforces the model to learn a mapping function `f(features) → target
 
 *Source: ML Zoomcamp — Session 1, Lesson 1.1 — Introduction to Machine Learning*
 *Next: 1.2 — ML vs. Rule-Based Systems (Spam Detection example)*
+
+---
+
+### Related Notes
+
+[[ML_Zoomcamp_1_2]] | [[ML_Zoomcamp_1_3]] | [[ML_Zoomcamp_1_4]] | [[ML_Zoomcamp_1_5]]
