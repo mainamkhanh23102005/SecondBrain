@@ -11,10 +11,14 @@
             "id": "4d53f795367e7826",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_4.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ML_Zoomcamp_1_4"
             }
           },
           {
@@ -23,16 +27,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_3.md",
+                "file": "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_4.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ML_Zoomcamp_1_3"
+              "title": "ML_Zoomcamp_1_4"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -89,8 +92,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 234.5,
-    "collapsed": true
+    "width": 338.5
   },
   "right": {
     "id": "21143ca00769d09e",
@@ -207,13 +209,16 @@
       "bases:Create new base": false
     }
   },
-  "active": "f6550a205553e50f",
+  "active": "4d53f795367e7826",
   "lastOpenFiles": [
+    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_3.md",
+    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_4.md",
+    "Inbox/Archive/ML Zoomcamp 1.4 - CRISP-DM.md",
+    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_4.md.tmp.23508.af0f65ddd4cc",
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_2.md",
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_1.md",
     "Inbox/Archive/ML Zoomcamp 1.1 - Introduction to Machine Learning.md",
     "Inbox/Archive/ML Zoomcamp 1.2 - ML vs Rule-Based Systems.md",
-    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_3.md",
     "Inbox/Archive/ML Zoomcamp 1.3 - Supervised Machine Learning.md",
     "Inbox/ML Zoomcamp 1.3 - Supervised Machine Learning.md",
     "Inbox/ML Zoomcamp 1.3 - Supervised Machine Learning",
@@ -240,11 +245,8 @@
     "Inbox/Archive/Baitapthuchanh_So4.md",
     "Inbox/Archive/Huongdanthuchanh_So2.md",
     "Self_Academics/SQL/Bai_Tap_4.md.tmp.13296.e25606c49743",
-    "Self_Academics/SQL/Thuc_Hanh_3.md.tmp.13296.ac711188fe0d",
     "_agent/skills/Master_Synthesizer.md",
     "Inbox/Huongdanthuchanh_So2.md",
-    "HUST_Academics/Software Engineering/Chapter6_Comprehensive.md",
-    "Inbox/Huongdanthuchanh_So3.md",
     "_agent/skills/Untitled.canvas"
   ]
 }
