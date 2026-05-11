@@ -11,17 +11,28 @@
             "id": "4d53f795367e7826",
             "type": "leaf",
             "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          },
+          {
+            "id": "f6550a205553e50f",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
-                "file": "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_2.md",
+                "file": "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_3.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ML_Zoomcamp_1_2"
+              "title": "ML_Zoomcamp_1_3"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -78,7 +89,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 785.5
+    "width": 234.5
   },
   "right": {
     "id": "21143ca00769d09e",
@@ -195,20 +206,20 @@
       "bases:Create new base": false
     }
   },
-  "active": "4d53f795367e7826",
+  "active": "f6550a205553e50f",
   "lastOpenFiles": [
-    "Inbox/Archive/ML Zoomcamp 1.3 - Supervised Machine Learning.md",
-    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_3.md",
-    "Inbox/ML Zoomcamp 1.3 - Supervised Machine Learning.md",
-    "Inbox/ML Zoomcamp 1.3 - Supervised Machine Learning",
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_2.md",
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_1.md",
     "Inbox/Archive/ML Zoomcamp 1.1 - Introduction to Machine Learning.md",
+    "Inbox/Archive/ML Zoomcamp 1.2 - ML vs Rule-Based Systems.md",
+    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_3.md",
+    "Inbox/Archive/ML Zoomcamp 1.3 - Supervised Machine Learning.md",
+    "Inbox/ML Zoomcamp 1.3 - Supervised Machine Learning.md",
+    "Inbox/ML Zoomcamp 1.3 - Supervised Machine Learning",
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_1.md.tmp.4436.b80a126a7080",
     "Untitled.md",
     "Inbox/ML Zoomcamp 1.1 - Introduction to Machine Learning.md",
     "Self_Academics/SQL/Thuc_Hanh_3.md",
-    "Inbox/Archive/ML Zoomcamp 1.2 - ML vs Rule-Based Systems.md",
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_2.md.tmp.4436.25c6cc02b58c",
     "Inbox/ML Zoomcamp 1.2 - ML vs Rule-Based Systems.md",
     "Inbox/ML Zoomcamp 1.1 - Introduction to Machine Learning",
