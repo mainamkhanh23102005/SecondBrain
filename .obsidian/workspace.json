@@ -13,26 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_5.md",
+                "file": "HUST_Academics/Software Engineering/Chapter6_Comprehensive.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ML_Zoomcamp_1_5"
-            }
-          },
-          {
-            "id": "f6550a205553e50f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_4.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "ML_Zoomcamp_1_4"
+              "title": "Chapter6_Comprehensive"
             }
           }
         ]
@@ -92,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 338.5,
-    "collapsed": true
+    "width": 338.5
   },
   "right": {
     "id": "21143ca00769d09e",
@@ -195,7 +180,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -211,8 +197,8 @@
   },
   "active": "4d53f795367e7826",
   "lastOpenFiles": [
-    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_2.md",
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_5.md",
+    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_2.md",
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_4.md",
     "Inbox/Archive/ML Zoomcamp 1.5 - Model Selection Process.md",
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_4.md.tmp.23508.12255e01c428",

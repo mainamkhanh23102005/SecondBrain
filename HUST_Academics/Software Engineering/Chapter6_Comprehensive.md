@@ -17,13 +17,13 @@ created: 2026-05-09
 
 ## 1. Executive Summary – Why Architectural Design Matters
 
-| Benefit | Explanation |
-|---|---|
-| **Stakeholder Communication** | High-level architectural models give non-technical stakeholders a comprehensible view for discussion and sign-off. |
-| **System Analysis** | Making architecture explicit forces early analysis of whether critical non-functional requirements (performance, reliability, maintainability) can be met. |
-| **Large-Scale Reuse** | A documented architecture is a compact, reusable blueprint; systems in the same domain share similar architectures (product lines). |
-| **Complexity Management** | Architecture hides implementation detail and lets designers focus on key system abstractions. |
-| **Design Plan for Negotiation** | Architecture acts as a vehicle for negotiating system requirements between clients, developers, and managers (Hofmeister et al., 2000). |
+| Benefit                         | Explanation                                                                                                                                                |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Stakeholder Communication**   | High-level architectural models give non-technical stakeholders a comprehensible view for discussion and sign-off.                                         |
+| **System Analysis**             | Making architecture explicit forces early analysis of whether critical non-functional requirements (performance, reliability, maintainability) can be met. |
+| **Large-Scale Reuse**           | A documented architecture is a compact, reusable blueprint; systems in the same domain share similar architectures (product lines).                        |
+| **Complexity Management**       | Architecture hides implementation detail and lets designers focus on key system abstractions.                                                              |
+| **Design Plan for Negotiation** | Architecture acts as a vehicle for negotiating system requirements between clients, developers, and managers (Hofmeister et al., 2000).                    |
 
 > [!quote] Key Principle (Bosch, 2000)
 > Individual components implement **functional requirements**. The system architecture governs **non-functional requirements**.
