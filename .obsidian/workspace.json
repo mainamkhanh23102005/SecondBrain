@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Inbox/Archive/Chapter6_SoftwareEngineering_9th.md",
+                "file": "HUST_Academics/Software Engineering/Chapter6_Comprehensive.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Chapter6_SoftwareEngineering_9th"
+              "title": "Chapter6_Comprehensive"
             }
           }
         ]
@@ -197,6 +197,7 @@
   },
   "active": "4d53f795367e7826",
   "lastOpenFiles": [
+    "Inbox/Archive/Chapter6_SoftwareEngineering_9th.md",
     "HUST_Academics/Software Engineering/Chapter6_Comprehensive.md",
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_5.md",
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_2.md",
@@ -232,7 +233,6 @@
     "Self_Academics/SQL/Bai_Tap_4.md",
     "Inbox/Archive/Huongdanthuchanh_So3.md",
     "5.md",
-    "_agent/skills/Book_Summarizer.md",
     "_agent/skills/Untitled.canvas"
   ]
 }
