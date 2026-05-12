@@ -56,11 +56,11 @@ Full dataset (100%)
 | Email | y (actual) | ŷ (predicted) | Correct? |
 |---|---|---|---|
 | 1 | 1 (spam) | 1 | ✓ |
-| 2 | 0 (ham) | 1 | ✗ |
+| 2 | 0 (not spam) | 1 | ✗ |
 | 3 | 1 (spam) | 1 | ✓ |
-| 4 | 0 (ham) | 0 | ✓ |
+| 4 | 0 (not spam) | 0 | ✓ |
 | 5 | 1 (spam) | 1 | ✓ |
-| 6 | 0 (ham) | 0 | ✓ |
+| 6 | 0 (not spam) | 0 | ✓ |
 
 Result: **4/6 correct → 66.7% accuracy**
 
@@ -74,13 +74,13 @@ When you evaluate many models against the **same validation set**, statistical c
 
 Imagine your models are coins — each coin represents a different model family. For 5 emails, you flip each coin to generate predictions:
 
-| "Model" | Predictions | Accuracy |
-|---|---|---|
-| Euro | [spam, spam, ham, ham, spam] | 20% |
-| US Dollar | [spam, ham, ham, ham, spam] | 40% |
-| Polish Złoty | [spam, spam, spam] | 20% |
-| Ruble | [ham, ham, ham, ham] | 20% |
-| Ukrainian Hryvnia | [spam, ham, spam, ham, ham] | **100%** |
+| "Model"           | Predictions                       | Accuracy |
+| ----------------- | --------------------------------- | -------- |
+| Euro              | [spam, spam, not spam, not spam, spam] | 20%      |
+| US Dollar         | [spam, not spam, not spam, not spam, spam]       | 40%      |
+| Polish Złoty      | [spam, spam, spam]                | 20%      |
+| Ruble             | [not spam, not spam, not spam, not spam]              | 20%      |
+| Ukrainian Hryvnia | [spam, not spam, spam, not spam, not spam]       | **100%** |
 
 The Hryvnia achieves 100% accuracy — not because it's a better predictor, but because it happened to produce the exact same sequence as the ground truth by random chance. **This exact phenomenon occurs with real ML models.**
 
