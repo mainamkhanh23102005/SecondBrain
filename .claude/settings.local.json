@@ -7,7 +7,10 @@
       "Bash(Write-Output \"Directories created.\")",
       "PowerShell(Move-Item *)",
       "Bash(Move-Item *)",
-      "PowerShell(New-Item *)"
+      "PowerShell(New-Item *)",
+      "Bash(New-Item -ItemType Directory -Force \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Self_Academics\\\\Algorithms\")",
+      "Bash(New-Item -ItemType Directory -Force \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\Archive\")",
+      "Bash(Write-Host \"Directories ready\")"
     ]
   }
 }
