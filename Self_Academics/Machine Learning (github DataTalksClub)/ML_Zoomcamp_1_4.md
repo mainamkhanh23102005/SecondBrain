@@ -208,4 +208,4 @@ The most common mistake with CRISP-DM is treating it as a **waterfall**: a one-t
 
 ### Related Notes
 
-[[ML_Zoomcamp_1_1]] | [[ML_Zoomcamp_1_2]] | [[ML_Zoomcamp_1_3]] | [[ML_Zoomcamp_1_5]]
+[[ML_Zoomcamp_1_1]] | [[ML_Zoomcamp_1_2]] | [[ML_Zoomcamp_1_3]] | [[ML_Zoomcamp_1_5]] | [[ML_Zoomcamp_1_7]]

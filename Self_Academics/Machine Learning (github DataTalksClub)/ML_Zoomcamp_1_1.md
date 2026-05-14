@@ -153,4 +153,4 @@ The split enforces the model to learn a mapping function `f(features) → target
 
 ### Related Notes
 
-[[ML_Zoomcamp_1_2]] | [[ML_Zoomcamp_1_3]] | [[ML_Zoomcamp_1_4]] | [[ML_Zoomcamp_1_5]]
+[[ML_Zoomcamp_1_2]] | [[ML_Zoomcamp_1_3]] | [[ML_Zoomcamp_1_4]] | [[ML_Zoomcamp_1_5]] | [[ML_Zoomcamp_1_7]]

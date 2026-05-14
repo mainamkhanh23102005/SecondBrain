@@ -141,4 +141,4 @@ Ranking is a supervised ML problem type where the goal is to **order a set of it
 
 ### Related Notes
 
-[[ML_Zoomcamp_1_1]] | [[ML_Zoomcamp_1_2]] | [[ML_Zoomcamp_1_4]] | [[ML_Zoomcamp_1_5]]
+[[ML_Zoomcamp_1_1]] | [[ML_Zoomcamp_1_2]] | [[ML_Zoomcamp_1_4]] | [[ML_Zoomcamp_1_5]] | [[ML_Zoomcamp_1_7]]

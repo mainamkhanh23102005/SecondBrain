@@ -244,4 +244,4 @@ The optimal threshold depends on the **cost asymmetry** between false positives 
 
 ### Related Notes
 
-[[ML_Zoomcamp_1_1]] | [[ML_Zoomcamp_1_3]] | [[ML_Zoomcamp_1_4]] | [[ML_Zoomcamp_1_5]]
+[[ML_Zoomcamp_1_1]] | [[ML_Zoomcamp_1_3]] | [[ML_Zoomcamp_1_4]] | [[ML_Zoomcamp_1_5]] | [[ML_Zoomcamp_1_7]]
