@@ -11,14 +11,10 @@
             "id": "4d53f795367e7826",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Self_Academics/Algorithms/Ch18_B-Trees.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Ch18_B-Trees"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -196,10 +192,29 @@
   },
   "active": "4d53f795367e7826",
   "lastOpenFiles": [
+    "Inbox/Archive/868_PDFsam_[Recommended] Introduction to Algorithms.md",
+    "Self_Academics/Algorithms/Ch24_Maximum_Flow.md",
+    "Self_Academics/Algorithms/Ch24_Maximum_Flow.md.tmp.32124.ab1bd2b75792",
+    "Self_Academics/Algorithms/Ch23_All-Pairs_Shortest_Paths.md",
+    "Self_Academics/Algorithms/Ch22_Single-Source_Shortest_Paths.md",
+    "Inbox/Archive/837_PDFsam_[Recommended] Introduction to Algorithms.md",
+    "Self_Academics/Algorithms/Ch23_All-Pairs_Shortest_Paths.md.tmp.32124.b4c3b5812d02",
+    "Self_Academics/Algorithms/Ch21_Minimum_Spanning_Trees.md",
+    "Inbox/Archive/784_PDFsam_[Recommended] Introduction to Algorithms.md",
+    "Self_Academics/Algorithms/Ch22_Single-Source_Shortest_Paths.md.tmp.32124.6ee4a678e0d2",
+    "Inbox/Archive/761_PDFsam_[Recommended] Introduction to Algorithms.md",
+    "Self_Academics/Algorithms/Ch18_B-Trees.md",
+    "Self_Academics/Algorithms/Ch21_Minimum_Spanning_Trees.md.tmp.32124.1c3566450351",
+    "Inbox/Archive/717_PDFsam_[Recommended] Introduction to Algorithms.md",
+    "Inbox/Archive/715_PDFsam_[Recommended] Introduction to Algorithms.md",
+    "Self_Academics/Algorithms/Ch20_Elementary_Graph_Algorithms.md",
+    "Self_Academics/Algorithms/Ch20_Elementary_Graph_Algorithms.md.tmp.32124.81cad244e346",
+    "Self_Academics/Algorithms/PartVI_Graph_Algorithms.md",
+    "Self_Academics/Algorithms/PartVI_Graph_Algorithms.md.tmp.32124.1fc930f6a0b3",
+    "Inbox/Archive/682_PDFsam_[Recommended] Introduction to Algorithms.md",
     "Self_Academics/Algorithms/Ch19_Data_Structures_for_Disjoint_Sets.md",
     "Self_Academics/Algorithms/PartIV_Advanced_Design_and_Analysis_Techniques.md",
     "Inbox/Archive/654_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Self_Academics/Algorithms/Ch18_B-Trees.md",
     "Self_Academics/Algorithms/Ch18_B-Trees.md.tmp.32124.35a8882ba19b",
     "Inbox/Archive/632_PDFsam_[Recommended] Introduction to Algorithms.md",
     "Inbox/Archive/628_PDFsam_[Recommended] Introduction to Algorithms.md",
@@ -213,25 +228,6 @@
     "Self_Academics/Algorithms/Ch15_Greedy_Algorithms.md",
     "Self_Academics/Algorithms/Ch15_Greedy_Algorithms.md.tmp.32124.75d35ab3bfb9",
     "Inbox/Archive/482_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Inbox/Archive/480_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Self_Academics/Algorithms/Ch14_Dynamic_Programming.md",
-    "Self_Academics/Algorithms/Ch14_Dynamic_Programming.md.tmp.32124.764cf2dd01cc",
-    "Self_Academics/Algorithms/PartIV_Advanced_Design_and_Analysis_Techniques.md.tmp.32124.b0c98ee9a035",
-    "Self_Academics/Algorithms/Ch13_Red-Black_Trees.md.tmp.32124.b88fdece6f09",
-    "Self_Academics/Algorithms/Ch13_Red-Black_Trees.md",
-    "Self_Academics/Algorithms/Ch12_Binary_Search_Trees.md",
-    "Inbox/Archive/442_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Self_Academics/Algorithms/Ch13_Red-Black_Trees.md.tmp.32124.986ee52d4ab8",
-    "Self_Academics/Algorithms/Ch09_Medians_and_Order_Statistics.md",
-    "Inbox/Archive/418_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Self_Academics/Algorithms/Ch12_Binary_Search_Trees.md.tmp.32124.46967cf3583a",
-    "Inbox/Archive/368_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Self_Academics/Algorithms/Ch11_Hash_Tables.md",
-    "Self_Academics/Algorithms/Ch11_Hash_Tables.md.tmp.32124.09d7a97dcf04",
-    "Inbox/Archive/344_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Self_Academics/Algorithms/Ch10_Elementary_Data_Structures.md",
-    "Self_Academics/Algorithms/Ch08_Sorting_in_Linear_Time.md",
-    "Inbox/Archive/340_PDFsam_[Recommended] Introduction to Algorithms.md",
     "_agent/skills/Untitled.canvas"
   ]
 }
