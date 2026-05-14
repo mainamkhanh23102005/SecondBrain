@@ -13,15 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HUST_Academics/Software Engineering/Chapter6_Comprehensive.md",
+                "file": "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Chapter6_Comprehensive"
+              "title": "ML_Zoomcamp_1_1"
+            }
+          },
+          {
+            "id": "a43ef636c7728e05",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -40,8 +51,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabeticalReverse",
-                "autoReveal": true
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -180,8 +191,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -195,10 +205,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "4d53f795367e7826",
+  "active": "d0ca922b8cb2f2c5",
   "lastOpenFiles": [
-    "Inbox/Archive/Chapter6_SoftwareEngineering_9th.md",
+    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_1.md",
     "HUST_Academics/Software Engineering/Chapter6_Comprehensive.md",
+    "Inbox/Archive/Chapter6_SoftwareEngineering_9th.md",
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_5.md",
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_2.md",
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_4.md",
@@ -211,7 +222,6 @@
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_3.md",
     "Inbox/Archive/ML Zoomcamp 1.4 - CRISP-DM.md",
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_4.md.tmp.23508.af0f65ddd4cc",
-    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_1.md",
     "Inbox/Archive/ML Zoomcamp 1.1 - Introduction to Machine Learning.md",
     "Inbox/Archive/ML Zoomcamp 1.2 - ML vs Rule-Based Systems.md",
     "Inbox/Archive/ML Zoomcamp 1.3 - Supervised Machine Learning.md",
