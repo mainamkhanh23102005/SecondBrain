@@ -25,10 +25,14 @@
             "id": "a43ef636c7728e05",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "Self_Academics/Algorithms/Ch17_Augmenting_Data_Structures.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Ch17_Augmenting_Data_Structures"
             }
           }
         ],
@@ -205,9 +209,18 @@
       "bases:Create new base": false
     }
   },
-  "active": "d0ca922b8cb2f2c5",
+  "active": "a43ef636c7728e05",
   "lastOpenFiles": [
     "Self_Academics/Algorithms/Ch14_Dynamic_Programming.md",
+    "Self_Academics/Algorithms/Ch15_Greedy_Algorithms.md",
+    "Self_Academics/Algorithms/Ch17_Augmenting_Data_Structures.md",
+    "Self_Academics/Algorithms/Part2_Introduction_Sorting.md",
+    "Self_Academics/Algorithms/Ch17_Augmenting_Data_Structures.md.tmp.21976.a01c30669f6c",
+    "Self_Academics/Algorithms/Part5_Introduction_Advanced_Data_Structures.md",
+    "Self_Academics/Algorithms/Part5_Introduction_Advanced_Data_Structures.md.tmp.21976.82ccb12f8032",
+    "Self_Academics/Algorithms/Ch16_Amortized_Analysis.md",
+    "Self_Academics/Algorithms/Ch16_Amortized_Analysis.md.tmp.21976.c7bfdd2f15af",
+    "Self_Academics/Algorithms/Ch15_Greedy_Algorithms.md.tmp.21976.0a53818b890f",
     "Self_Academics/Algorithms/Ch14_Dynamic_Programming.md.tmp.21976.5937fe43311b",
     "Self_Academics/Algorithms/Part4_Introduction_Advanced_Design.md",
     "Self_Academics/Algorithms/Part4_Introduction_Advanced_Design.md.tmp.21976.428b126098fb",
@@ -220,15 +233,10 @@
     "Self_Academics/Algorithms/Ch10_Elementary_Data_Structures.md",
     "Self_Academics/Algorithms/Ch10_Elementary_Data_Structures.md.tmp.21976.adb73c55fbe8",
     "Self_Academics/Algorithms/Part3_Introduction_Data_Structures.md",
-    "Self_Academics/Algorithms/Part3_Introduction_Data_Structures.md.tmp.21976.71d9ccab1c05",
     "Self_Academics/Algorithms/Ch9_Medians_and_Order_Statistics.md",
     "Self_Academics/Algorithms/Ch7_Quicksort.md",
-    "Self_Academics/Algorithms/Ch9_Medians_and_Order_Statistics.md.tmp.21976.5905df77f1bb",
     "Self_Academics/Algorithms/Ch8_Sorting_in_Linear_Time.md",
-    "Self_Academics/Algorithms/Ch8_Sorting_in_Linear_Time.md.tmp.21976.cf39e4dd1dc8",
     "Self_Academics/Algorithms/Ch6_Heapsort.md",
-    "Self_Academics/Algorithms/Ch7_Quicksort.md.tmp.21976.f073ac189042",
-    "Self_Academics/Algorithms/Part2_Introduction_Sorting.md",
     "Self_Academics/Algorithms/Ch5_Probabilistic_Analysis_and_Randomized_Algorithms.md",
     "Self_Academics/Algorithms/Ch4_Divide_and_Conquer.md",
     "Self_Academics/Algorithms/Ch2_Getting_Started.md",
@@ -239,10 +247,6 @@
     "Inbox/1123_PDFsam_[Recommended] Introduction to Algorithms.md",
     "Inbox/1089_PDFsam_[Recommended] Introduction to Algorithms.md",
     "Inbox/1051_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Inbox/1016_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Inbox/961_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Inbox/957_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Inbox/910_PDFsam_[Recommended] Introduction to Algorithms.md",
     "_agent/skills/Untitled.canvas"
   ]
 }
