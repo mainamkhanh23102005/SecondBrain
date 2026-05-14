@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Self_Academics/Algorithms/Ch02_Getting_Started.md",
+                "file": "Self_Academics/Algorithms/Ch12_Binary_Search_Trees.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Ch02_Getting_Started"
+              "title": "Ch12_Binary_Search_Trees"
             }
           }
         ]
@@ -196,7 +196,24 @@
   },
   "active": "4d53f795367e7826",
   "lastOpenFiles": [
+    "Self_Academics/Algorithms/Ch09_Medians_and_Order_Statistics.md",
+    "Inbox/Archive/418_PDFsam_[Recommended] Introduction to Algorithms.md",
+    "Self_Academics/Algorithms/Ch12_Binary_Search_Trees.md",
+    "Self_Academics/Algorithms/Ch12_Binary_Search_Trees.md.tmp.32124.46967cf3583a",
+    "Inbox/Archive/368_PDFsam_[Recommended] Introduction to Algorithms.md",
+    "Self_Academics/Algorithms/Ch11_Hash_Tables.md",
+    "Self_Academics/Algorithms/Ch11_Hash_Tables.md.tmp.32124.09d7a97dcf04",
+    "Inbox/Archive/344_PDFsam_[Recommended] Introduction to Algorithms.md",
+    "Self_Academics/Algorithms/Ch10_Elementary_Data_Structures.md",
+    "Self_Academics/Algorithms/Ch10_Elementary_Data_Structures.md.tmp.32124.c03c73dd2b10",
     "Self_Academics/Algorithms/Ch08_Sorting_in_Linear_Time.md",
+    "Inbox/Archive/340_PDFsam_[Recommended] Introduction to Algorithms.md",
+    "Self_Academics/Algorithms/PartIII_Introduction_Data_Structures.md",
+    "Self_Academics/Algorithms/PartIII_Introduction_Data_Structures.md.tmp.32124.5751bb4e8528",
+    "Inbox/Archive/312_PDFsam_[Recommended] Introduction to Algorithms.md",
+    "Self_Academics/Algorithms/Ch02_Getting_Started.md",
+    "Self_Academics/Algorithms/Ch09_Medians_and_Order_Statistics.md.tmp.32124.bac00aeccb69",
+    "Inbox/Archive/284_PDFsam_[Recommended] Introduction to Algorithms.md",
     "Self_Academics/Algorithms/Ch08_Sorting_in_Linear_Time.md.tmp.32124.9474bdd63339",
     "Inbox/Archive/255_PDFsam_[Recommended] Introduction to Algorithms.md",
     "Self_Academics/Algorithms/Ch07_Quicksort.md",
@@ -205,7 +222,6 @@
     "Inbox/Archive/224_PDFsam_[Recommended] Introduction to Algorithms.md",
     "Self_Academics/Algorithms/Ch06_Heapsort.md",
     "Self_Academics/Algorithms/Ch06_Heapsort.md.tmp.32124.4b540439c533",
-    "Self_Academics/Algorithms/Ch02_Getting_Started.md",
     "Self_Academics/Algorithms/Ch03_Characterizing_Running_Times.md",
     "Self_Academics/Algorithms/Ch04_Divide_and_Conquer.md",
     "Self_Academics/Algorithms/Ch05_Probabilistic_Analysis_and_Randomized_Algorithms.md",
@@ -216,22 +232,6 @@
     "Inbox/Archive/119_PDFsam_[Recommended] Introduction to Algorithms.md",
     "Inbox/Archive/85_PDFsam_[Recommended] Introduction to Algorithms.md",
     "Inbox/Archive/44_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_1.md",
-    "Self_Academics/Algorithms/Ch04_Divide_and_Conquer.md.tmp.32124.f54698fa3e72",
-    "Self_Academics/Algorithms/Ch03_Characterizing_Running_Times.md.tmp.32124.d1ffb5e0918c",
-    "Self_Academics/Algorithms/Ch02_Getting_Started.md.tmp.32124.4e944072fbf1",
-    "Self_Academics/Algorithms",
-    "Self_Academics/Algorithms/Ch2_Getting_Started.md",
-    "Inbox/340_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Inbox/312_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Inbox/284_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Inbox/255_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Inbox/229_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Inbox/224_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Inbox/184_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Inbox/119_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Inbox/85_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Self_Academics/Algorithms/Ch17_Augmenting_Data_Structures.md.tmp.21976.a01c30669f6c",
     "_agent/skills/Untitled.canvas"
   ]
 }
