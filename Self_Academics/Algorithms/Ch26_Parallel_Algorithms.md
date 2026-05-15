@@ -1,185 +1,212 @@
 # Chapter 26: Parallel Algorithms
 
+**Source:** Introduction to Algorithms (CLRS), Chapter 26  
+**Tags:** #algorithms #parallel #fork-join #multicore #work-span
+
+---
+
 ## Executive Summary
 
-Chapter 26 introduces **fork-join parallelism** for multicore computers. The model adds three keywords — `spawn`, `sync`, `parallel` — to ordinary pseudocode; deleting them yields the **serial projection**. Performance is analyzed via **work** $T_1$ (total computation) and **span** $T_\infty$ (critical-path length), giving **parallelism** $T_1/T_\infty$. A **greedy scheduler** achieves $T_P \leq T_1/P + T_\infty$ (Theorem 26.1), within factor 2 of optimal. Three parallel algorithms are developed: **P-MATRIX-MULTIPLY-RECURSIVE** (work $\Theta(n^3)$, span $\Theta(\log_2^2 n)$, parallelism $\Theta(n^3/\log_2^2 n)$), parallel **Strassen** (work $\Theta(n^{\log_2 7})$, same span), and **P-MERGE-SORT** (work $\Theta(n\log_2 n)$, span $\Theta(\log_2^3 n)$, parallelism $\Theta(n/\log_2^2 n)$) using a divide-and-conquer parallel merge.
+This chapter extends the serial algorithm model to **fork-join parallel algorithms** for shared-memory multicore machines. Three new pseudocode keywords — `spawn`, `sync`, and `parallel` — express logical parallelism without binding it to specific processors. A DAG-based **trace** model captures execution dependencies, while **work/span analysis** provides tight bounds on running time across any number of processors. Core results: the greedy scheduler theorem ($T_P \leq T_1/P + T_\infty$), parallel matrix multiplication achieving $\Theta(n^2)$ parallelism, and parallel merge sort achieving $\Theta(n/\log_2^2 n)$ parallelism.
 
 ---
 
 ## Zero-Loss Extraction
 
-### Key Definitions
+### 1. Fork-Join Model
 
-- **Strand:** maximal chain of sequential instructions with no parallel control
-- **Trace:** DAG of strands representing execution dependencies
-- **Work** $T_1$: running time on 1 processor = total time of all strands
-- **Span** $T_\infty$: running time with unlimited processors = longest critical path in trace
-- **Parallelism:** $T_1/T_\infty$ = average work per critical-path step = max achievable speedup
-- **Slackness:** $(T_1/T_\infty)/P$ = factor by which parallelism exceeds processor count
-- **Speedup on $P$ processors:** $T_1/T_P$; **linear speedup:** $T_1/T_P = \Theta(P)$
-- **Determinacy race:** two parallel strands access same memory location, at least one writes
+**Three keywords added to pseudocode:**
 
-### Core Algorithms & Pseudocode
+| Keyword | Meaning |
+|---------|---------|
+| `spawn f(...)` | Call $f$ in parallel; caller continues without waiting |
+| `sync` | Wait for all outstanding spawned children to return |
+| `parallel for` | Loop iterations may execute simultaneously |
 
-**P-FIB (Parallel Fibonacci — illustrative):**
+**Serial projection:** delete all three keywords → ordinary correct serial pseudocode for the same problem. This property ensures correctness.
+
+**Task-parallel platforms** (e.g., Cilk, OpenMP, Java Fork-Join, TBB) sit above raw threads, handling load balancing automatically.
+
+---
+
+### 2. The Trace (DAG) Model
+
+Execution is modeled as a directed acyclic graph $G = (V, E)$:
+- **Strand:** maximal chain of sequential instructions with no spawn/sync/call/return. Vertices of $G$.
+- **Edge $(u,v)$:** strand $u$ must finish before strand $v$ starts.
+- **In series:** $G$ has a directed path $u \to v$ or $v \to u$.
+- **In parallel:** no directed path in either direction.
+
+**Spawn** adds two outgoing edges from the parent strand: one to the child's first strand, one to the parent's continuation. **Sync** adds incoming edges from each outstanding spawned child's last strand to the post-sync strand. **Ideal parallel computer** assumes sequentially consistent shared memory and equal-power processors.
+
+---
+
+### 3. Work and Span
+
+$$T_1 = \text{work} = \text{total time on 1 processor (sum of strand times)}$$
+$$T_\infty = \text{span} = \text{length of critical path (longest weighted path in trace)}$$
+$$\text{Parallelism} = \frac{T_1}{T_\infty} = \text{max possible speedup on any \# processors}$$
+$$\text{Slackness} = \frac{T_1}{P \cdot T_\infty}$$
+
+**Work Law:**
+$$T_P \geq \frac{T_1}{P}$$
+
+**Span Law:**
+$$T_P \geq T_\infty$$
+
+**Speedup:** $T_1/T_P \leq P$ (at most linear).
+
+---
+
+### 4. Greedy Scheduling Theorems
+
+**Greedy scheduler:** never leaves a processor idle when there is ready work.
+
+- **Complete step:** $\geq P$ ready strands → assign any $P$.
+- **Incomplete step:** $< P$ ready strands → assign all, leave some processors idle.
+
+**Theorem 26.1:** On a $P$-processor ideal parallel computer, a greedy scheduler runs any computation with work $T_1$ and span $T_\infty$ in time
+$$T_P \leq \frac{T_1}{P} + T_\infty$$
+
+**Corollary 26.2:** $T_P \leq 2\,T_P^*$ (greedy is within factor 2 of optimal).
+
+**Corollary 26.3:** If $P \ll T_1/T_\infty$ (slackness $\gg 1$), then $T_P \approx T_1/P$ — near-perfect linear speedup. Rule of thumb: slackness $\geq 10$ suffices in practice.
+
+---
+
+### 5. P-FIB Example
 
 ```
 P-FIB(n)
-1  if n ≤ 1: return n
-2  else x = spawn P-FIB(n − 1)   // fork: run in parallel
-3       y = P-FIB(n − 2)          // continue while child runs
-4       sync                       // join: wait for spawn
-5       return x + y
+1  if n ≤ 1
+2      return n
+3  else x = spawn P-FIB(n − 1)   // fork: run in parallel
+4       y = P-FIB(n − 2)
+5       sync                       // join: wait for spawned child
+6       return x + y
 ```
 
-**P-MATRIX-MULTIPLY (parallel loops):**
+- **Work:** $T_1(n) = \Theta(\phi^n)$ where $\phi = (1+\sqrt5)/2$ (golden ratio).
+- **Span recurrence:** $T_\infty(n) = \max\{T_\infty(n-1),\, T_\infty(n-2)\} + \Theta(1) = T_\infty(n-1) + \Theta(1)$, so $T_\infty(n) = \Theta(n)$.
+- **Parallelism:** $T_1/T_\infty = \Theta(\phi^n / n)$ — grows explosively with $n$.
+
+---
+
+### 6. Parallel Loops via Recursive Spawning
+
+A compiler implements `parallel for i = 1 to n { body }` by spawning a binary tree of procedure instances:
 
 ```
-P-MATRIX-MULTIPLY(A, B, C, n)
+P-LOOP-HELPER(lo, hi)
+1  if lo == hi
+2      execute body(lo)         // base case: single iteration
+3  else mid = ⌊(lo + hi) / 2⌋
+4       spawn P-LOOP-HELPER(lo, mid)
+5       P-LOOP-HELPER(mid+1, hi)
+6       sync
+```
+
+**Overhead:** tree has $n-1$ internal nodes → constant-factor overhead on work (absorbed asymptotically). Span gains $\Theta(\log_2 n)$ for the tree depth.
+
+**Span formula for parallel loop with iterations of individual span $\text{iter}_\infty(i)$:**
+$$T_\infty = \Theta(\log_2 n) + \max_{1 \leq i \leq n} \text{iter}_\infty(i)$$
+
+**Example — P-MAT-VEC** ($n \times n$ matrix × vector):
+
+```
+P-MAT-VEC(A, x, y, n)
+1  parallel for i = 1 to n
+2      for j = 1 to n
+3          y_i = y_i + a_{ij} * x_j
+```
+
+- $T_1 = \Theta(n^2)$, $T_\infty = \Theta(n)$, Parallelism $= \Theta(n)$.
+
+---
+
+### 7. Race Conditions
+
+A **determinacy race** occurs when two logically parallel strands access the same memory location and at least one modifies it. Race bugs are non-deterministic and notoriously hard to reproduce.
+
+```
+RACE-EXAMPLE()
+1  x = 0
+2  parallel for i = 1 to 2
+3      x = x + 1              // ← determinacy race!
+4  print x                    // may print 1 (wrong) or 2 (correct)
+```
+
+The increment `x = x + 1` is a load-increment-store sequence. If both processors load $x = 0$ before either stores, both compute $1$ and the final value is $1$, not $2$.
+
+**Solution:** redesign to avoid shared mutable state in parallel strands, or use synchronization primitives (locks, atomics).
+
+---
+
+### 8. Parallel Matrix Multiplication (§26.2)
+
+**P-SQUARE-MATRIX-MULTIPLY** (parallel outer loops):
+
+```
+P-SQUARE-MATRIX-MULTIPLY(A, B, C, n)
 1  parallel for i = 1 to n
 2      parallel for j = 1 to n
 3          for k = 1 to n
-4              cij = cij + aik · bkj
+4              c_{ij} = c_{ij} + a_{ik} * b_{kj}
 ```
 
-**P-MATRIX-MULTIPLY-RECURSIVE (spawn-based divide-and-conquer):**
+- $T_1 = \Theta(n^3)$, $T_\infty = \Theta(n)$, Parallelism $= \Theta(n^2)$.
 
-```
-P-MATRIX-MULTIPLY-RECURSIVE(A, B, C, n)
-1  if n == 1: c11 = c11 + a11 · b11; return
-2  let D be new n × n matrix; parallel zero D
-3  partition A, B, C, D into n/2 × n/2 submatrices
-4  spawn P-M-M-R(A11, B11, C11, n/2)  // 4 spawns for C submatrices
-5  spawn P-M-M-R(A11, B12, C12, n/2)
-6  spawn P-M-M-R(A21, B11, C21, n/2)
-7  spawn P-M-M-R(A21, B12, C22, n/2)
-8  spawn P-M-M-R(A12, B21, D11, n/2)  // 4 spawns for D submatrices
-9  spawn P-M-M-R(A12, B22, D12, n/2)
-10 spawn P-M-M-R(A22, B21, D21, n/2)
-11 spawn P-M-M-R(A22, B22, D22, n/2)
-12 sync
-13 parallel for i,j: cij = cij + dij    // C = C + D
-```
+**Recursive parallel** (spawn 8 sub-multiplications):
+- $T_1(n) = 8\,T_1(n/2) + \Theta(n^2) = \Theta(n^3)$
+- $T_\infty(n) = T_\infty(n/2) + \Theta(n) = \Theta(n)$ (addition step dominates)
+- Parallelism $= \Theta(n^2)$.
 
-**P-MERGE-SORT:**
+---
 
-```
-P-MERGE-SORT(A, p, r)
-1  if p ≥ r: return
-2  q = ⌊(p + r)/2⌋
-3  spawn P-MERGE-SORT(A, p, q)
-4  spawn P-MERGE-SORT(A, q + 1, r)   // both halves in parallel
-5  sync
-6  P-MERGE(A, p, q, r)               // parallel merge
-```
+### 9. Parallel Merge Sort (§26.3)
 
-**P-MERGE-AUX (parallel divide-and-conquer merge):**
+**P-MERGE** (parallel merge using binary search):
+- Find the median of the larger input array in the smaller via binary search.
+- Recursively merge each half in parallel.
+- Work: $\Theta(n \log_2 n)$, Span: $\Theta(\log_2^2 n)$.
 
-```
-P-MERGE-AUX(A, p1, r1, p2, r2, B, p3)
-1  if p1 > r1 and p2 > r2: return
-2  if r1 − p1 < r2 − p2: swap subarrays  // ensure A[p1:r1] is larger
-3  q1 = ⌊(p1 + r1)/2⌋; x = A[q1]         // x = median of larger subarray
-4  q2 = FIND-SPLIT-POINT(A, p2, r2, x)   // binary search O(lg n)
-5  q3 = p3 + (q1 − p1) + (q2 − p2); B[q3] = x
-6  spawn P-MERGE-AUX(A, p1, q1−1, p2, q2−1, B, p3)   // merge lower halves
-7  spawn P-MERGE-AUX(A, q1+1, r1, q2, r2, B, q3+1)   // merge upper halves
-8  sync
-```
+**P-MERGE-SORT** overall:
+- Work: $T_1(n) = \Theta(n \log_2 n)$
+- Span: $T_\infty(n) = \Theta(\log_2^3 n)$
+- Parallelism: $\Theta(n / \log_2^2 n)$
 
 ---
 
 ## Deep-Dive Explanations
 
-### The Work/Span Model
+### Why Series-Parallel Composition Works for Span Analysis
 
-A **parallel trace** is a DAG of strands. Two strands are **in series** if one path connects them; **in parallel** if no path connects them in either direction.
+Any fork-join trace decomposes into series and parallel compositions of sub-traces:
+- **Series:** spans add — $T_\infty(A ; B) = T_\infty(A) + T_\infty(B)$.
+- **Parallel:** spans take max — $T_\infty(A \| B) = \max(T_\infty(A), T_\infty(B))$.
 
-**Series composition:** spans add; works add.
-**Parallel composition:** work adds, span = max of spans.
+This is why the spawned call to P-FIB$(n-1)$ and the continuation P-FIB$(n-2)$ contribute a max: they run in parallel. The Θ(1) for the sync/return/call overhead is added in series.
 
-**Analyzing P-FIB(n):**
-$$T_1(n) = \Theta(\phi^n), \quad T_\infty(n) = \Theta(n), \quad \text{Parallelism} = \Theta(\phi^n/n)$$
+### Greedy Scheduler Proof Sketch
 
-**Parallel loop span** (via recursive spawning): for $n$ iterations each with span $\text{iter}_\infty$:
-$$T_\infty = \Theta(\log_2 n) + \max_i\{\text{iter}_\infty(i)\}$$
-
-### Scheduling Theory
-
-**Work law:** $T_P \geq T_1/P$ (can't do more than $P$ work per step).
-
-**Span law:** $T_P \geq T_\infty$ (can't beat the critical path).
-
-**Theorem 26.1 (Greedy scheduler bound):** A greedy scheduler satisfies:
-$$T_P \leq T_1/P + T_\infty$$
-*Proof:* Complete steps (at least $P$ strands ready): at most $T_1/P$ such steps. Incomplete steps (fewer than $P$ ready): each reduces span by 1, so at most $T_\infty$ such steps.
-
-**Corollary 26.2:** Greedy scheduler is within factor 2 of optimal ($T_P \leq 2T_P^*$).
-
-**Corollary 26.3:** If $P \ll T_1/T_\infty$ (slackness $\gg 1$), then $T_P \approx T_1/P$ (near-perfect linear speedup).
-
-### Parallel Matrix Algorithms
-
-**P-MATRIX-MULTIPLY** (parallelizing outer two loops):
-- Work: $T_1 = \Theta(n^3)$; Span: $T_\infty = \Theta(n)$; Parallelism: $\Theta(n^2)$
-
-**P-MATRIX-MULTIPLY-RECURSIVE** (eight parallel spawns, temp matrix $D$ avoids races):
-- Work: $M_1(n) = 8M_1(n/2) + \Theta(n^2) = \Theta(n^3)$
-- Span recurrence: $M_\infty(n) = M_\infty(n/2) + \Theta(\log_2^2 n) = \Theta(\log_2^2 n)$ (master theorem case 2, $k=1$)
-- Parallelism: $\Theta(n^3/\log_2^2 n)$
-
-**Parallel Strassen (7 spawns):**
-- Work: $\Theta(n^{\log_2 7})$; Span: $\Theta(\log_2^2 n)$; Parallelism: $\Theta(n^{\log_2 7}/\log_2^2 n)$
-
-### Parallel Merge Sort
-
-**P-NAIVE-MERGE-SORT** (parallel recursion, serial MERGE):
-- Work: $\Theta(n\log_2 n)$; Span: $T_\infty(n) = T_\infty(n/2) + \Theta(n) = \Theta(n)$; Parallelism: **only $\Theta(\log_2 n)$** — bottlenecked by serial merge.
-
-**P-MERGE (parallel merge via P-MERGE-AUX):**
-- Key: split larger subarray at median, binary search for split in smaller, recurse in parallel
-- Each recursive spawn handles $\leq 3n/4$ elements (since median of larger splits fairly)
-- Span: $T_\infty(n) = T_\infty(3n/4) + \Theta(\log_2 n) = \Theta(\log_2^2 n)$ (master theorem case 2, $k=1$)
-- Work: $T_1(n) = \Theta(n)$ (proved by substitution; matches serial merge)
-
-**P-MERGE-SORT (with P-MERGE):**
-- Work: $T_1(n) = 2T_1(n/2) + \Theta(n) = \Theta(n\log_2 n)$
-- Span: $T_\infty(n) = T_\infty(n/2) + \Theta(\log_2^2 n) = \Theta(\log_2^3 n)$ (master case 2, $k=2$)
-- Parallelism: $\Theta(n\log_2 n)/\Theta(\log_2^3 n) = \Theta(n/\log_2^2 n)$ — much better than $\Theta(\log_2 n)$
-
-### Determinacy Races
-
-A **determinacy race** occurs when two parallel strands access the same memory location and at least one modifies it. Example: `parallel for i = 1 to 2: x = x + 1` may print 1 instead of 2 due to interleaved load/increment/store instructions.
-
-Prevention: parallel strands must be **mutually noninterfering** (only read, never write, shared variables). The faulty `P-MAT-VEC-WRONG` parallelizes the inner loop of matrix-vector multiply but races on `yi`.
-
-### Time and Space Complexity
-
-| Algorithm | Work $T_1$ | Span $T_\infty$ | Parallelism $T_1/T_\infty$ |
-|-----------|-----------|----------------|---------------------------|
-| P-FIB(n) | $\Theta(\phi^n)$ | $\Theta(n)$ | $\Theta(\phi^n/n)$ |
-| P-MAT-VEC | $\Theta(n^2)$ | $\Theta(n)$ | $\Theta(n)$ |
-| P-MATRIX-MULTIPLY | $\Theta(n^3)$ | $\Theta(n)$ | $\Theta(n^2)$ |
-| P-MATRIX-MULTIPLY-RECURSIVE | $\Theta(n^3)$ | $\Theta(\log_2^2 n)$ | $\Theta(n^3/\log_2^2 n)$ |
-| Parallel Strassen | $\Theta(n^{\log_2 7})$ | $\Theta(\log_2^2 n)$ | $\Theta(n^{\log_2 7}/\log_2^2 n)$ |
-| P-NAIVE-MERGE-SORT | $\Theta(n\log_2 n)$ | $\Theta(n)$ | $\Theta(\log_2 n)$ |
-| P-MERGE | $\Theta(n)$ | $\Theta(\log_2^2 n)$ | $\Theta(n/\log_2^2 n)$ |
-| P-MERGE-SORT | $\Theta(n\log_2 n)$ | $\Theta(\log_2^3 n)$ | $\Theta(n/\log_2^2 n)$ |
+Complete steps: if there are $k$ complete steps, total work $\geq kP$, so $k \leq T_1/P$.  
+Incomplete steps: in each incomplete step, every ready strand executes, so the remaining critical-path length strictly decreases by $\geq 1$. Hence at most $T_\infty$ incomplete steps.  
+Total: $T_P \leq T_1/P + T_\infty$.
 
 ---
 
 ## Key Takeaways & Next Steps
 
-1. **Work/Span analysis** separates total computation ($T_1$) from critical-path depth ($T_\infty$); parallelism $T_1/T_\infty$ is the most important single metric.
-2. **Greedy scheduling** achieves $T_P \leq T_1/P + T_\infty$; near-perfect linear speedup when slackness $\gg 1$.
-3. **Recursive spawning** is the key technique: 8 parallel spawns in matrix multiply give $\Theta(\log_2^2 n)$ span with $\Theta(n^3)$ work.
-4. **P-MERGE** illustrates that seemingly serial algorithms (merging) can be parallelized via divide-and-conquer, improving parallelism from $\Theta(\log_2 n)$ to $\Theta(n/\log_2^2 n)$.
-5. **Determinacy races** are subtle bugs; parallel strands must not write to shared variables without synchronization.
+1. **Express *what* can run in parallel, not *how*:** spawn/sync specify logical parallelism; the scheduler handles assignment.
+2. **Work $=$ serial cost; span $=$ parallelism bottleneck.** Minimizing both is the design goal.
+3. **Greedy schedulers are within 2× of optimal** and achieve near-linear speedup when slackness $\gg 1$.
+4. **Parallel loops add only $\Theta(\log_2 n)$ to span** via recursive spawning — cheap parallelism.
+5. **Race conditions break determinism silently** — eliminate shared writes in parallel strands.
 
 ---
 
 ### Navigation
 
-**Previous:** [[PartVII_Selected_Topics]]
-**Next:** [[Ch27_Online_Algorithms]]
-**Hub:** [[Index_Introduction_to_Algorithms]]
+- **Previous:** [[Index_Introduction_to_Algorithms|Introduction to Algorithms — Index Hub]]
+- **Next:** [[Ch27_Online_Algorithms|Ch27 — Online Algorithms]]
+- **Hub:** [[Index_Introduction_to_Algorithms|Introduction to Algorithms Index]]
