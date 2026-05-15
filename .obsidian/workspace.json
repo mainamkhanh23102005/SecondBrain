@@ -11,10 +11,14 @@
             "id": "4d53f795367e7826",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "Self_Academics/Algorithms/Ch26_Parallel_Algorithms.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Ch26_Parallel_Algorithms"
             }
           }
         ]
@@ -192,6 +196,14 @@
   },
   "active": "4d53f795367e7826",
   "lastOpenFiles": [
+    "Self_Academics/Algorithms/Ch25_Bipartite_Matching.md",
+    "Self_Academics/Algorithms/Ch26_Parallel_Algorithms.md",
+    "Self_Academics/Algorithms/Ch26_Parallel_Algorithms.md.tmp.32124.870ff4e0a391",
+    "Inbox/Archive/957_PDFsam_[Recommended] Introduction to Algorithms.md",
+    "Self_Academics/Algorithms/PartVII_Selected_Topics.md",
+    "Self_Academics/Algorithms/PartVII_Selected_Topics.md.tmp.32124.27377c36d4f5",
+    "Inbox/Archive/910_PDFsam_[Recommended] Introduction to Algorithms.md",
+    "Self_Academics/Algorithms/Ch25_Bipartite_Matching.md.tmp.32124.48f6b3886985",
     "Inbox/Archive/868_PDFsam_[Recommended] Introduction to Algorithms.md",
     "Self_Academics/Algorithms/Ch24_Maximum_Flow.md",
     "Self_Academics/Algorithms/Ch24_Maximum_Flow.md.tmp.32124.ab1bd2b75792",
@@ -219,15 +231,7 @@
     "Inbox/Archive/632_PDFsam_[Recommended] Introduction to Algorithms.md",
     "Inbox/Archive/628_PDFsam_[Recommended] Introduction to Algorithms.md",
     "Self_Academics/Algorithms/Ch17_Augmenting_Data_Structures.md",
-    "Self_Academics/Algorithms/Ch17_Augmenting_Data_Structures.md.tmp.32124.2d6ad2ddc881",
     "Self_Academics/Algorithms/PartV_Advanced_Data_Structures.md",
-    "Inbox/Archive/591_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Self_Academics/Algorithms/Ch16_Amortized_Analysis.md",
-    "Self_Academics/Algorithms/Ch16_Amortized_Analysis.md.tmp.32124.cc9ba606744d",
-    "Inbox/Archive/550_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Self_Academics/Algorithms/Ch15_Greedy_Algorithms.md",
-    "Self_Academics/Algorithms/Ch15_Greedy_Algorithms.md.tmp.32124.75d35ab3bfb9",
-    "Inbox/Archive/482_PDFsam_[Recommended] Introduction to Algorithms.md",
     "_agent/skills/Untitled.canvas"
   ]
 }
