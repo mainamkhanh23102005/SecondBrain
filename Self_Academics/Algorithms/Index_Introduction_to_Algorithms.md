@@ -40,6 +40,7 @@ All complexity notation is in LaTeX ($O$, $\Theta$, $\Omega$); $\log_2$ replaces
 |------|-------|------|
 | Intro | Mathematical Background (Overview) | [[AppIntro_Mathematical_Background]] |
 | A | Summations | [[AppA_Summations]] |
+| B | Sets, Relations, Functions, and Graphs | [[AppB_Sets_Etc]] |
 
 ---
 
@@ -59,3 +60,4 @@ All complexity notation is in LaTeX ($O$, $\Theta$, $\Omega$); $\log_2$ replaces
 | Vertex cover, TSP approx, set cover, FPTAS, LP rounding | [[Ch35_Approximation_Algorithms]] |
 | Appendix overview: summations, sets, probability, matrices | [[AppIntro_Mathematical_Background]] |
 | Arithmetic, geometric, harmonic, telescoping, reindexing series | [[AppA_Summations]] |
+| Sets, relations, functions, graphs, equivalence classes, partial orders, bijections, SCCs, DAGs | [[AppB_Sets_Etc]] |

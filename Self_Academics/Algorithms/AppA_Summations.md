@@ -117,9 +117,66 @@ $$\log\!\prod_{k=1}^n a_k = \sum_{k=1}^n \log a_k$$
 
 ---
 
-### §A.2 — Bounding Summations *(continued in next batch)*
+### §A.2 — Bounding Summations
 
-Section A.2 presents five bounding techniques for sums without closed forms: mathematical induction, bounding by integral, Euler's summation formula, splitting summations, and approximating by a dominant term. These appear in the next Inbox file (1457).
+When no closed form exists, four techniques bound summations arising in algorithm analyses.
+
+---
+
+#### Technique 1 — Mathematical Induction
+
+**Proving exact values.** Show $\sum_{k=1}^n k = n(n+1)/2$: base $n=1$ gives $1=1$ ✓; inductive step:
+$$\sum_{k=1}^{n+1} k = \frac{n(n+1)}{2} + (n+1) = \frac{(n+1)(n+2)}{2} \checkmark$$
+
+**Proving asymptotic bounds.** To show $\sum_{k=0}^n k^3 = O(n^4)$, prove $\sum_{k=0}^n k^3 \le cn^4$ for some constant $c \ge 3/2$ by induction.
+
+**Critical pitfall.** Do *not* carry a big-$O$ with a growing hidden constant through induction. The argument "$\sum_{k=1}^n k = O(n^2)$, therefore $\sum_{k=1}^{n+1} k = O(n^2) + (n+1) = O(n^2)$" is fallacious: the constant absorbing $n+1$ must grow with $n$, so it is never truly constant.
+
+---
+
+#### Technique 2 — Bounding the Terms
+
+**Max-term domination:**
+$$\sum_{k=1}^n a_k \le n \cdot a_{\max}, \quad a_{\max} = \max_{1 \le k \le n} a_k$$
+
+**Geometric ratio test:** If $a_{k+1}/a_k \le r$ for all $k \ge 0$ where $r < 1$ is a *constant*, then:
+$$\sum_{k=0}^\infty a_k \le \frac{a_0}{1 - r}$$
+
+**Pitfall.** The harmonic series $\sum 1/k$ has ratio $k/(k+1) < 1$, yet it diverges. The test requires a *fixed* constant $r$; here no such $r < 1$ works because the ratio approaches 1.
+
+---
+
+#### Technique 3 — Splitting Summations
+
+Partition the index range into tractable pieces.
+
+**Arithmetic series lower bound** (even $n$):
+$$\sum_{k=1}^n k \ge \sum_{k=\lceil n/2 \rceil}^n k \ge \frac{n}{2} \cdot \frac{n}{2} = \frac{n^2}{4} = \Omega(n^2)$$
+
+**Dropping initial constant terms.** When $a_k$ is independent of $n$, any fixed prefix contributes a constant so asymptotically it can be ignored:
+$$\sum_{k=k_0}^n a_k = \Theta\!\left(\sum_{k=k_0+c}^n a_k\right) \text{ for any constant } c$$
+
+**Harmonic series $O(\log_2 n)$ via splitting.** Divide $[1,n]$ into $\lfloor \log_2 n \rfloor + 1$ pieces where piece $i$ covers $[2^i, 2^{i+1})$. Each piece sums to at most 1:
+$$H_n \le \sum_{i=0}^{\lfloor \log_2 n \rfloor} \underbrace{\sum_{k=2^i}^{\min(2^{i+1}-1,\,n)} \frac{1}{k}}_{\le 1} \le \lfloor \log_2 n \rfloor + 1 = O(\log_2 n)$$
+
+---
+
+#### Technique 4 — Approximation by Integrals
+
+For **monotonically increasing** $f$, rectangles lie below the curve on the left:
+$$\int_{m-1}^{n} f(x)\,dx \;\le\; \sum_{k=m}^{n} f(k) \;\le\; \int_{m}^{n+1} f(x)\,dx$$
+
+For **monotonically decreasing** $f$ the inequalities reverse.
+
+**Application — tight harmonic bounds.** Since $1/x$ is monotone decreasing:
+
+*Lower bound:*
+$$H_n = \sum_{k=1}^n \frac{1}{k} \ge \int_1^{n+1} \frac{1}{x}\,dx = \ln(n+1)$$
+
+*Upper bound:*
+$$H_n = \sum_{k=1}^n \frac{1}{k} \le 1 + \int_1^n \frac{1}{x}\,dx = 1 + \ln n$$
+
+Together these prove the tight bounds (A.20)–(A.21): $\;\ln(n+1) \le H_n \le 1 + \ln n$.
 
 ---
 
@@ -160,5 +217,5 @@ The amortized analysis in Chapter 16 often defines a *potential function* $\Phi$
 ### Navigation
 
 **Previous:** [[AppIntro_Mathematical_Background]]  
-**Next:** [[AppB_Sets_Relations_Functions_Graphs_Trees]]  
+**Next:** [[AppB_Sets_Etc]]  
 **Hub:** [[Index_Introduction_to_Algorithms]]
