@@ -41,6 +41,7 @@ All complexity notation is in LaTeX ($O$, $\Theta$, $\Omega$); $\log_2$ replaces
 | Intro | Mathematical Background (Overview) | [[AppIntro_Mathematical_Background]] |
 | A | Summations | [[AppA_Summations]] |
 | B | Sets, Relations, Functions, and Graphs | [[AppB_Sets_Etc]] |
+| C | Counting and Probability | [[AppC_Counting_and_Probability]] |
 
 ---
 
@@ -61,3 +62,4 @@ All complexity notation is in LaTeX ($O$, $\Theta$, $\Omega$); $\log_2$ replaces
 | Appendix overview: summations, sets, probability, matrices | [[AppIntro_Mathematical_Background]] |
 | Arithmetic, geometric, harmonic, telescoping, reindexing series | [[AppA_Summations]] |
 | Sets, relations, functions, graphs, equivalence classes, partial orders, bijections, SCCs, DAGs | [[AppB_Sets_Etc]] |
+| Counting (permutations, combinations, binomial coefficients, entropy), probability axioms, conditional probability, Bayes's theorem, expectation, linearity, variance, geometric & binomial distributions | [[AppC_Counting_and_Probability]] |
