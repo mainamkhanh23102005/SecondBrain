@@ -15,7 +15,7 @@ Appendix C is the combinatorics and probability toolkit for algorithm analysis. 
 | C.2 | Probability | Axioms, conditional probability, independence, Bayes's theorem |
 | C.3 | Random Variables | Expectation, linearity, Jensen's inequality, variance |
 | C.4 | Geo & Binomial | Geometric $E[X]=1/p$, Binomial $E[X]=np$, $\text{Var}[X]=npq$ |
-| C.5 | Tails | *(next batch — file 1525)* |
+| C.5 | Tails | Theorem C.2–C.3 (simple tail bounds), Theorem C.4 (geometric-series bound), Theorem C.8 + Corollary C.9 (Chernoff bound) |
 
 ---
 
@@ -182,6 +182,64 @@ $$b(k;\, n,\, p) \le \left(\frac{np}{k}\right)^k \left(\frac{nq}{n-k}\right)^{n-
 
 ---
 
+### §C.5 — Tails of the Binomial Distribution
+
+The _tails_ are the extreme regions of $b(k; n, p)$ far from the mean $np$. §C.5 provides increasingly tight bounds on these regions.
+
+#### Simple Tail Bounds (Theorems C.2–C.3)
+
+**Theorem C.2 (Right tail):** For $n$ Bernoulli trials with success probability $p$ and $X$ = total successes, for $0 \le k \le n$:
+
+$$\Pr\{X \ge k\} \le \binom{n}{k} p^k$$
+
+_Proof idea:_ For each $k$-subset $S \subseteq \{1,\ldots,n\}$, let $A_S$ = event "every trial in $S$ succeeds." Then $\Pr\{A_S\} = p^k$. Since $\{X \ge k\} \subseteq \bigcup_{|S|=k} A_S$, the union bound gives the result.
+
+**Corollary C.3 (Left tail):** For $0 \le k \le n$, with $q = 1-p$:
+
+$$\Pr\{X \le k\} \le \binom{n}{k} q^{n-k}$$
+
+#### Geometric-Series Bound (Theorems C.4–C.7)
+
+**Theorem C.4:** For $0 < k < np$, consecutive binomial terms satisfy
+
+$$b(i-1;\, n,\, p) < x\, b(i;\, n,\, p), \quad x = \frac{k\,q}{(n-k+1)\,p} < 1$$
+
+Telescoping $k$ times: $b(i; n, p) < x^{k-i}\,b(k; n, p)$ for $0 \le i < k$. Summing the resulting geometric series gives an upper bound on $\Pr\{X < k\}$ that decays exponentially as $k$ moves away from $np$.
+
+**Corollary C.5:** For $0 < k \le np/2$: $\Pr\{X < k\} < \tfrac{1}{2}\Pr\{X < k+1\}$ — the left tail halves for each step away from the mean in this region.
+
+Analogous right-tail results (Corollaries C.6–C.7) hold for $k > np$.
+
+#### Chernoff Bound (Theorem C.8 — Central Result)
+
+Applies to _non-identically_ distributed independent Bernoulli trials:
+
+**Theorem C.8:** Let $X_1, \ldots, X_n$ be independent Bernoulli with $\Pr\{X_i = 1\} = p_i$; $X = \sum X_i$; $\mu = E[X]$. For any $r > \mu$:
+
+$$\Pr\{X \ge r\} \le \left(\frac{\mu \, e}{r}\right)^r$$
+
+_Proof sketch:_ For $\alpha > 0$: apply Markov to $e^{\alpha X}$ to get $\Pr\{X \ge r\} \le e^{-\alpha r} E[e^{\alpha X}]$. Factor via independence: $E[e^{\alpha X}] = \prod_i E[e^{\alpha X_i}]$. Bound each factor using $1 + x \le e^x$, giving $E[e^{\alpha X}] \le e^{\mu(e^\alpha - 1)}$. Choosing $\alpha = \ln(r/\mu)$ minimizes the right-hand side, yielding the bound.
+
+**Corollary C.9 (Identical trials):** For $n$ Bernoulli trials each with probability $p$, and $r > np$:
+
+$$\Pr\{X \ge r\} \le \left(\frac{np \cdot e}{r}\right)^r$$
+
+#### Problems
+
+**C-1 Monty Hall:** Models the game show as a probabilistic experiment with parameters $p_\text{right}$ (probability Monty offers a switch given you chose correctly), $p_\text{wrong}$ (same when wrong), $p_\text{switch}$ (your switch probability). Key findings: when Monty always offers ($p_\text{right} = p_\text{wrong} = 1$), always switching wins with probability $2/3$. When Monty's strategy is unknown, $p_\text{switch} = 1/2$ is the minimax-optimal strategy.
+
+**C-2 Balls and Bins:** Counts placements of $n$ balls into $b$ bins under varying constraints:
+
+| Balls | Order within bin | Constraint | Count |
+|-------|-----------------|-----------|-------|
+| Distinct | Unordered | None | $b^n$ |
+| Distinct | Ordered | None | $\frac{(b+n-1)!}{(b-1)!}$ |
+| Identical | Unordered | None | $\binom{b+n-1}{n}$ |
+| Identical | Unordered | $\le 1$ per bin | $\binom{b}{n}$ |
+| Identical | Unordered | No empty bins | $\binom{n-1}{b-1}$ |
+
+---
+
 ## Deep-Dive Explanations
 
 ### Counting as the Bridge Between Combinatorics and Probability
@@ -217,6 +275,23 @@ This is used in: birthday-paradox analysis (how many people before a shared birt
 
 Computing $\text{Var}[X]$ for a binomial directly is tedious. The elegant approach: let $X_i = \mathbf{1}[\text{trial } i \text{ succeeds}]$; then $X = \sum_{i=1}^n X_i$ with $X_i$ *mutually independent*. Since $X_i \in \{0,1\}$, $\text{Var}[X_i] = E[X_i^2] - E[X_i]^2 = p - p^2 = pq$. Independence gives $\text{Var}[X] = \sum \text{Var}[X_i] = npq$.
 
+### Chernoff Bounds — Exponential Tail Decay
+
+Markov's inequality gives only $\Pr\{X \ge t\} \le \mu/t$ (polynomial decay). The Chernoff technique achieves **exponential** decay by:
+
+1. Applying Markov to $e^{\alpha X}$ instead of $X$ directly.
+2. Exploiting independence to factor $E[e^{\alpha X}] = \prod_i E[e^{\alpha X_i}]$.
+3. Bounding each factor: $E[e^{\alpha X_i}] = 1 - p_i + p_i e^\alpha \le e^{p_i(e^\alpha - 1)}$.
+4. Optimizing $\alpha$ to minimize the resulting bound.
+
+| Bound | Decay as $r \to \infty$ | Requirement |
+|-------|------------------------|-------------|
+| Markov | $\mu/r$ (polynomial) | $X \ge 0$ |
+| Chebyshev | $\text{Var}[X]/r^2$ (polynomial) | Know variance |
+| Chernoff | $(e\mu/r)^r$ (exponential) | Independent Bernoulli sum |
+
+Chernoff bounds appear in: load analysis for randomized hashing (Ch. 11), tail bounds in probabilistic analyses (Ch. 5), and the probabilistic method in approximation algorithms (Ch. 35).
+
 ---
 
 ## Key Takeaways & Next Steps
@@ -236,6 +311,8 @@ Computing $\text{Var}[X]$ for a binomial directly is tedious. The elegant approa
 | Markov's inequality | $\Pr\{X\ge t\} \le E[X]/t$ | Simple tail bound |
 | Geometric distribution | Waiting time; $E[X]=1/p$, $\text{Var}=q/p^2$ | Birthday paradox, balls-into-bins |
 | Binomial distribution | $k$ successes in $n$ trials; $E=np$, $\text{Var}=npq$ | Hashing, randomized algorithms |
+| Simple tail bound | $\Pr\{X \ge k\} \le \binom{n}{k}p^k$ (Thm C.2) | Union-bound arguments |
+| Chernoff bound | $\Pr\{X \ge r\} \le (e\mu/r)^r$ for $r > \mu$ (Thm C.8) | Randomized algorithms, hashing load |
 
 **Key principles:**
 1. **Under uniform distribution, probability = counting / $|S|$** — master §C.1 first.
@@ -243,8 +320,7 @@ Computing $\text{Var}[X]$ for a binomial directly is tedious. The elegant approa
 3. **Indicator random variables** decompose complex expectations into sums of probabilities.
 4. **Independence matters for variance but not expectation** — variance of sums requires pairwise independence; expectation requires nothing.
 5. **Geometric ↔ Binomial duality:** geometric counts trials until first success; binomial counts successes in fixed trials.
-
-**Next:** §C.5 (Tails of the binomial distribution — Chernoff bounds and related tail inequalities) in file 1525.
+6. **Chernoff = Markov on $e^{\alpha X}$** — the moment-generating function trick converts polynomial decay to exponential.
 
 ---
 
