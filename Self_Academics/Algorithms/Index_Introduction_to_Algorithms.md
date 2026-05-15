@@ -34,6 +34,13 @@ All complexity notation is in LaTeX ($O$, $\Theta$, $\Omega$); $\log_2$ replaces
 | 34 | NP-Completeness | [[Ch34_NP_Completeness]] |
 | 35 | Approximation Algorithms | [[Ch35_Approximation_Algorithms]] |
 
+### Part VIII: Mathematical Background
+
+| Note | Title | Link |
+|------|-------|------|
+| Intro | Mathematical Background (Overview) | [[AppIntro_Mathematical_Background]] |
+| A | Summations | [[AppA_Summations]] |
+
 ---
 
 ## Quick Reference by Topic
@@ -50,3 +57,5 @@ All complexity notation is in LaTeX ($O$, $\Theta$, $\Omega$); $\log_2$ replaces
 | k-means clustering, weighted majority, gradient descent | [[Ch33_Machine_Learning_Algorithms]] |
 | P vs NP, reductions, CIRCUIT-SAT, 3-CNF-SAT, CLIQUE, TSP | [[Ch34_NP_Completeness]] |
 | Vertex cover, TSP approx, set cover, FPTAS, LP rounding | [[Ch35_Approximation_Algorithms]] |
+| Appendix overview: summations, sets, probability, matrices | [[AppIntro_Mathematical_Background]] |
+| Arithmetic, geometric, harmonic, telescoping, reindexing series | [[AppA_Summations]] |
