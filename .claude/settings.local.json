@@ -22,7 +22,12 @@
       "Bash(mv \"E:/Vault of Obsidian/Second Brain/Inbox/632_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:/Vault of Obsidian/Second Brain/Inbox/Archive/\")",
       "Bash(mv \"E:/Vault of Obsidian/Second Brain/Inbox/715_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:/Vault of Obsidian/Second Brain/Inbox/Archive/\")",
       "Bash(mv \"E:/Vault of Obsidian/Second Brain/Inbox/717_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:/Vault of Obsidian/Second Brain/Inbox/Archive/\")",
-      "Bash(grep -v \"^Archive$\")"
+      "Bash(grep -v \"^Archive$\")",
+      "Bash(mv \"961_PDFsam_[Recommended] Introduction to Algorithms.md\" \"Archive/\")",
+      "Bash(mv \"1016_PDFsam_[Recommended] Introduction to Algorithms.md\" \"Archive/\")",
+      "Bash(mv \"1051_PDFsam_[Recommended] Introduction to Algorithms.md\" \"Archive/\")",
+      "Bash(mv \"1089_PDFsam_[Recommended] Introduction to Algorithms.md\" \"Archive/\")",
+      "Bash(mv \"1123_PDFsam_[Recommended] Introduction to Algorithms.md\" \"Archive/\")"
     ]
   }
 }
