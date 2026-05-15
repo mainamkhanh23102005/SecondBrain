@@ -7,7 +7,7 @@
 
 ## Executive Summary
 
-Appendix B is the discrete-mathematics vocabulary layer for the entire book. Before analyzing any graph algorithm or reasoning about data structures, you need a shared language for sets, relations, functions, and graphs. Four sections (plus B.5 Trees in the next batch) build this foundation:
+Appendix B is the discrete-mathematics vocabulary layer for the entire book. Before analyzing any graph algorithm or reasoning about data structures, you need a shared language for sets, relations, functions, graphs, and trees. Five sections build this foundation:
 
 | Section | Topic | Key Objects |
 |---------|-------|-------------|
@@ -15,7 +15,7 @@ Appendix B is the discrete-mathematics vocabulary layer for the entire book. Bef
 | B.2 | Relations | Equivalence relations, partial orders, total orders |
 | B.3 | Functions | Injection, surjection, bijection, inverse |
 | B.4 | Graphs | Directed/undirected, paths, connectivity, SCC |
-| B.5 | Trees | *(next batch — file 1485)* |
+| B.5 | Trees | Free trees, rooted trees, binary trees, complete $k$-ary trees |
 
 ---
 
@@ -178,6 +178,49 @@ The **induced subgraph** on $V' \subseteq V$: $E' = \{(u,v) \in E : u,v \in V'\}
 
 ---
 
+### §B.5 — Trees
+
+**Free tree:** A connected, acyclic, undirected graph. A *forest* is acyclic but possibly disconnected.
+
+**Theorem B.2 — Six equivalent characterizations of a free tree.** For undirected $G = (V,E)$, the following are equivalent:
+
+1. $G$ is a free tree.
+2. Any two vertices in $G$ are connected by a unique simple path.
+3. $G$ is connected, but removing any single edge disconnects it.
+4. $G$ is connected and $|E| = |V| - 1$.
+5. $G$ is acyclic and $|E| = |V| - 1$.
+6. $G$ is acyclic, but adding any edge creates a cycle.
+
+**Rooted tree:** A free tree with one distinguished vertex (the *root*). Vocabulary:
+
+| Term | Definition |
+|------|-----------|
+| Parent of $x$ | Unique vertex immediately above $x$ on the root-to-$x$ path |
+| Child of $x$ | Any vertex $y$ whose parent is $x$ |
+| Ancestor of $x$ | Any vertex on the root-to-$x$ path (including $x$ itself) |
+| Leaf (external node) | A node with no children |
+| Internal node | A nonleaf |
+| Degree of $x$ | Number of children of $x$ (in rooted tree; excludes parent) |
+| Depth of $x$ | Length of path from root to $x$ |
+| Height of $x$ | Edges on longest downward path from $x$ to a leaf |
+| Height of tree | Height of root = maximum depth of any node |
+
+**Ordered tree:** A rooted tree in which the children of each node are linearly ordered (first child, second child, …). Two rooted trees may be identical as rooted trees but different as ordered trees.
+
+**Binary tree:** Defined recursively — either the empty tree (NIL) or a root with a *left subtree* and a *right subtree* (each also a binary tree). Key distinction from ordered trees: a single child is explicitly a *left* child or a *right* child — position matters.
+
+**Full binary tree:** Every node is either a leaf or has exactly 2 children. Represents a binary tree by replacing missing children with external (square-leaf) nodes.
+
+**Positional tree / $k$-ary tree:** Children labeled with distinct positive integers $1, \ldots, k$; child $i$ is absent if unlabeled. Binary tree = $k$-ary with $k = 2$.
+
+**Complete $k$-ary tree of height $h$:**
+- All leaves at depth $h$; all internal nodes have degree $k$.
+- Leaves: $k^h$. Height given $n$ leaves: $\log_k n$.
+- Internal nodes: $\displaystyle\frac{k^h - 1}{k - 1}$.
+- Binary ($k=2$): $2^h - 1$ internal nodes, $2^h$ leaves.
+
+---
+
 ## Deep-Dive Explanations
 
 ### Theorem B.1: Why Equivalence Relations and Partitions Are the Same Thing
@@ -198,6 +241,17 @@ The size inequalities for injections and surjections give "pigeonhole" reasoning
 - **Pigeonhole principle** (contrapositive): if $|A| > |B|$ then no injection $A \to B$ exists — two elements of $A$ must collide.
 
 In hashing (Chapter 11): any hash function $h : U \to \{0,\ldots,m-1\}$ with $|U| > m$ *must* have collisions. Universal hashing randomizes which elements collide, making collisions unlikely in expectation.
+
+### Theorem B.2: Why All Six Tree Characterizations Are Equivalent
+
+The proof is a ring of implications $(1)\Rightarrow(2)\Rightarrow(3)\Rightarrow(4)\Rightarrow(5)\Rightarrow(6)\Rightarrow(1)$:
+
+- **(1)→(2):** Connectivity gives a path. Uniqueness by contradiction: if two distinct simple paths exist from $u$ to $v$, find divergence point $w$ and reconvergence point $z$; the path $w \to \cdots \to z$ via $p_1$ plus the reverse via $p_2$ forms a cycle, contradicting acyclicity.
+- **(3)→(4):** Lower bound $|E| \ge |V|-1$ from Exercise B.4-3. Inductive proof of $|E| \le |V|-1$: removing any edge yields 2 components satisfying (3), so by induction each has $\le |V_i|-1$ edges; together $\le |V|-2$; adding the removed edge gives $|E| \le |V|-1$.
+- **(4)→(5):** A cycle of $k$ vertices can be extended to all $|V|$ vertices while keeping edges $= $ vertices, yielding $|E| \ge |V|$, contradicting $|E| = |V|-1$.
+- **(5)→(6):** With $k$ components, $|E| = |V|-k$, so $k=1$ (single tree). Any added edge connects two already-connected vertices, creating a second path and hence a cycle.
+
+**Algorithmic use:** Conditions (4) and (5) are the operational tests in spanning tree algorithms (Kruskal: grow forest with $|E|=|V|-1$; Prim: no cycle = acyclicity). Condition (2) underlies unique tree paths used in LCA and heavy-path decomposition.
 
 ### Graphs as Binary Relations
 
@@ -226,6 +280,10 @@ Chapter 20 algorithms (BFS, DFS, SCC decomposition) all compute properties of th
 | SCC | Maximal mutually-reachable vertex set | Kosaraju / Tarjan (Ch. 20) |
 | DAG | Directed acyclic graph | Topological sort (Ch. 20), DP (Ch. 14) |
 | Bipartite | $V$ splits into two sides; all edges cross | Bipartite matching (Ch. 25) |
+| Free tree | Connected acyclic undirected graph; $|E| = |V|-1$ | Spanning trees (Ch. 21), MST (Kruskal/Prim) |
+| Rooted tree | Free tree with distinguished root; depth / height defined | BSTs (Ch. 12), heaps (Ch. 6), all tree DS |
+| Binary tree | Left/right child distinction; defined recursively | Red-Black trees (Ch. 13), BSTs (Ch. 12) |
+| Complete $k$-ary tree | All leaves at depth $h$; $k^h$ leaves; height $= \log_k n$ | Heap structure (Ch. 6), merge trees |
 
 **Key principles:**
 1. **Set equality via double-containment:** to prove $A = B$, show $A \subseteq B$ and $B \subseteq A$.
