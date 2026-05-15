@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Self_Academics/Algorithms/Ch30_Polynomials_and_the_FFT.md",
+                "file": "Self_Academics/Algorithms/Ch34_NP_Completeness.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Ch30_Polynomials_and_the_FFT"
+              "title": "Ch34_NP_Completeness"
             }
           }
         ]
@@ -196,13 +196,22 @@
   },
   "active": "4d53f795367e7826",
   "lastOpenFiles": [
+    "Self_Academics/Algorithms/AppA_Summations.md",
+    "Self_Academics/Algorithms/AppA_Summations.md.tmp.14560.3303715ac348",
+    "Self_Academics/Algorithms/AppIntro_Mathematical_Background.md",
+    "Self_Academics/Algorithms/AppIntro_Mathematical_Background.md.tmp.14560.275fcf62202f",
+    "Self_Academics/Algorithms/Ch30_Polynomials_and_the_FFT.md",
+    "Self_Academics/Algorithms/Index_Introduction_to_Algorithms.md.tmp.14560.65aba54c97bd",
+    "Self_Academics/Algorithms/Ch34_NP_Completeness.md",
+    "Self_Academics/Algorithms/Ch34_NP_Completeness.md.tmp.14560.e2143a61738e",
+    "Self_Academics/Algorithms/Ch33_Machine_Learning_Algorithms.md",
+    "Self_Academics/Algorithms/Ch33_Machine_Learning_Algorithms.md.tmp.14560.316d80e6343c",
     "Self_Academics/Algorithms/Ch32_String_Matching.md",
     "Self_Academics/Algorithms/Ch32_String_Matching.md.tmp.14560.816ce10e89bf",
     "Inbox/Archive/1154_PDFsam_[Recommended] Introduction to Algorithms.md",
     "Self_Academics/Algorithms/Ch31_Number_Theoretic_Algorithms.md",
     "Self_Academics/Algorithms/Ch31_Number_Theoretic_Algorithms.md.tmp.14560.ec5b8569cff8",
     "Self_Academics/Algorithms/PartVII_Selected_Topics.md",
-    "Self_Academics/Algorithms/Ch30_Polynomials_and_the_FFT.md",
     "Self_Academics/Algorithms/Ch35_Approximation_Algorithms.md",
     "Self_Academics/Algorithms/PartVI_Graph_Algorithms.md",
     "Inbox/Archive/1405_PDFsam_[Recommended] Introduction to Algorithms.md",
@@ -216,22 +225,13 @@
     "Self_Academics/Algorithms/Ch26_Parallel_Algorithms.md",
     "Self_Academics/Algorithms/Index_Introduction_to_Algorithms.md.tmp.14560.11223bee2ac9",
     "Self_Academics/Algorithms/Ch30_Polynomials_and_the_FFT.md.tmp.14560.b05dab1fe981",
-    "Self_Academics/Algorithms/Ch29_Linear_Programming.md.tmp.14560.0c10f0a9438a",
-    "Self_Academics/Algorithms/Ch28_Matrix_Operations.md.tmp.14560.f17556851db3",
-    "Self_Academics/Algorithms/Ch27_Online_Algorithms.md.tmp.14560.141f243db896",
     "Self_Academics/Algorithms/Index_Introduction_to_Algorithms.md",
     "Self_Academics/Algorithms/Ch28_Matrix_Operations.md",
     "Self_Academics/Algorithms/Ch27_Online_Algorithms.md",
     "Self_Academics/Algorithms/Ch25_Bipartite_Matching.md",
-    "Self_Academics/Algorithms/Ch26_Parallel_Algorithms.md.tmp.32124.870ff4e0a391",
     "Inbox/Archive/957_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Self_Academics/Algorithms/PartVII_Selected_Topics.md.tmp.32124.27377c36d4f5",
     "Inbox/Archive/910_PDFsam_[Recommended] Introduction to Algorithms.md",
     "Inbox/Archive/868_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Self_Academics/Algorithms/Ch24_Maximum_Flow.md",
-    "Self_Academics/Algorithms/Ch23_All-Pairs_Shortest_Paths.md",
-    "Self_Academics/Algorithms/Ch22_Single-Source_Shortest_Paths.md",
-    "Inbox/Archive/837_PDFsam_[Recommended] Introduction to Algorithms.md",
     "_agent/skills/Untitled.canvas"
   ]
 }
