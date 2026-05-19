@@ -223,11 +223,11 @@ User Events → Controller → Model (state change) → View (change notificatio
 
 **LIBSYS 5-layer example:** Web Browser Interface → LIBSYS Login/Query/Print → Distributed Search → Document Retrieval/Rights → Individual Library Databases (DB1…DBn).
 
-| | |
-|---|---|
-| **When used** | Building new facilities on top of existing systems; multi-team development (one team per layer); multi-level security requirements. |
-| **Advantages** | Entire layers can be replaced without affecting others (so long as the interface is stable); redundant facilities (e.g., authentication) can be inserted at multiple layers to increase dependability; supports multi-platform portability (only machine-dependent inner layers need re-implementation). |
-| **Disadvantages** | Clean layer separation is hard in practice — high-level layers sometimes bypass intermediate layers and call lower layers directly; performance overhead from multiple levels of service-request interpretation. |
+|                   |                                                                                                                                                                                                                                                                                                          |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **When used**     | Building new facilities on top of existing systems; multi-team development (one team per layer); multi-level security requirements.                                                                                                                                                                      |
+| **Advantages**    | Entire layers can be replaced without affecting others (so long as the interface is stable); redundant facilities (e.g., authentication) can be inserted at multiple layers to increase dependability; supports multi-platform portability (only machine-dependent inner layers need re-implementation). |
+| **Disadvantages** | Clean layer separation is hard in practice — high-level layers sometimes bypass intermediate layers and call lower layers directly; performance overhead from multiple levels of service-request interpretation.                                                                                         |
 
 ---
 
@@ -382,10 +382,10 @@ Source Language Instructions → Translator (Check Syntax, Check Semantics, Gene
 
 **Two architectural implementations:**
 
-| Model | Pattern Used | Best When |
-|---|---|---|
-| **Pipe and filter compiler** | Pipe and Filter | Batch compilation without user interaction (e.g., XML-to-XML translation) |
-| **Repository-based IDE** | Repository (symbol table + AST as central repo) | Integrated tools needing immediate cross-component updates (structured editor, interactive debugger, prettyprinter) |
+| Model                        | Pattern Used                                    | Best When                                                                                                           |
+| ---------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| **Pipe and filter compiler** | Pipe and Filter                                 | Batch compilation without user interaction (e.g., XML-to-XML translation)                                           |
+| **Repository-based IDE**     | Repository (symbol table + AST as central repo) | Integrated tools needing immediate cross-component updates (structured editor, interactive debugger, prettyprinter) |
 
 ---
 

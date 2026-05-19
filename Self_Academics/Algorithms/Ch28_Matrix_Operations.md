@@ -15,9 +15,9 @@ This chapter focuses on two foundational matrix problems: **solving systems of l
 
 ### 1. Setting Up $Ax = b$
 
-Given an $n \times n$ nonsingular matrix $A$ and vector $b$, solve $Ax = b$.
+Given an $n \times n$ non-singular matrix $A$ and vector $b$, solve $Ax = b$.
 
-- If $A$ is nonsingular, the unique solution is $x = A^{-1}b$.
+- If $A$ is non-singular, the unique solution is $x = A^{-1}b$.
 - Computing $A^{-1}$ directly is numerically unstable; LUP decomposition is preferred.
 
 ---
