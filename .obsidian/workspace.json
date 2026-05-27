@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Inbox/[English (auto-generated)] ML Zoomcamp 2.2 - Data Preparation [DownSub.com].md",
+                "file": "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_2_2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "[English (auto-generated)] ML Zoomcamp 2.2 - Data Preparation [DownSub.com]"
+              "title": "ML_Zoomcamp_2_2"
             }
           }
         ]
@@ -194,7 +194,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d0ca922b8cb2f2c5",
+  "active": "4d53f795367e7826",
   "lastOpenFiles": [
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_9.md",
     "Self_Academics/Algorithms/Index_Introduction_to_Algorithms.md",
