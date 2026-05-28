@@ -319,6 +319,6 @@ The knowledge graph experiment illustrates this at its most extreme: two tools (
 
 ### Related Notes
 
-[[ML_Zoomcamp_1_1]] | [[ML_Zoomcamp_2_2]]
+
 
 **Hub:** [[Self_Academics/AI_Engineering]]
