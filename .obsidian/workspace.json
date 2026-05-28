@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 338.5,
-    "collapsed": true
+    "width": 338.5
   },
   "right": {
     "id": "21143ca00769d09e",
@@ -181,8 +180,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -196,7 +194,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4d53f795367e7826",
+  "active": "e5e2c08ca8d40b57",
   "lastOpenFiles": [
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_2_2.md",
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_9.md",
