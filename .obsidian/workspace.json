@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_2_2.md",
+                "file": "Self_Academics/AI_Engineering/MCP_Building_with_Claude_API.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ML_Zoomcamp_2_2"
+              "title": "MCP_Building_with_Claude_API"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 338.5
+    "width": 338.5,
+    "collapsed": true
   },
   "right": {
     "id": "21143ca00769d09e",
@@ -180,7 +181,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -196,6 +198,7 @@
   },
   "active": "4d53f795367e7826",
   "lastOpenFiles": [
+    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_2_2.md",
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_9.md",
     "Self_Academics/Algorithms/Index_Introduction_to_Algorithms.md",
     "Inbox/[English (auto-generated)] ML Zoomcamp 2.2 - Data Preparation [DownSub.com].md",
@@ -228,7 +231,6 @@
     "Self_Academics/Algorithms/AppA_Summations.md",
     "Self_Academics/Algorithms/Ch35_Approximation_Algorithms.md",
     "Self_Academics/Algorithms/PartII_Introduction_Sorting_and_Order_Statistics.md",
-    "Self_Academics/Algorithms/PartIII_Introduction_Data_Structures.md",
     "Self_Academics/Algorithms/Index_Introduction_to_Algorithms.md.tmp.14560.411d6c8c9d82",
     "Self_Academics/Algorithms/Index_Introduction_to_Algorithms.md.tmp.14560.500c32e2f05c",
     "Self_Academics/Algorithms/AppC_Counting_and_Probability.md.tmp.14560.affc21447ff2",
