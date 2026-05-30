@@ -32,7 +32,11 @@
       "Bash(mv \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\1466_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\Archive\\\\1466_PDFsam_[Recommended] Introduction to Algorithms.md\")",
       "Bash(mv \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\1472_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\Archive\\\\1472_PDFsam_[Recommended] Introduction to Algorithms.md\")",
       "Bash(mv \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\1476_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\Archive\\\\1476_PDFsam_[Recommended] Introduction to Algorithms.md\")",
-      "Bash(mv \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\1479_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\Archive\\\\1479_PDFsam_[Recommended] Introduction to Algorithms.md\")"
+      "Bash(mv \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\1479_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\Archive\\\\1479_PDFsam_[Recommended] Introduction to Algorithms.md\")",
+      "Bash(xargs ls -la)",
+      "Bash(awk '{print $NF}')",
+      "Bash(mv \"/home/mainamkhanh/SecondBrain/Inbox/ML Zoomcamp 2.3 - Exploratory Data Analysis [English \\(auto-generated\\)] [DownloadYoutubeSubtitles.com].md\" \"/home/mainamkhanh/SecondBrain/Inbox/Archive/\")",
+      "Bash(mv \"/home/mainamkhanh/SecondBrain/Inbox/ML Zoomcamp 2.4 - Setting Up The Validation Framework [English \\(auto-generated\\)] [DownloadYoutubeSubtitles.com].md\" \"/home/mainamkhanh/SecondBrain/Inbox/Archive/\")"
     ]
   }
 }
