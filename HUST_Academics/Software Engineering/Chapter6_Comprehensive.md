@@ -496,3 +496,7 @@ Source Language Instructions → Translator (Check Syntax, Check Semantics, Gene
 - Generic application architecture models help understand, compare, validate, and assess component reuse for systems of the same type.
 - **Transaction processing systems** allow remote access and modification of database information by multiple users; examples include information systems and resource management systems.
 - **Language processing systems** translate texts between languages and execute instructions; they include a **translator** and an **abstract machine** (interpreter or hardware processor).
+
+---
+
+[[Chapter5_Comprehensive|← Previous: Chapter 5 – System Modeling]] | [[Chapter7_Comprehensive|→ Next: Chapter 7 – Design and Implementation]] | [[Software Engineering Hub|Hub]]

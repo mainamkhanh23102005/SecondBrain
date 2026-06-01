@@ -18,13 +18,13 @@ created: 2026-05-19
 
 ## 1. Executive Summary — Why Design & Implementation Matter Together
 
-| Concern | Core Principle |
-|---|---|
-| **Design–Implementation Coupling** | Design decisions must consider implementation feasibility; implementation choices may force design revision. They are inherently interleaved. |
-| **Language Choice Affects Design Method** | UML is valuable for OO languages (Java, C#); less useful for dynamic languages (Python); irrelevant for COTS configuration. |
-| **Buy vs. Build Decision** | Early in any project, assess whether COTS systems can meet requirements. Adapting existing software is almost always cheaper and faster than building from scratch. |
-| **Object-Oriented Advantages** | OO systems are easier to change because objects encapsulate both data and operations — modifying one object should not affect others. |
-| **Reuse First Mindset** | Before designing anything, search for reusable components, patterns, and systems. Reuse should be the default, not the exception. |
+| Concern                                   | Core Principle                                                                                                                                                      |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Design–Implementation Coupling**        | Design decisions must consider implementation feasibility; implementation choices may force design revision. They are inherently interleaved.                       |
+| **Language Choice Affects Design Method** | UML is valuable for OO languages (Java, C#); less useful for dynamic languages (Python); irrelevant for COTS configuration.                                         |
+| **Buy vs. Build Decision**                | Early in any project, assess whether COTS systems can meet requirements. Adapting existing software is almost always cheaper and faster than building from scratch. |
+| **Object-Oriented Advantages**            | OO systems are easier to change because objects encapsulate both data and operations — modifying one object should not affect others.                               |
+| **Reuse First Mindset**                   | Before designing anything, search for reusable components, patterns, and systems. Reuse should be the default, not the exception.                                   |
 
 ---
 
@@ -644,4 +644,4 @@ This is why reuse must be considered **before** detailed design: if you discover
 
 ---
 
-[[Chapter6_Comprehensive|← Previous: Chapter 6 – Architectural Design]] | [[Software Engineering Hub|Hub]]
+[[Chapter6_Comprehensive|← Previous: Chapter 6 – Architectural Design]] | [[Chapter8_Comprehensive|→ Next: Chapter 8 – Software Testing]] | [[Software Engineering Hub|Hub]]
