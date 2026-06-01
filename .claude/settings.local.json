@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(New-Item -ItemType Directory -Path \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Self_Academics\\\\SQL\" -Force)",
+      "Bash(Out-Null)",
+      "Bash(New-Item -ItemType Directory -Path \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\Archive\" -Force)",
+      "Bash(Write-Output \"Directories created.\")",
+      "PowerShell(Move-Item *)",
+      "Bash(Move-Item *)",
+      "PowerShell(New-Item *)",
+      "Bash(New-Item -ItemType Directory -Force \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Self_Academics\\\\Algorithms\")",
+      "Bash(New-Item -ItemType Directory -Force \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\Archive\")",
+      "Bash(Write-Host \"Directories ready\")",
+      "Bash(mv \"E:/Vault of Obsidian/Second Brain/Inbox/44_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:/Vault of Obsidian/Second Brain/Inbox/Archive/44_PDFsam_[Recommended] Introduction to Algorithms.md\")",
+      "Bash(mv \"E:/Vault of Obsidian/Second Brain/Inbox/85_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:/Vault of Obsidian/Second Brain/Inbox/Archive/85_PDFsam_[Recommended] Introduction to Algorithms.md\")",
+      "Bash(mv \"E:/Vault of Obsidian/Second Brain/Inbox/119_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:/Vault of Obsidian/Second Brain/Inbox/Archive/119_PDFsam_[Recommended] Introduction to Algorithms.md\")",
+      "Bash(mv \"E:/Vault of Obsidian/Second Brain/Inbox/224_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:/Vault of Obsidian/Second Brain/Inbox/Archive/224_PDFsam_[Recommended] Introduction to Algorithms.md\")",
+      "Bash(mv \"E:/Vault of Obsidian/Second Brain/Inbox/229_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:/Vault of Obsidian/Second Brain/Inbox/Archive/229_PDFsam_[Recommended] Introduction to Algorithms.md\")",
+      "Bash(mv \"E:/Vault of Obsidian/Second Brain/Inbox/480_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:/Vault of Obsidian/Second Brain/Inbox/Archive/\")",
+      "Bash(mv \"E:/Vault of Obsidian/Second Brain/Inbox/482_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:/Vault of Obsidian/Second Brain/Inbox/Archive/\")",
+      "Bash(mv \"E:/Vault of Obsidian/Second Brain/Inbox/628_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:/Vault of Obsidian/Second Brain/Inbox/Archive/\")",
+      "Bash(mv \"E:/Vault of Obsidian/Second Brain/Inbox/632_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:/Vault of Obsidian/Second Brain/Inbox/Archive/\")",
+      "Bash(mv \"E:/Vault of Obsidian/Second Brain/Inbox/715_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:/Vault of Obsidian/Second Brain/Inbox/Archive/\")",
+      "Bash(mv \"E:/Vault of Obsidian/Second Brain/Inbox/717_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:/Vault of Obsidian/Second Brain/Inbox/Archive/\")",
+      "Bash(grep -v \"^Archive$\")",
+      "Bash(mv \"961_PDFsam_[Recommended] Introduction to Algorithms.md\" \"Archive/\")",
+      "Bash(mv \"1016_PDFsam_[Recommended] Introduction to Algorithms.md\" \"Archive/\")",
+      "Bash(mv \"1051_PDFsam_[Recommended] Introduction to Algorithms.md\" \"Archive/\")",
+      "Bash(mv \"1089_PDFsam_[Recommended] Introduction to Algorithms.md\" \"Archive/\")",
+      "Bash(mv \"1123_PDFsam_[Recommended] Introduction to Algorithms.md\" \"Archive/\")",
+      "Bash(mv \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\1457_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\Archive\\\\1457_PDFsam_[Recommended] Introduction to Algorithms.md\")",
+      "Bash(mv \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\1466_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\Archive\\\\1466_PDFsam_[Recommended] Introduction to Algorithms.md\")",
+      "Bash(mv \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\1472_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\Archive\\\\1472_PDFsam_[Recommended] Introduction to Algorithms.md\")",
+      "Bash(mv \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\1476_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\Archive\\\\1476_PDFsam_[Recommended] Introduction to Algorithms.md\")",
+      "Bash(mv \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\1479_PDFsam_[Recommended] Introduction to Algorithms.md\" \"E:\\\\Vault of Obsidian\\\\Second Brain\\\\Inbox\\\\Archive\\\\1479_PDFsam_[Recommended] Introduction to Algorithms.md\")",
+      "Bash(xargs ls -la)",
+      "Bash(awk '{print $NF}')",
+      "Bash(mv \"/home/mainamkhanh/SecondBrain/Inbox/ML Zoomcamp 2.3 - Exploratory Data Analysis [English \\(auto-generated\\)] [DownloadYoutubeSubtitles.com].md\" \"/home/mainamkhanh/SecondBrain/Inbox/Archive/\")",
+      "Bash(mv \"/home/mainamkhanh/SecondBrain/Inbox/ML Zoomcamp 2.4 - Setting Up The Validation Framework [English \\(auto-generated\\)] [DownloadYoutubeSubtitles.com].md\" \"/home/mainamkhanh/SecondBrain/Inbox/Archive/\")"
+    ]
+  }
+}
