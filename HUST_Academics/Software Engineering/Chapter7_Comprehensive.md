@@ -103,7 +103,7 @@ Weather Information System (1) ────── (1..n) Weather Station
 Satellite (1) ────── (1) Weather Station
 ```
 
-**Weather Station Use Cases (Interaction Model): ad**
+**Weather Station Use Cases (Interaction Model):**
 
 | Use Case       | Description                                                        |
 | -------------- | ------------------------------------------------------------------ |
