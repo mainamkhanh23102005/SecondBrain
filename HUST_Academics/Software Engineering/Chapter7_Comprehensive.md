@@ -103,17 +103,17 @@ Weather Information System (1) ────── (1..n) Weather Station
 Satellite (1) ────── (1) Weather Station
 ```
 
-**Weather Station Use Cases (Interaction Model):**
+**Weather Station Use Cases (Interaction Model) **
 
-| Use Case | Description |
-|---|---|
-| Report Weather | Send summarized weather data to the weather information system |
-| Report Status | Send hardware status information to the weather information system |
-| Restart | If shut down, restart the system |
-| Shutdown | Shut down the weather station |
-| Reconfigure | Reconfigure the weather station software |
-| Powersave | Enter power-saving mode |
-| Remote Control | Send control commands to any weather station subsystem |
+| Use Case       | Description                                                        |
+| -------------- | ------------------------------------------------------------------ |
+| Report Weather | Send summarized weather data to the weather information system     |
+| Report Status  | Send hardware status information to the weather information system |
+| Restart        | If shut down, restart the system                                   |
+| Shutdown       | Shut down the weather station                                      |
+| Reconfigure    | Reconfigure the weather station software                           |
+| Powersave      | Enter power-saving mode                                            |
+| Remote Control | Send control commands to any weather station subsystem             |
 
 **Use Case Description — Structured Natural Language (Figure 7.3):**
 
