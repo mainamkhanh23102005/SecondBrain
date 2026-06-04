@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HUST_Academics/Software Engineering/Chapter5_Comprehensive.md",
+                "file": "Self_Academics/Machine Learning (github DataTalksClub)/MLZ_S2_L03_Exploratory_Data_Analysis.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Chapter5_Comprehensive"
+              "title": "MLZ_S2_L03_Exploratory_Data_Analysis"
             }
           }
         ]
@@ -194,12 +194,29 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d0ca922b8cb2f2c5",
+  "active": "4d53f795367e7826",
   "lastOpenFiles": [
-    "Inbox/Archive/ML Zoomcamp 2.6 - Linear Regression_ Vector Form.md",
+    "Self_Academics/Machine Learning (github DataTalksClub)/MLZ_S2_L06_Linear_Regression_Vector_Form.md.tmp.16312.da71261fda4d",
+    "Self_Academics/Machine Learning (github DataTalksClub)/MLZ_S2_L05_Linear_Regression.md.tmp.16312.0b3e0dfeb0ba",
+    "Self_Academics/Machine Learning (github DataTalksClub)/MLZ_S2_L04_Validation_Framework.md.tmp.16312.9ea02fb9468c",
+    "Self_Academics/Machine Learning (github DataTalksClub)/MLZ_S2_L03_Exploratory_Data_Analysis.md.tmp.16312.7acbf3078156",
+    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_2_2.md.tmp.16312.8af995598009",
+    "Self_Academics/Machine Learning (github DataTalksClub)/MLZ_S2_L04_Validation_Framework.md",
+    "Self_Academics/AI_Engineering/MCP_Building_with_Claude_API.md",
+    "Self_Academics/AI_Engineering/ML_Zoomcamp/MLZ_S2_L04_Validation_Framework.md",
+    "Self_Academics/Machine Learning (github DataTalksClub)/MLZ_S2_L03_Exploratory_Data_Analysis.md",
+    "Self_Academics/AI_Engineering/ML_Zoomcamp/MLZ_S2_L03_Exploratory_Data_Analysis.md",
+    "Self_Academics/Machine Learning (github DataTalksClub)/MLZ_S2_L05_Linear_Regression.md",
+    "Inbox/Archive/ML Zoomcamp 2.3 - Exploratory Data Analysis.md",
+    "Self_Academics/Machine Learning (github DataTalksClub)/MLZ_S2_L06_Linear_Regression_Vector_Form.md",
+    "Inbox/Archive/ML Zoomcamp 2.3 - Exploratory Data Analysis [English (auto-generated)] [DownloadYoutubeSubtitles.com].md",
+    "Inbox/Archive/ML Zoomcamp 2.4 - Setting Up The Validation Framework [English (auto-generated)] [DownloadYoutubeSubtitles.com].md",
+    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_2_2.md",
+    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_8.md",
     "Inbox/Archive/ML Zoomcamp 2.5 - Linear Regression.md",
     "Inbox/Archive/ML Zoomcamp 2.4 - Setting Up The Validation Framework.md",
-    "Inbox/Archive/ML Zoomcamp 2.3 - Exploratory Data Analysis.md",
+    "HUST_Academics/Software Engineering/Chapter5_Comprehensive.md",
+    "Inbox/Archive/ML Zoomcamp 2.6 - Linear Regression_ Vector Form.md",
     "Self_Academics/AI_Engineering/ML_Zoomcamp/MLZ_S2_L06_Linear_Regression_Vector_Form.md",
     "Self_Academics/AI_Engineering/ML_Zoomcamp/MLZ_S2_L06_Linear_Regression_Vector_Form.md.tmp.16312.1ed80a3987a2",
     "Self_Academics/AI_Engineering/ML_Zoomcamp/MLZ_S2_L05_Linear_Regression.md",
@@ -214,24 +231,7 @@
     "Inbox/ML Zoomcamp 2.6 - Linear Regression_ Vector Form",
     "HUST_Academics/Software Engineering/Chapter8_Comprehensive.md",
     "HUST_Academics/Software Engineering/Chapter7_Comprehensive.md",
-    "HUST_Academics/Software Engineering/Chapter5_Comprehensive.md",
     "Inbox/Archive/Chapter 8 Software Engineering.md",
-    "Inbox/Archive/Chapter 5 Software Engineering.md",
-    "HUST_Academics/Software Engineering/Chapter6_Comprehensive.md.tmp.12036.b1403e1d5df3",
-    "HUST_Academics/Software Engineering/Chapter7_Comprehensive.md.tmp.12036.feacd4dfbcda",
-    "HUST_Academics/Software Engineering/Chapter8_Comprehensive.md.tmp.12036.ba71458c6b1c",
-    "HUST_Academics/Software Engineering/Chapter5_Comprehensive.md.tmp.12036.ec22eebc868d",
-    "Inbox/Chapter 5 Software Engineering.md",
-    "Inbox/Chapter 8 Software Engineering.md",
-    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_2.md",
-    "Self_Academics/AI_Engineering/MCP_Building_with_Claude_API.md",
-    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_2_2.md",
-    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_9.md",
-    "Self_Academics/Algorithms/Index_Introduction_to_Algorithms.md",
-    "Inbox/[English (auto-generated)] ML Zoomcamp 2.2 - Data Preparation [DownSub.com].md",
-    "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_7.md",
-    "Self_Academics/Algorithms/Ch33_Machine_Learning_Algorithms.md",
-    "Self_Academics/Algorithms/AppD_Matrices.md",
     "_agent/skills/Untitled.canvas"
   ]
 }

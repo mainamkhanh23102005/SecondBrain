@@ -139,4 +139,4 @@ If no features are provided (`xi = []`, `w = []`), the loop body never executes 
 
 **Previous:** [[MLZ_S2_L04_Validation_Framework]]
 **Next:** [[MLZ_S2_L06_Linear_Regression_Vector_Form]]
-**Hub:** [[ML_Zoomcamp_Session2_Hub]]
+**Hub:** [[Machine Learning (github DataTalksClub)]]
