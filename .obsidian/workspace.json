@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 338.5,
-    "collapsed": true
+    "width": 338.5
   },
   "right": {
     "id": "21143ca00769d09e",
@@ -195,8 +194,18 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4d53f795367e7826",
+  "active": "d0ca922b8cb2f2c5",
   "lastOpenFiles": [
+    "Self_Academics/AI_Engineering/ML_Zoomcamp/MLZ_S2_L05_Linear_Regression.md",
+    "Self_Academics/AI_Engineering/ML_Zoomcamp/MLZ_S2_L05_Linear_Regression.md.tmp.16312.aa26528f7ad2",
+    "Inbox/ML Zoomcamp 2.6 - Linear Regression_ Vector Form.md",
+    "Inbox/ML Zoomcamp 2.5 - Linear Regression.md",
+    "Inbox/ML Zoomcamp 2.4 - Setting Up The Validation Framework.md",
+    "Inbox/ML Zoomcamp 2.3 - Exploratory Data Analysis.md",
+    "Inbox/ML Zoomcamp 2.3 - Exploratory Data Analysis",
+    "Inbox/ML Zoomcamp 2.4 - Setting Up The Validation Framework",
+    "Inbox/ML Zoomcamp 2.5 - Linear Regression",
+    "Inbox/ML Zoomcamp 2.6 - Linear Regression_ Vector Form",
     "HUST_Academics/Software Engineering/Chapter8_Comprehensive.md",
     "HUST_Academics/Software Engineering/Chapter7_Comprehensive.md",
     "HUST_Academics/Software Engineering/Chapter5_Comprehensive.md",
@@ -208,12 +217,7 @@
     "HUST_Academics/Software Engineering/Chapter5_Comprehensive.md.tmp.12036.ec22eebc868d",
     "Inbox/Archive/Chapter 5 Software Engineering.pdf",
     "Inbox/Chapter 5 Software Engineering.md",
-    "Inbox/Chapter 5 Software Engineering.pdf",
-    "Inbox/Archive/Chapter 8 Software Engineering.pdf",
     "Inbox/Chapter 8 Software Engineering.md",
-    "ingest.bat",
-    "New Text Document.txt",
-    "Inbox/Chapter 8 Software Engineering.pdf",
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_1_2.md",
     "Self_Academics/AI_Engineering/MCP_Building_with_Claude_API.md",
     "Self_Academics/Machine Learning (github DataTalksClub)/ML_Zoomcamp_2_2.md",
@@ -228,11 +232,6 @@
     "Inbox/Archive/1223_PDFsam_[Recommended] Introduction to Algorithms.md",
     "Inbox/Archive/1405_PDFsam_[Recommended] Introduction to Algorithms.md",
     "Inbox/Archive/1451_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Inbox/Archive/1457_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Inbox/Archive/1472_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Inbox/Archive/761_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Inbox/Archive/837_PDFsam_[Recommended] Introduction to Algorithms.md",
-    "Inbox/Archive/868_PDFsam_[Recommended] Introduction to Algorithms.md",
     "_agent/skills/Untitled.canvas"
   ]
 }
