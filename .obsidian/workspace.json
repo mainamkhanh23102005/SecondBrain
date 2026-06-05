@@ -11,10 +11,14 @@
             "id": "4d53f795367e7826",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "Self_Academics/Machine Learning (github DataTalksClub)/MLZ_S2_L07_Training_Linear_Regression.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "MLZ_S2_L07_Training_Linear_Regression"
             }
           }
         ]
@@ -190,8 +194,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d0ca922b8cb2f2c5",
+  "active": "4d53f795367e7826",
   "lastOpenFiles": [
+    "Inbox/Archive/ML Zoomcamp 2.7 - Training Linear Regression_ Normal Equation.md",
     "Inbox/Archive/Chapter 5 Software Engineering.md",
     "Self_Academics/Machine Learning (github DataTalksClub)/MLZ_S2_L03_Exploratory_Data_Analysis.md",
     "Self_Academics/Machine Learning (github DataTalksClub)/MLZ_S2_L06_Linear_Regression_Vector_Form.md",
@@ -227,7 +232,6 @@
     "Inbox/ML Zoomcamp 2.5 - Linear Regression",
     "HUST_Academics/Software Engineering/Chapter8_Comprehensive.md",
     "HUST_Academics/Software Engineering/Chapter7_Comprehensive.md",
-    "Inbox/Archive/Chapter 8 Software Engineering.md",
     "_agent/skills/Untitled.canvas"
   ]
 }
