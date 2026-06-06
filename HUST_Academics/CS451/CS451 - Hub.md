@@ -20,6 +20,8 @@ CS451 covers the foundational principles and practical techniques of network sec
 | [[Module 3 - Threats and Attacks on Endpoints\|Module 3]] | Threats and Attacks on Endpoints | Malware taxonomy, Ransomware, Fileless viruses, XSS, SQL Injection |
 | [[Module 6 - Basic Cryptography\|Module 6]] | Basic Cryptography | Hash algorithms, Symmetric, Asymmetric, Digital Signatures, Quantum |
 | [[Module 8 - Network Security\|Module 8]] | Networking Threats, Assessments & Defenses | MITM, ARP Poisoning, DNS Attacks, DDoS, PowerShell/Macro attacks |
+| [[Supplementary - Web Application Development\|Supp. WAD]] | Web Application Development | nginx, PHP-FPM, MySQL, HTTP mechanics, cookies, sessions, SocialNet app |
+| [[Supplementary - Web Application Security\|Supp. WAS]] | Web Application Security (SocialNet Case Study) | CSRF, SQL Injection (UNION), Stored XSS, Session Hijacking, Session Fixation |
 
 ---
 
@@ -38,3 +40,5 @@ CS451 covers the foundational principles and practical techniques of network sec
 - [[Module 1 - Introduction to Information Security|Threat Actor Taxonomy]] connects to [[Module 2 - Threat Management and Cybersecurity Resources|Pen Testing]] (understanding attacker mindset).
 - [[Module 3 - Threats and Attacks on Endpoints|Malware]] connects to [[Module 6 - Basic Cryptography|Cryptography]] (ransomware is cryptomalware; cryptographic tools used by attackers).
 - [[Module 6 - Basic Cryptography|Asymmetric cryptography]] connects to [[Module 8 - Network Security|MITM attacks]] (fake certificates used in MITM to intercept TLS).
+- [[Supplementary - Web Application Development|Web app sessions/cookies]] are the exact mechanism exploited in [[Supplementary - Web Application Security|ATT-6 and ATT-7]] (session hijacking, session fixation).
+- [[Module 3 - Threats and Attacks on Endpoints|XSS and SQL Injection]] theory from Module 3 is applied hands-on with concrete attack steps in the supplementary WAS module.
