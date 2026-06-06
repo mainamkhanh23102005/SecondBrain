@@ -37,7 +37,8 @@
       "Bash(awk '{print $NF}')",
       "Bash(mv \"/home/mainamkhanh/SecondBrain/Inbox/ML Zoomcamp 2.3 - Exploratory Data Analysis [English \\(auto-generated\\)] [DownloadYoutubeSubtitles.com].md\" \"/home/mainamkhanh/SecondBrain/Inbox/Archive/\")",
       "Bash(mv \"/home/mainamkhanh/SecondBrain/Inbox/ML Zoomcamp 2.4 - Setting Up The Validation Framework [English \\(auto-generated\\)] [DownloadYoutubeSubtitles.com].md\" \"/home/mainamkhanh/SecondBrain/Inbox/Archive/\")",
-      "Bash(dir \"E:\\\\Second Brain\" /AD /B)"
+      "Bash(dir \"E:\\\\Second Brain\" /AD /B)",
+      "Bash(powershell *)"
     ]
   }
 }
