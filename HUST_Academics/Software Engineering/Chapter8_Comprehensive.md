@@ -4,7 +4,7 @@ chapter: 8
 source: Software Engineering 9th Edition – Sommerville
 created: 2026-06-01
 ---
-jkhli
+
 # Chapter 8 – Software Testing: Zero-Loss Comprehensive Notes
 
 > [!abstract] Executive Summary
