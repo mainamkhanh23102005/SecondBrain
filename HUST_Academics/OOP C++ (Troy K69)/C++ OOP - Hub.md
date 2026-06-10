@@ -1,53 +1,36 @@
 # C++ OOP & Data Structures — Final Exam Hub (Troy K69, CK-20252)
 
-**Textbook:** *Starting Out with C++: From Control Structures through Objects* — Tony Gaddis
-**Course:** OOP & Data Structures in C++ (Troy program, K69)
-**Exam format:** Oral exam (vấn đáp). Each student draws **1 of 6 topics**, gets **5 minutes to prepare**, then **4–5 minutes to answer in English**. You must explain like a professor: clear, confident, and able to defend the design choices.
+**Textbook:** *Starting Out with C++: From Control Structures through Objects* — Tony Gaddis (8th ed.)
+**Exam format:** Oral exam (vấn đáp). Each student draws **1 of 6 topics**, gets **5 minutes to prepare**, then **4–5 minutes to answer in English**.
 **Tags:** #cpp #oop #datastructures #exam #oral #TroyK69
 
 ---
 
-## How to Use These Notes
+## How each note is organised
 
-Each of the 6 topic notes is a self-contained "exam package" built to the `Master_Synthesizer` framework:
+Every topic note answers the **three questions** from its `Questions.txt`, grounded in the Gaddis textbook:
 
-1. **🎤 Professor's Opening** — a ~30-second spoken script you can deliver verbatim the moment you draw the topic.
-2. **Executive Summary** — the one-paragraph core idea.
-3. **Zero-Loss Extraction** — the exact source code, the decoded "mystery functions", and verified program output.
-4. **Deep-Dive Explanations** — the *why*: design trade-offs, complexity, and the pitfalls examiners probe.
-5. **Likely Follow-up Questions** — the oral questions the examiner is most likely to ask, with model answers.
+1. **Q1** — explain the concept.
+2. **Q2** — explain the purpose of the given "mystery functions".
+3. **Q3** — the integrated, **compiled-and-verified** demo (code + real output).
 
-> [!tip] Exam strategy
-> In an oral exam, **structure beats volume**. Always answer in three beats: **(1) define the concept**, **(2) explain *why* it exists / what problem it solves**, **(3) give a concrete example from the code**. The examiner is testing whether you *understand*, not whether you memorised.
+The actual **runnable code** lives in the [`code/`](code) folder, one subfolder per topic. Each builds with `g++` exactly as shown in the note.
 
 ---
 
 ## The 6 Topics
 
-| # | Topic | Core Concept | What the "mystery functions" really are |
+| # | Note | Code folder | Build command |
 |---|---|---|---|
-| 1 | [[Exam Study - Topic 1 (Operator Overloading, Object Conversion)\|Operator Overloading & Object Conversion]] | Giving operators new meaning for user-defined types | `operator==`, friend scalar-add, `operator double()` conversion, `operator<<`, reference-returning accessor |
-| 2 | [[Exam Study - Topic 2 (Inheritance, Polymorphism)\|Inheritance & Polymorphism]] | One interface, many forms via `virtual` + base pointers | Array of base pointers (`GradedActivity**`) with dynamic dispatch |
-| 3 | [[Exam Study - Topic 3 (Exception Handling)\|Exception Handling]] | Separating error detection from error handling via `try`/`catch`/`throw` | Specific-catch with auto-recovery + catch-all `catch(...)` |
-| 4 | [[Exam Study - Topic 4 (Linked List)\|Linked List]] | Dynamic node-based sequence with pointer surgery | Recursive count, recursive reverse-print, iterative in-place reverse |
-| 5 | [[Exam Study - Topic 5 (Queue)\|Queue (Circular Array)]] | FIFO with wrap-around modular indexing | Count occurrences, in-place reverse, enqueue-at-front |
-| 6 | [[Exam Study - Topic 6 (Stack)\|Stack (Array)]] | LIFO with a single `top` index | Count evens, remove-from-bottom, remove k-th from top |
+| 1 | [[Topic 1 - Operator Overloading, Object Conversion\|Operator Overloading & Object Conversion]] | `code/Topic1_OperatorOverloading/` | `g++ -std=c++11 main.cpp -o demo` |
+| 2 | [[Topic 2 - Inheritance, Polymorphism\|Inheritance & Polymorphism]] | `code/Topic2_Polymorphism/` | `g++ -std=c++11 main.cpp GradedActivity.cpp PassFailActivity.cpp PassFailExam.cpp -o demo` |
+| 3 | [[Topic 3 - Exception Handling\|Exception Handling]] | `code/Topic3_Exception/` | `g++ -std=c++11 main.cpp Rectangle.cpp -o demo` |
+| 4 | [[Topic 4 - Linked List\|Linked List]] | `code/Topic4_LinkedList/` | `g++ -std=c++11 main.cpp NumberList.cpp -o demo` |
+| 5 | [[Topic 5 - Queue\|Queue (Circular Array)]] | `code/Topic5_Queue/` | `g++ -std=c++11 main.cpp IntQueue.cpp -o demo` |
+| 6 | [[Topic 6 - Stack\|Stack (Array)]] | `code/Topic6_Stack/` | `g++ -std=c++11 main.cpp IntStack.cpp -o demo` |
+
+> All six projects were compiled and run; the outputs shown in the notes are the **actual** program outputs.
 
 ---
 
-## Cross-Cutting Themes (the examiner's favourite traps)
-
-These ideas appear across multiple topics — knowing them lets you sound like a professor no matter which topic you draw.
-
-- **The Rule of Three.** Any class managing a raw pointer (`Stack`, `Queue`) needs a **destructor**, **copy constructor**, and **copy assignment operator**. The textbook classes provide the first two — be ready to explain *why* the default shallow copy would be catastrophic (two objects sharing one array → double `delete`).
-- **`virtual` and dynamic dispatch.** A call through a base pointer/reference only picks the derived version *if the function is `virtual`*. This single keyword is the entire mechanism behind polymorphism (Topic 2) and is the reason a base class should have a **virtual destructor**.
-- **Ownership & memory.** `new` must be balanced by `delete`; `new[]` by `delete[]`. Mismatching them, or forgetting them, is undefined behaviour or a leak. Linked lists, stacks, and queues all hinge on this.
-- **Modular arithmetic for circular buffers.** `index = (index + 1) % size` is the trick that turns a fixed array into a ring (Topic 5). Understand *why* the `+ size` is needed when moving backwards.
-- **Complexity vocabulary.** Be able to state $O(1)$ vs $O(n)$ for every operation. Stack push/pop and queue enqueue/dequeue are $O(1)$; searching or reversing is $O(n)$.
-
----
-
-## Graph View Links
-
-**Start here**: [[Exam Study - Topic 1 (Operator Overloading, Object Conversion)|Topic 1]]
-**Hub**: (this note)
+**Start here**: [[Topic 1 - Operator Overloading, Object Conversion|Topic 1]]
