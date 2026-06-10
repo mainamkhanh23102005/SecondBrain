@@ -447,6 +447,40 @@ The only defense is:
 
 ---
 
+## Textbook Knowledge Check Questions (Ciampa CompTIA Security+ 7e)
+
+> These are the **official end-of-section Knowledge Check Activities** reproduced verbatim from the Module 3 lecture deck (7th Edition, © 2022 Cengage), with the textbook's own answers and explanations.
+
+**KC 1.** What is the primary action that cryptomalware performs?
+- a. Imprison
+- b. Launch
+- c. Snoop
+- d. Deceive
+
+**Answer: a. Imprison.** This type of malware imprisons users and encrypts all files on the device so that none of them can be opened without a key for which the victim must pay the attacker.
+
+---
+
+**KC 2.** Which type of application attack might use the following syntax? `'whatever' AND email IS NULL;`
+- a. Cross-site scripting
+- b. Client-side request forgery
+- c. SQL injection
+- d. Buffer overflow
+
+**Answer: c. SQL injection.** An SQL injection attack inserts statements to manipulate a database server. The statement in the question can determine the names of different fields in the database.
+
+---
+
+**KC 3.** Which of the following is a concern of using AI and ML in cybersecurity?
+- a. Buffer overflows
+- b. Improper input handling
+- c. Device driver manipulation
+- d. Tainted training data
+
+**Answer: d. Tainted training data.** Attackers can attempt to alter training data that is used by machine learning in order to produce false negatives and cloak themselves.
+
+---
+
 ## Lab Playbook (Copy-Paste)
 
 Exact attack strings ready to paste into CTFd practical labs. Try the simplest first, escalate if it fails.

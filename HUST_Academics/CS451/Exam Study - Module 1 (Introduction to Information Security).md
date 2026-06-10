@@ -373,6 +373,40 @@ Social engineers exploit two categories of cognitive bias:
 
 ---
 
+## Textbook Knowledge Check Questions (Ciampa CompTIA Security+ 8e)
+
+> These are the **official end-of-section Knowledge Check Activities** reproduced verbatim from the Module 1 lecture deck (8th Edition, © 2025 Cengage), with the textbook's own answers and explanations.
+
+**KC 1-1.** Serafina is studying to take the Security+ certification exam. Which of the following of the CIA elements ensures that only authorized parties can view protected information?
+- A. Confidentiality
+- B. Integrity
+- C. Availability
+- D. Credentiality
+
+**Answer: A. Confidentiality.** Confidentiality ensures that only authorized parties can view the information. Providing confidentiality can involve several different security tools, ranging from software to encrypt the credit card number stored on the web server to door locks to prevent access to those servers.
+
+---
+
+**KC 1-2.** What is considered the motivation of an employee who practices shadow IT?
+- A. Deception
+- B. Ignorance
+- C. Ethical
+- D. Malicious
+
+**Answer: C. Ethical.** The process of bypassing corporate approval for technology purchases is known as shadow IT. The employee's motivation is often ethical (it has sound moral principles) but nevertheless weakens security.
+
+---
+
+**KC 1-3.** What is another name for "attack surface"?
+- A. Vulnerability exposure
+- B. Threat vector
+- C. Legacy platform
+- D. Attack floor
+
+**Answer: B. Threat vector.** An attack surface, also called a threat vector, is a digital platform that threat actors target for their exploits.
+
+---
+
 ## Graph View Links
 
 **Previous**: —  
