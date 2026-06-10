@@ -20,7 +20,11 @@
   "mergeStrategy": "none",
   "customMessageOnAutoBackup": false,
   "autoBackupAfterFileChange": false,
+<<<<<<< HEAD
   "treeStructure": false,
+=======
+  "treeStructure": true,
+>>>>>>> 4e0b62081cbb4de5280aecd60424a255a9cd6ec1
   "refreshSourceControl": true,
   "basePath": "",
   "differentIntervalCommitAndPush": true,

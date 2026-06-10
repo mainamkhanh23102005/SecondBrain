@@ -18,6 +18,7 @@ created: 2026-05-19
 
 ## 1. Executive Summary — Why Design & Implementation Matter Together
 
+<<<<<<< HEAD
 | Concern | Core Principle |
 |---|---|
 | **Design–Implementation Coupling** | Design decisions must consider implementation feasibility; implementation choices may force design revision. They are inherently interleaved. |
@@ -25,6 +26,15 @@ created: 2026-05-19
 | **Buy vs. Build Decision** | Early in any project, assess whether COTS systems can meet requirements. Adapting existing software is almost always cheaper and faster than building from scratch. |
 | **Object-Oriented Advantages** | OO systems are easier to change because objects encapsulate both data and operations — modifying one object should not affect others. |
 | **Reuse First Mindset** | Before designing anything, search for reusable components, patterns, and systems. Reuse should be the default, not the exception. |
+=======
+| Concern                                   | Core Principle                                                                                                                                                      |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Design–Implementation Coupling**        | Design decisions must consider implementation feasibility; implementation choices may force design revision. They are inherently interleaved.                       |
+| **Language Choice Affects Design Method** | UML is valuable for OO languages (Java, C#); less useful for dynamic languages (Python); irrelevant for COTS configuration.                                         |
+| **Buy vs. Build Decision**                | Early in any project, assess whether COTS systems can meet requirements. Adapting existing software is almost always cheaper and faster than building from scratch. |
+| **Object-Oriented Advantages**            | OO systems are easier to change because objects encapsulate both data and operations — modifying one object should not affect others.                               |
+| **Reuse First Mindset**                   | Before designing anything, search for reusable components, patterns, and systems. Reuse should be the default, not the exception.                                   |
+>>>>>>> 4e0b62081cbb4de5280aecd60424a255a9cd6ec1
 
 ---
 
@@ -105,6 +115,7 @@ Satellite (1) ────── (1) Weather Station
 
 **Weather Station Use Cases (Interaction Model):**
 
+<<<<<<< HEAD
 | Use Case | Description |
 |---|---|
 | Report Weather | Send summarized weather data to the weather information system |
@@ -114,6 +125,17 @@ Satellite (1) ────── (1) Weather Station
 | Reconfigure | Reconfigure the weather station software |
 | Powersave | Enter power-saving mode |
 | Remote Control | Send control commands to any weather station subsystem |
+=======
+| Use Case       | Description                                                        |
+| -------------- | ------------------------------------------------------------------ |
+| Report Weather | Send summarized weather data to the weather information system     |
+| Report Status  | Send hardware status information to the weather information system |
+| Restart        | If shut down, restart the system                                   |
+| Shutdown       | Shut down the weather station                                      |
+| Reconfigure    | Reconfigure the weather station software                           |
+| Powersave      | Enter power-saving mode                                            |
+| Remote Control | Send control commands to any weather station subsystem             |
+>>>>>>> 4e0b62081cbb4de5280aecd60424a255a9cd6ec1
 
 **Use Case Description — Structured Natural Language (Figure 7.3):**
 
@@ -644,4 +666,8 @@ This is why reuse must be considered **before** detailed design: if you discover
 
 ---
 
+<<<<<<< HEAD
 [[Chapter6_Comprehensive|← Previous: Chapter 6 – Architectural Design]] | [[Software Engineering Hub|Hub]]
+=======
+[[Chapter6_Comprehensive|← Previous: Chapter 6 – Architectural Design]] | [[Chapter8_Comprehensive|→ Next: Chapter 8 – Software Testing]] | [[Software Engineering Hub|Hub]]
+>>>>>>> 4e0b62081cbb4de5280aecd60424a255a9cd6ec1

@@ -330,4 +330,13 @@ The same accessor works on `Index` objects (including `df.columns`), which is wh
 
 [[ML_Zoomcamp_1_9]] | [[ML_Zoomcamp_1_8]] | [[ML_Zoomcamp_1_7]] | [[ML_Zoomcamp_1_5]] | [[ML_Zoomcamp_1_4]] | [[ML_Zoomcamp_1_3]] | [[ML_Zoomcamp_1_2]] | [[ML_Zoomcamp_1_1]]
 
+<<<<<<< HEAD
+=======
+---
+
+## Graph View Links
+
+**Previous:** [[ML_Zoomcamp_1_9]]
+**Next:** [[MLZ_S2_L03_Exploratory_Data_Analysis]]
+>>>>>>> 4e0b62081cbb4de5280aecd60424a255a9cd6ec1
 **Hub:** [[Machine Learning (github DataTalksClub)]]
