@@ -407,6 +407,172 @@ Social engineers exploit two categories of cognitive bias:
 
 ---
 
+## Textbook Review Questions (Ciampa CompTIA Security+ 7e — Module 1)
+
+> Official end-of-module review questions, reconstructed from the textbook chapter. Answers are derived (the chapter prints no key); *(verify)* marks any less-certain answer.
+
+**1.** After Bella earned her security certification, she was offered a promotion. As she reviewed the job responsibilities, she saw that in this position she will report to the CISO and supervise a group of security technicians. Which of these generally recognized security positions has she been offered?
+- a. Security administrator
+- b. Security technician
+- c. Security officer
+- d. Security manager
+
+**Answer: D.** A security manager reports to the CISO and supervises technicians/administrators, matching the described supervisory role.
+
+**2.** Which of the following is false about the CompTIA Security+ certification?
+- a. Security+ is one of the most widely acclaimed security certifications.
+- b. Security+ is internationally recognized as validating a foundation level of security skills and knowledge.
+- c. The Security+ certification is a vendor-neutral credential.
+- d. Professionals who hold the Security+ certification earn about the same or slightly less than security professionals who have not achieved this certification.
+
+**Answer: D.** Certified professionals generally earn more, not less, so this statement is false.
+
+**3.** Which of the following is true regarding the relationship between security and convenience?
+- a. Security and convenience are inversely proportional.
+- b. Security and convenience have no relationship.
+- c. Security is less important than convenience.
+- d. Security and convenience are equal in importance.
+
+**Answer: A.** As security increases, convenience typically decreases — they are inversely proportional.
+
+**4.** Which of the following of the CIA Triad ensures that information is correct, and no unauthorized person has altered it?
+- a. Confidentiality
+- b. Integrity
+- c. Availability
+- d. Assurance
+
+**Answer: B.** Integrity ensures information is correct and unaltered by unauthorized parties.
+
+**5.** Which of the following is not used to describe those who attack computer systems?
+- a. Threat actor
+- b. Hacker
+- c. Malicious agent
+- d. Attacker
+
+**Answer: C.** "Malicious agent" is not a standard term; threat actor, hacker, and attacker are.
+
+**6.** Which of the following is not true regarding security?
+- a. Security is a goal.
+- b. Security includes the necessary steps to protect from harm.
+- c. Security is a process.
+- d. Security is a war that must be won at all costs.
+
+**Answer: D.** Security is an ongoing process, not a war "won at all costs"; this statement is not true.
+
+**7.** Luna is reading a book about the history of cybercrime. She read that the very first cyberattacks were mainly for what purpose?
+- a. Fortune
+- b. Fame
+- c. Financial gain
+- d. Personal security
+
+**Answer: B.** Early attacks were largely for fame/notoriety rather than financial gain.
+
+**8.** Which of the following ensures that only authorized parties can view protected information?
+- a. Authorization
+- b. Confidentiality
+- c. Availability
+- d. Integrity
+
+**Answer: B.** Confidentiality ensures only authorized parties can view protected information.
+
+**9.** Which type of hacker will probe a system for weaknesses and then privately provide that information back to the organization?
+- a. Black hat hackers
+- b. White hat hackers
+- c. Gray hat hackers
+- d. Red hat hackers
+
+**Answer: B.** White hat hackers probe for weaknesses and privately report them to the organization.
+
+**10.** Complete this definition of information security: That which protects the integrity, confidentiality, and availability of information _________________.
+- a. on electronic digital devices and limited analog devices that can connect via the Internet or through a local area network.
+- b. through a long-term process that results in ultimate security.
+- c. using both open-sourced as well as supplier-sourced hardware and software that interacts appropriately with limited resources.
+- d. through products, people, and procedures on the devices that store, manipulate, and transmit the information.
+
+**Answer: D.** The textbook definition cites products, people, and procedures on devices that store, manipulate, and transmit information.
+
+**11.** Which of the following groups have the lowest level of technical knowledge?
+- a. Script kiddies
+- b. Hacktivists
+- c. State actors
+- d. Insiders
+
+**Answer: A.** Script kiddies rely on existing tools and have the lowest technical skill.
+
+**12.** Which of the following groups use advanced persistent threats?
+- a. Brokers
+- b. Criminal syndicates
+- c. Shadow IT
+- d. State actors
+
+**Answer: D.** State actors are the most highly resourced group and characteristically use APTs.
+
+**13.** Which of the following is not a reason a legacy platform has not been updated?
+- a. Limited hardware capacity
+- b. An application only operates on a specific OS version
+- c. Neglect
+- d. No compelling reason for any updates
+
+**Answer: D.** "No compelling reason for any updates" is not a genuine reason; the others are real constraints.
+
+**14.** How do vendors decide which should be the default settings on a system?
+- a. Those that are the most secure are always the default settings.
+- b. There is no reason specific default settings are chosen.
+- c. Those settings that provide the means by which the user can immediately begin to use the product.
+- d. The default settings are always mandated by industry standards.
+
+**Answer: C.** Vendors favor settings that let users start using the product immediately (ease of use over security).
+
+**15.** Which tool is most commonly associated with state actors?
+- a. Closed-Source Resistant and Recurrent Malware (CSRRM)
+- b. advanced persistent threat (APT)
+- c. Unlimited Harvest and Secure Attack (UHSA)
+- d. Network Spider and Worm Threat (NSAWT)
+
+**Answer: B.** APT is the real tool/technique associated with state actors; the others are fabricated terms.
+
+**16.** What is the term used to describe the connectivity between an organization and a third party?
+- a. System integration
+- b. Platform support
+- c. Resource migration
+- d. Network layering
+
+**Answer: A.** System integration describes the connectivity between an organization and a third party.
+
+**17.** What is an objective of state-sponsored attackers?
+- a. To right a perceived wrong
+- b. To amass fortune over of fame
+- c. To spy on citizens
+- d. To sell vulnerabilities to the highest bidder
+
+**Answer: C.** State-sponsored attackers act on behalf of governments, often to spy on citizens.
+
+**18.** Which of the following is not an issue with patching?
+- a. Difficulty patching firmware
+- b. Few patches exist for application software
+- c. Delays in patching OSs
+- d. Patches address zero-day vulnerabilities
+
+**Answer: D.** That patches address zero-day vulnerabilities is not a patching problem — by definition a patch cannot exist for an unknown (zero-day) flaw, so this is the "not an issue" choice.
+
+**19.** Which of the following is not a recognized attack vector?
+- a. Supply chain
+- b. Social media
+- c. On-prem
+- d. Email
+
+**Answer: C.** "On-prem" is a deployment location, not a recognized attack vector; the others are vectors.
+
+**20.** What is the category of threat actors that sell their knowledge of vulnerabilities to other attackers or governments?
+- a. Cyberterrorists
+- b. Competitors
+- c. Brokers
+- d. Resource managers
+
+**Answer: C.** Brokers sell their knowledge of vulnerabilities to other attackers or governments.
+
+---
+
 ## Graph View Links
 
 **Previous**: —  

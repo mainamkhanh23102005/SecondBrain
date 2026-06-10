@@ -806,6 +806,172 @@ echo "<hex>" | xxd -r -p             # from hex
 
 ---
 
+## Textbook Review Questions (Ciampa CompTIA Security+ 7e — Module 6: Basic Cryptography)
+
+> Official end-of-module review questions, reconstructed from the textbook chapter. Answers are derived (the chapter prints no key); *(verify)* marks any less-certain answer.
+
+**1.** Which of the following hides the existence of information?
+- a. Encryption
+- b. Decryption
+- c. Steganography
+- d. Ciphering
+
+**Answer: c.** Steganography conceals the very existence of data, unlike encryption which scrambles known data.
+
+**2.** Cryptography can prevent an individual from fraudulently reneging on an action. What is this known as?
+- a. Repudiation
+- b. Nonrepudiation
+- c. Obfuscation
+- d. Integrity
+
+**Answer: b.** Nonrepudiation prevents a party from denying that they performed an action.
+
+**3.** Brielle is researching substitution ciphers. She came across a cipher in which the entire alphabet was rotated 13 steps. What type of cipher is this?
+- a. XOR
+- b. XAND13
+- c. ROT13
+- d. Alphabetic
+
+**Answer: c.** ROT13 rotates each letter 13 positions through the alphabet.
+
+**4.** Which of the following is FALSE about "security through obscurity"?
+- a. It attempts to hide its existence from outsiders.
+- b. It can only provide limited security.
+- c. It is essentially impossible.
+- d. Proprietary cryptographic algorithms are an example.
+
+**Answer: c.** Security through obscurity is possible but provides only limited protection; calling it "essentially impossible" is the false statement.
+
+**5.** What is low latency?
+- a. A low-power source requirement of a sensor.
+- b. The time between when a byte is input into a cryptographic cipher and when the output is obtained.
+- c. The requirements for an IoT device that is using a specific network.
+- d. The delay between when a substitution cipher decrypts the first block and when it finishes with the last block.
+
+**Answer: b.** Low latency refers to the short time between input of a byte into a cipher and obtaining the output.
+
+**6.** What are public key systems that generate different random public keys for each session?
+- a. Public Key Exchange (PKE)
+- b. perfect forward secrecy
+- c. Elliptic Curve Diffie-Hellman (ECDH)
+- d. Diffie-Hellman (DH)
+
+**Answer: b.** Perfect forward secrecy uses different, ephemeral public keys for each session so past sessions stay secure.
+
+**7.** What is data called that is to be encrypted by inputting it into a cryptographic algorithm?
+- a. Plaintext
+- b. Byte-text
+- c. Cleartext
+- d. Ciphertext
+
+**Answer: a.** Plaintext is the unencrypted input to a cryptographic algorithm. (Ciampa distinguishes "cleartext" as unencrypted data not intended to be encrypted.)
+
+**8.** Which of these is NOT a basic security protection for information that cryptography can provide?
+- a. Integrity
+- b. Authenticity
+- c. Risk
+- d. Confidentiality
+
+**Answer: c.** Risk is not a protection cryptography provides; the core protections are confidentiality, integrity, authentication, and nonrepudiation.
+
+**9.** Cicero is researching hash algorithms. Which algorithm would produce the longest and most secure digest?
+- a. SHA-256
+- b. MD5
+- c. SHA3-512
+- d. SHA6-6
+
+**Answer: c.** SHA3-512 produces a 512-bit digest, the longest and most secure of the listed valid algorithms (SHA6-6 is not a real algorithm).
+
+**10.** Which of the following is NOT a symmetric cryptographic algorithm?
+- a. DES
+- b. SHA
+- c. Blowfish
+- d. 3DES
+
+**Answer: b.** SHA is a hashing algorithm, not a symmetric cipher.
+
+**11.** Which of the following is not to be decrypted but is only used for comparison purposes?
+- a. Digest
+- b. Key
+- c. Stream
+- d. Algorithm
+
+**Answer: a.** A digest (hash) is one-way and is used only for comparison, never decrypted.
+
+**12.** Which of these is NOT a characteristic of a secure hash algorithm?
+- a. The results of a hash function should not be reversed.
+- b. Collisions should occur no more than 15 percent of the time.
+- c. A message cannot be produced from a predefined hash.
+- d. The hash should always be the same fixed size.
+
+**Answer: b.** A secure hash should produce essentially no collisions; tolerating 15 percent collisions is not a characteristic of a secure hash.
+
+**13.** Deo has been asked to explain RSA to his colleague. After his explanation, Deo is asked what, if any, weaknesses RSA has. How would Deo respond?
+- a. RSA has no known weaknesses.
+- b. As computers become more powerful, the ability to compute factoring has increased.
+- c. RSA weaknesses are based on ECC.
+- d. The digest produced by the RSA algorithm is too short to be secure.
+
+**Answer: b.** RSA relies on the difficulty of factoring large numbers; growing computing power increasingly threatens it.
+
+**14.** Which of these is the strongest symmetric cryptographic algorithm?
+- a. Data Encryption Standard
+- b. Advanced Encryption Standard
+- c. Triple Data Encryption Standard
+- d. RC 1
+
+**Answer: b.** AES is the strongest of these symmetric algorithms.
+
+**15.** If Bob wants to send a secure message to Alice using an asymmetric cryptographic algorithm, which key does he use to encrypt the message?
+- a. Alice's private key
+- b. Alice's public key
+- c. Bob's public key
+- d. Bob's private key
+
+**Answer: b.** Encrypting with the recipient's (Alice's) public key ensures only Alice's private key can decrypt it.
+
+**16.** Egor wanted to use a digital signature. Which of the following benefits will the digital signature NOT provide?
+- a. Verify the sender
+- b. Verify the receiver
+- c. Prove the integrity of the message
+- d. Enforce nonrepudiation
+
+**Answer: b.** A digital signature verifies the sender, message integrity, and nonrepudiation, but does not verify the receiver.
+
+**17.** Basil was reading about a new attack that forces the system to abandon a higher cryptographic security mode of operation and instead fall back to an older and less secure mode. What type of attack is this?
+- a. Deprecation attack
+- b. Pullback attack
+- c. Downgrade attack
+- d. Obfuscation attack
+
+**Answer: c.** A downgrade attack forces a system to revert to a weaker, older mode of operation.
+
+**18.** What is a collision?
+- a. Two files produce the same digest.
+- b. Two ciphertexts have the same length.
+- c. Two algorithms have the same key.
+- d. Two keys are the same length.
+
+**Answer: a.** A hash collision occurs when two different inputs produce the same digest.
+
+**19.** Which of the following is NOT a characteristic of the Trusted Platform Module (TPM)?
+- a. It provides cryptographic services in hardware instead of software.
+- b. It can generate asymmetric cryptographic public and private keys.
+- c. It can easily be transported to another computer.
+- d. It includes a pseudorandom number generator (PRNG).
+
+**Answer: c.** A TPM is a chip integrated into the motherboard and cannot easily be transported to another computer.
+
+**20.** Which of these provides cryptographic services and is external to the device?
+- a. Trusted Platform Module (TPM)
+- b. Hardware Security Module (HSM)
+- c. Self-encrypting hard disk drives (SED)
+- d. Encrypted hardware-based USB devices
+
+**Answer: b.** An HSM is an external (removable or network-attached) device providing cryptographic services, unlike the internal TPM.
+
+---
+
 ## Graph View Links
 
 **Previous**: [[Module 3 - Threats and Attacks on Endpoints]]  

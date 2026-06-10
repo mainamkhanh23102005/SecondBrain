@@ -670,6 +670,172 @@ host <domain>
 
 ---
 
+## Textbook Review Questions (Ciampa CompTIA Security+ 7e — Module 8)
+
+> Official end-of-module review questions, reconstructed from the textbook chapter. Answers are derived (the chapter prints no key); *(verify)* marks any less-certain answer.
+
+**1.** Which attack intercepts communications between a web browser and the underlying OS?
+- a. Interception
+- b. Man-in-the-browser (MITB)
+- c. DIG
+- d. ARP poisoning
+
+**Answer: b.** A man-in-the-browser attack sits between the browser and the OS/libraries to intercept and manipulate calls.
+
+**2.** Calix was asked to protect a system from a potential attack on DNS. What are the locations he would need to protect?
+- a. Web server buffer and host DNS server
+- b. Reply referrer and domain buffer
+- c. Web browser and browser add-on
+- d. Host table and external DNS server
+
+**Answer: d.** DNS resolution can be subverted at the local host table or at the external DNS server, so both must be protected.
+
+**3.** What is the result of an ARP poisoning attack?
+- a. The ARP cache is compromised.
+- b. Users cannot reach a DNS server.
+- c. MAC addresses are altered.
+- d. An internal DNS must be used instead of an external DNS.
+
+**Answer: a.** ARP poisoning injects forged IP-to-MAC mappings, corrupting (compromising) the victim's ARP cache.
+
+**4.** Deacon has observed that the switch is broadcasting all packets to all devices. He suspects it is the result of an attack that has overflowed the switch MAC address table. Which type of attack is this?
+- a. MAC spoofing attack
+- b. MAC cloning attack
+- c. MAC flooding attack
+- d. MAC overflow attack
+
+**Answer: c.** MAC flooding overruns the switch's MAC (CAM) table, forcing it into fail-open/broadcast (hub-like) behavior.
+
+**5.** Tomaso is explaining to a colleague the different types of DNS attacks. Which DNS attack would only impact a single user?
+- a. DNS hijack attack
+- b. DNS poisoning attack
+- c. DNS overflow attack
+- d. DNS resource attack
+
+**Answer: b.** Poisoning the local host table/resolver cache affects only that one machine, whereas a hijack at the DNS server affects all users. *(verify)*
+
+**6.** Proteus has been asked to secure endpoints that can be programmed and have an IP address so that they cannot be used in a DDoS attack. What is the name for this source of DDoS attack?
+- a. Network
+- b. Application
+- c. IoT
+- d. Operational Technology
+
+**Answer: c.** Programmable, IP-addressable endpoints are IoT devices, frequently hijacked into DDoS botnets.
+
+**7.** Which of the following is NOT a reason that threat actors use PowerShell for attacks?
+- a. It cannot be detected by antimalware running on the computer.
+- b. It leaves behind no evidence on a hard drive.
+- c. It can be invoked prior to system boot.
+- d. Most applications flag it as a trusted application.
+
+**Answer: a.** PowerShell activity can be detected/logged by antimalware; the false claim that it "cannot be detected" is the NOT reason.
+
+**8.** What is the difference between a DoS and a DDoS attack?
+- a. DoS attacks are faster than DDoS attacks.
+- b. DoS attacks use fewer computers than DDoS attacks.
+- c. DoS attacks do not use DNS servers as DDoS attacks do.
+- d. DoS attacks use more memory than DDoS attacks.
+
+**Answer: b.** A DoS originates from one (or few) machines; a DDoS is distributed across many compromised computers.
+
+**9.** Which of the following is NOT true about VBA?
+- a. It is commonly used to create macros.
+- b. It is built into most Microsoft Office applications.
+- c. It is included in select non-Microsoft products.
+- d. It is being phased out and replaced by PowerShell.
+
+**Answer: d.** VBA is not being replaced by PowerShell; the other three statements are true.
+
+**10.** Which of the following is NOT a Microsoft defense against macros?
+- a. Protected View
+- b. Trusted documents
+- c. Trusted domain
+- d. Trusted location
+
+**Answer: c.** Microsoft's macro defenses include Protected View, Trusted Documents, and Trusted Locations; "Trusted domain" is not one of them.
+
+**11.** Theo uses the Python programming language and does not want his code to contain vulnerabilities. Which of the following best practices would Theo NOT use?
+- a. Only use compiled and not interpreted Python code.
+- b. Use the latest version of Python.
+- c. Use caution when formatting strings.
+- d. Download only vetted libraries.
+
+**Answer: a.** "Only use compiled and not interpreted Python code" is not a real practice (Python is interpreted), so it is the one Theo would NOT use.
+
+**12.** What is Bash?
+- a. The command-language interpreter for Linux/UNIX OSs
+- b. The open source scripting language that contains many vulnerabilities
+- c. A substitute for SSH
+- d. The underlying platform on which macOS is built
+
+**Answer: a.** Bash (Bourne-again shell) is the command-language interpreter/shell for Linux and UNIX systems.
+
+**13.** Gregory wants to look at the details about the path a packet takes from his Linux computer to another device. Which Linux command-line utility will he use?
+- a. tracepacket
+- b. trace
+- c. tracert
+- d. traceroute
+
+**Answer: d.** On Linux the path-tracing utility is `traceroute` (`tracert` is the Windows equivalent).
+
+**14.** Which utility sends custom TCP/IP packets?
+- a. curl
+- b. hping
+- c. shape
+- d. pingpacket
+
+**Answer: b.** `hping` crafts and sends custom TCP/IP packets for testing and probing.
+
+**15.** Which of the following is a third-party OS penetration testing tool?
+- a. theHarvester
+- b. scanless
+- c. Nessus
+- d. sn1per
+
+**Answer: d.** sn1per is a third-party penetration-testing/automation framework. *(verify)*
+
+**16.** Eros wants to change a configuration file on his Linux computer. He first wants to display the entire file contents. Which tool would he use?
+- a. head
+- b. show
+- c. display
+- d. cat
+
+**Answer: d.** `cat` prints a file's entire contents (`head` shows only the top lines).
+
+**17.** Which of the following is a tool for editing packets and then putting the packets back onto the network to observe their behavior?
+- a. Tcpreplay
+- b. Tcpdump
+- c. Wireshark
+- d. Packetdump
+
+**Answer: a.** Tcpreplay edits captured packets and replays them onto the network for observation.
+
+**18.** Estevan has recommended that the organization hire and deploy two security guards in the control room to limit the effect if one of the guards has been compromised. What is Estevan proposing?
+- a. Dual observation protocol (DOP)
+- b. Compromise mitigation assessment (CMA)
+- c. Two-person integrity/control
+- d. Multiplayer recognition
+
+**Answer: c.** Requiring two people so neither can act alone is two-person integrity/control.
+
+**19.** Which of the following sensors can detect an object that enters the sensor's field?
+- a. Proximity
+- b. Field detection
+- c. IR verification
+- d. Object recognition
+
+**Answer: a.** A proximity sensor detects an object entering its sensing field.
+
+**20.** Which of the following does NOT describe an area that separates threat actors from defenders?
+- a. DMZ
+- b. Air gap
+- c. Secure area
+- d. Containment space
+
+**Answer: d.** DMZ, air gap, and secure area are real separation concepts; "containment space" is not a recognized term.
+
+---
+
 ## Graph View Links
 
 **Previous**: [[Module 6 - Basic Cryptography]]  

@@ -598,6 +598,172 @@ Filter-evasion variants:
 
 ---
 
+## Textbook Review Questions (Ciampa CompTIA Security+ 7e — Module 3)
+
+> Official end-of-module review questions, reconstructed from the textbook chapter. Answers are derived (the chapter prints no key); *(verify)* marks any less-certain answer.
+
+**1.** What word is the currently accepted term to refer to network-connected hardware devices?
+- a. Host
+- b. Endpoint
+- c. Device
+- d. Client
+
+**Answer: b.** "Endpoint" is the currently accepted industry term for network-connected hardware devices.
+
+**2.** Which of the following is NOT a characteristic of malware?
+- a. Deceive
+- b. Launch
+- c. Imprison
+- d. Diffusion
+
+**Answer: d.** The textbook's malware action categories are imprison, launch, snoop, deceive, evade, and data-related actions — "diffusion" is not one of them.
+
+**3.** Gabriel's sister called him about a message that suddenly appeared on her screen that says her software license has expired and she must immediately pay $500 to have it renewed before control of the computer will be returned to her. What type of malware has infected her computer?
+- a. Persistent lockware
+- b. Blocking ransomware
+- c. Cryptomalware
+- d. Impede-ware
+
+**Answer: b.** The screen locks/blocks access and demands payment but no file encryption is mentioned, so this is blocking ransomware (the other terms are not real categories).
+
+**4.** Marius's team leader has just texted him that an employee, who violated company policy by bringing in a file on her USB flash drive, has just reported that her computer is suddenly locked up with cryptomalware. Why would Marius consider this a dangerous situation?
+- a. It sets a precedent by encouraging other employees to violate company policy.
+- b. Cryptomalware can encrypt all files on any network that is connected to the employee's computer.
+- c. The organization may be forced to pay up to $500 for the ransom.
+- d. The employee would have to wait at least an hour before her computer could be restored.
+
+**Answer: b.** The danger of cryptomalware is its ability to spread and encrypt files across all networked drives connected to the infected computer.
+
+**5.** Which type of malware relies on LOLBins?
+- a. PUP
+- b. File-based virus
+- c. Fileless virus
+- d. Bot
+
+**Answer: c.** Fileless viruses abuse legitimate "living-off-the-land binaries" (LOLBins) already on the system instead of writing their own files.
+
+**6.** Which of the following is known as a network virus?
+- a. TAR
+- b. Worm
+- c. Remote exploitation virus (REV)
+- d. C&C
+
+**Answer: b.** A worm is commonly referred to as a network virus because it self-propagates across networks (REV is not a real term).
+
+**7.** Josh is researching the different types of attacks that can be generated through a botnet. Which of the following would NOT be something distributed by a botnet?
+- a. LOLBins
+- b. Spam
+- c. Malware
+- d. Ad fraud
+
+**Answer: a.** Botnets distribute spam, malware, and ad fraud; LOLBins are local system binaries, not something distributed by a botnet.
+
+**8.** Which of the following is NOT a means by which a bot communicates with a C&C device?
+- a. Signing in to a website the bot herder operates
+- b. Signing in to a third-party website
+- c. Email
+- d. Command sent through Twitter posts
+
+**Answer: c.** The textbook lists websites (attacker-operated or third-party) and social-media posts (e.g., Twitter) as C&C channels; email is not listed as a bot C&C mechanism.
+
+**9.** Randall's roommate is complaining to him about all of the software that came pre-installed on his new computer. He doesn't want the software because it slows down the computer. What type of software is this?
+- a. Spyware
+- b. BOT
+- c. PUP
+- d. Keylogger
+
+**Answer: c.** Unwanted, pre-installed bloatware that degrades performance is a Potentially Unwanted Program (PUP).
+
+**10.** What is the difference between a Trojan and a RAT?
+- a. There is no difference.
+- b. A RAT gives the attacker unauthorized remote access to the victim's computer.
+- c. A Trojan can carry malware while a RAT cannot.
+- d. A RAT can infect only a smartphone and not a computer.
+
+**Answer: b.** A Remote Access Trojan (RAT) adds covert, unauthorized remote-control capability over the victim's computer beyond a standard Trojan.
+
+**11.** Which of these would NOT be considered the result of a logic bomb?
+- a. Send an email to Rowan's inbox each Monday morning with the agenda of that week's department meeting.
+- b. If the company's stock price drops below $50, then credit Oscar's retirement account with one additional year of retirement credit.
+- c. Erase the hard drives of all the servers 90 days after Alfredo's name is removed from the list of current employees.
+- d. Delete all human resource records regarding Augustine one month after he leaves the company.
+
+**Answer: a.** Sending a routine weekly meeting agenda is a legitimate scheduled task; the others are malicious code triggered by a condition (a logic bomb).
+
+**12.** Which of the following attacks is based on a website accepting user input without sanitizing it?
+- a. RSS
+- b. XSS
+- c. SQLS
+- d. SSXRS
+
+**Answer: b.** Cross-site scripting (XSS) exploits a site that accepts and reflects user input without sanitizing it.
+
+**13.** Which of the following attacks is based on the principle that when a user is currently authenticated on a website and then loads another webpage, the new page inherits the identity and privileges of the first website?
+- a. SSFR
+- b. DLLS
+- c. CSRF
+- d. DRCR
+
+**Answer: c.** Cross-site request forgery (CSRF) abuses the authenticated session so a malicious page inherits the user's identity and privileges.
+
+**14.** Which of the following manipulates the trusting relationship between web servers?
+- a. SSRF
+- b. CSRF
+- c. EXMAL
+- d. SCSI
+
+**Answer: a.** Server-side request forgery (SSRF) exploits the trust between web servers by making one server issue requests on the attacker's behalf.
+
+**15.** Which type of memory vulnerability attack manipulates the "return address" of the memory location of a software program?
+- a. Shim overflow attack
+- b. Factor overflow attack
+- c. Integer overflow attack
+- d. Buffer overflow attack
+
+**Answer: d.** A buffer overflow overwrites adjacent memory including the return address, redirecting program execution.
+
+**16.** What race condition can result in a NULL pointer/object dereference?
+- a. Conflict race condition
+- b. Value-based race condition
+- c. Thread race condition
+- d. Time of check/time of use race condition
+
+**Answer: d.** A time-of-check/time-of-use (TOCTOU) race condition can leave an object in an inconsistent state, leading to a NULL pointer/object dereference.
+
+**17.** Which of the following attacks targets the external software component that is a repository of both code and data?
+- a. Application program interface (API) attack
+- b. Device driver manipulation attack
+- c. Dynamic-link library (DLL) injection attack
+- d. OS REG attack
+
+**Answer: c.** A DLL is an external library containing both code and data; DLL injection targets this shared software component.
+
+**18.** What term refers to changing the design of existing code?
+- a. Library manipulation
+- b. Shimming
+- c. Refactoring
+- d. Design driver manipulation
+
+**Answer: c.** Refactoring is restructuring/changing the design of existing code without changing its external behavior.
+
+**19.** Which of the following is technology that imitates human abilities?
+- a. AI
+- b. ML
+- c. RC
+- d. XLS
+
+**Answer: a.** Artificial intelligence (AI) is technology that imitates human abilities; ML is a subset focused on learning from data.
+
+**20.** Which statement regarding a keylogger is NOT true?
+- a. Software keyloggers can be designed to send captured information automatically back to the attacker through the Internet.
+- b. Hardware keyloggers are installed between the keyboard connector and computer keyboard USB port.
+- c. Software keyloggers are generally easy to detect.
+- d. Keyloggers can be used to capture passwords, credit card numbers, or personal information.
+
+**Answer: c.** Software keyloggers are generally difficult to detect (they hide as background processes), so this statement is the false one.
+
+---
+
 ## Graph View Links
 
 **Previous**: [[Module 1 - Introduction to Information Security]]  

@@ -368,6 +368,172 @@ If any link in this chain cannot be verified, the system halts. This is why:
 
 ---
 
+## Textbook Review Questions (Ciampa CompTIA Security+ 7e — Module 4)
+
+> Official end-of-module review questions, reconstructed from the textbook chapter. Answers are derived (the chapter prints no key); *(verify)* marks any less-certain answer.
+
+**1.** An IOC occurs when what metric exceeds its normal bounds?
+- a. IRR
+- b. LRG
+- c. EXR
+- d. KRI
+
+**Answer: d.** A Key Risk Indicator (KRI) exceeding its normal bounds signals an Indicator of Compromise (IOC); the other options are not real metrics.
+
+**2.** What are the two concerns about using public information sharing centers?
+- a. Cost and availability
+- b. Privacy and speed
+- c. Security and privacy
+- d. Regulatory approval and sharing
+
+**Answer: c.** The two concerns Ciampa lists for public sharing centers are security (trusting shared data) and privacy (protecting organizational data).
+
+**3.** Which privacy protection uses four colors to indicate the expected sharing limitations that are to be applied by recipients of the information?
+- a. CISA
+- b. FOIA
+- c. TLP
+- d. PCII
+
+**Answer: c.** The Traffic Light Protocol (TLP) uses four colors (Red, Amber, Green, White) to mark sharing limitations.
+
+**4.** Oskar has been receiving emails about critical threat intelligence information from a public information sharing center. His team leader has asked him to look into how the process can be automated so that the information can feed directly into the team's technology security. What technology will Oskar recommend?
+- a. Automated Indicator Sharing (AIS)
+- b. Bidirectional Security Protocol (BSP)
+- c. Linefeed Access
+- d. Lightwire JSON Control
+
+**Answer: a.** Automated Indicator Sharing (AIS) enables automated, machine-speed exchange of threat indicators; the other options are fabricated.
+
+**5.** Which of the following is an application protocol for exchanging cyberthreat intelligence over HTTPS?
+- a. STIX
+- b. AIP-TAR
+- c. TAXII
+- d. TCP-Over-Secure (ToP)
+
+**Answer: c.** TAXII (Trusted Automated Exchange of Intelligence Information) is the application protocol that transports threat intelligence over HTTPS; STIX is the data format, not the transport protocol.
+
+**6.** What are the two limitations of private information sharing centers?
+- a. Access to data and participation
+- b. Government approval and cost
+- c. Timing of reports and remote access
+- d. Bandwidth and CPU
+
+**Answer: a.** Ciampa cites access to the data and the willingness of organizations to participate as the two limitations of private sharing centers.
+
+**7.** Which of the following is NOT a limitation of a threat map?
+- a. Many maps claim that they show data in real time, but most are simply a playback of previous attacks.
+- b. Because threat maps show anonymized data, it is impossible to know the identity of the attackers or the victims.
+- c. They can be difficult to visualize.
+- d. Threat actors usually mask their real locations, so what is displayed on a threat map is incorrect.
+
+**Answer: c.** Difficulty visualizing is not a stated limitation — threat maps are highly visual; the other three are genuine limitations Ciampa lists.
+
+**8.** Luka has been asked by his supervisor to monitor the dark web for any IOCs concerning their organization. The next week, Luca reports that he was unable to find anything because looking for information on the dark web is different from using the regular web. Which of the following is FALSE about looking for information on the dark web?
+- a. It is necessary to use Tor or IP2.
+- b. Dark web search engines are identical to regular search engines.
+- c. Dark web merchants open and close their sites without warning.
+- d. The naming structure is different on the dark web.
+
+**Answer: b.** Dark web search engines are not identical to regular ones; they behave differently, so this statement is FALSE.
+
+**9.** Which of the following is NOT an improvement of UEFI over BIOS?
+- a. Stronger boot security
+- b. Networking functionality in UEFI
+- c. Access larger hard drives
+- d. Support of USB 3.0
+
+**Answer: d.** USB 3.0 support is a hardware/OS feature, not a UEFI-over-BIOS improvement; the other three are genuine UEFI advantages.
+
+**10.** Which boot security mode sends information on the boot process to a remote server?
+- a. UEFI Native Mode
+- b. Secure Boot
+- c. Trusted Boot
+- d. Measured Boot
+
+**Answer: d.** Measured Boot sends boot-process measurements to a remote attestation server for verification.
+
+**11.** Which of the following is NOT an important OS security configuration?
+- a. Employing least functionality
+- b. Disabling default accounts
+- c. Disabling unnecessary services
+- d. Restricting patch management
+
+**Answer: d.** Patch management should be enabled/streamlined, not restricted; restricting it would weaken security, so it is NOT a recommended configuration.
+
+**12.** Which stage conducts a test that will verify the code functions as intended?
+- a. Production stage
+- b. Testing stage
+- c. Staging stage
+- d. Development stage
+
+**Answer: b.** The Testing stage verifies the code functions as intended before release.
+
+**13.** Which model uses a sequential design process?
+- a. Secure model
+- b. Agile model
+- c. Rigid model
+- d. Waterfall model
+
+**Answer: d.** The Waterfall model uses a strict sequential (phase-by-phase) design process.
+
+**14.** Which of the following is NOT an advantage of an automated patch update service?
+- a. Downloading patches from a local server instead of using the vendor's online update service can save bandwidth and time because each computer does not have to connect to an external server.
+- b. Administrators can approve updates for "detection" only; this allows them to see which computers require the update without installing it.
+- c. Users can disable or circumvent updates just as they can if their computer is configured to use the vendor's online update service.
+- d. Administrators can approve or decline updates for client systems, force updates to install by a specific date, and obtain reports on what updates each computer needs.
+
+**Answer: c.** With an automated patch service, administrators control updates so users CANNOT disable or circumvent them; this is a drawback of the vendor service, not an advantage of the automated one.
+
+**15.** What type of analysis is heuristic monitoring based on?
+- a. Dynamic analysis
+- b. Static analysis
+- c. Code analysis
+- d. Input analysis
+
+**Answer: a.** Heuristic monitoring observes behavior at runtime, which is dynamic analysis.
+
+**16.** Which of these is a list of preapproved applications?
+- a. Greenlist
+- b. Redlist
+- c. Blacklist
+- d. Whitelist
+
+**Answer: d.** A whitelist (allow list) is the list of preapproved applications; a blacklist is the list of blocked ones.
+
+**17.** What is the advantage of a secure cookie?
+- a. It cannot be stored on the local computer without the user's express permission.
+- b. It is sent to the server over HTTPS.
+- c. It is analyzed by AV before it is transmitted.
+- d. It only exists in RAM and is deleted once the web browser is closed.
+
+**Answer: b.** A secure cookie has the Secure attribute set, so the browser transmits it only over encrypted HTTPS connections.
+
+**18.** Which of the following tries to detect and stop an attack?
+- a. HIDS
+- b. HIPS
+- c. RDE
+- d. SOMA
+
+**Answer: b.** A Host Intrusion Prevention System (HIPS) detects AND stops attacks, whereas a HIDS only detects them.
+
+**19.** What does Windows 10 Tamper Protection do?
+- a. Limits access to the registry.
+- b. Prevents any updates to the registry until the user approves the update.
+- c. Compresses and locks the registry.
+- d. Creates a secure backup copy of the registry.
+
+**Answer: a.** Tamper Protection limits access to the registry keys (and security settings) so malware cannot change them.
+
+**20.** Which of the following is FALSE about a quarantine process?
+- a. It holds a suspicious application until the user gives approval.
+- b. It can send a sanitized version of the attachment.
+- c. It can send a URL to the document that is on a restricted computer.
+- d. It is most often used with email attachments.
+
+**Answer: a.** Quarantine isolates suspicious content automatically rather than holding it pending user approval, making this statement FALSE. *(verify)*
+
+---
+
 ## Graph View Links
 
 **Previous**: [[Module 3 - Threats and Attacks on Endpoints]]  
