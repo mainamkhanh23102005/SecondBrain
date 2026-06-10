@@ -6,9 +6,26 @@
 
 ---
 
-## Executive Summary
+## Quick Lookup Index
 
-This module builds the web development foundation required to understand every web application attack. A web application is **two programs running at two separate locations** — a frontend (browser) and a backend (server) — connected by HTTP request-reply cycles. The key insight is that **the browser is untrusted territory**: any data the server receives from the browser must be treated as potentially hostile, which is why parameterized queries, CSRF tokens, output sanitization, and session regeneration are mandatory. Understanding exactly how PHP sessions, cookies, MySQL queries, and nginx routing work is what makes each attack in the companion Web Application Security module make sense.
+**Sections:**
+1. Application Classifications
+2. Web Application Overview
+3. Technology Stack
+4. Frontend–Backend Interaction
+5. PHP Request Handling
+6. Cookies and Sessions — The Authentication Mechanism
+7. Password Security in PHP
+8. MySQL with PHP
+9. Server Environment: nginx + PHP-FPM
+10. Key Skill: Control Your Environments
+11. SocialNet Application
+12. Lab Exercises Reference
+- Deep Dive: The Security Architecture of Client–Server
+- Lab Playbook (Copy-Paste)
+- Knowledge Check Q&A
+
+**Key Terms:** `$_GET` `$_POST` `$_COOKIE` `$_SESSION` `$_SERVER` `$_SERVER['REQUEST_METHOD']` — `session_start()` `session_id()` `session_regenerate_id(true)` `session_destroy()` `setcookie()` — `password_hash()` `password_verify()` `PASSWORD_DEFAULT` (bcrypt, 60 chars) — `PDO::prepare()` `execute()` `fetch()` `fetchAll()` parameterized query — `header("Location: ...")` `exit()` `require` `require_once` `include` `include_once` `phpinfo()` — `PHPSESSID` `HttpOnly` `Secure` `SameSite=Strict` — nginx, PHP-FPM, FastCGI, document root, `www-data` — CREATE DATABASE / CREATE USER / GRANT / FLUSH PRIVILEGES — AJAX, DOM API, `fetch()` — Attacks: ATT-1 ATT-2 (CSRF/access control), ATT-3 ATT-4 ATT-5 (SQL injection), ATT-6 (XSS/session hijacking), ATT-7 (session fixation).
 
 ---
 
@@ -493,21 +510,6 @@ None of these are optional hardening — they are **mandatory compensations** fo
 
 ---
 
-## Key Takeaways for the Exam
-
-1. **A web application = 2 programs** — frontend (browser, JS/HTML/CSS) and backend (server, PHP+DB) — connected via HTTP request-reply.
-2. **PHP runs on the server at request time**; JavaScript runs in the browser after page load. Never mix these up.
-3. **Superglobals**: `$_GET`, `$_POST`, `$_COOKIE`, `$_SESSION`, `$_SERVER`.
-4. **Sessions use cookies** (`PHPSESSID`) to link browser state to server-side data — this is the mechanism exploited in ATT-6 and ATT-7.
-5. **`session_regenerate_id(true)` on login** is mandatory — without it, session fixation (ATT-7) is trivial.
-6. **`password_hash()` and `password_verify()`** are PHP's bcrypt functions — always use them; never store plaintext passwords.
-7. **Parameterized queries** (`PDO::prepare()`) eliminate all SQL injection variants with a single architectural choice.
-8. **nginx** serves HTTP; **PHP-FPM** executes PHP; they communicate via FastCGI socket.
-9. **The browser is untrusted** — all validation, authorization, and sanitization must happen on the server.
-10. **Ways to send HTTP requests from browser**: address bar, HTML form, `<img>`/`<script>` src, JavaScript `fetch()`.
-
----
-
 ## Knowledge Check Q&A
 
 **Q1**: What is the difference between `$_GET` and `$_POST`?  
@@ -527,6 +529,138 @@ None of these are optional hardening — they are **mandatory compensations** fo
 
 **Q6**: Why is profile.php a security risk in SocialNet if access control is not implemented?  
 **A**: If profile.php only checks "is the user logged in?" rather than "is the session user a friend of the profile owner?", any authenticated user can view any profile by directly navigating to `profile.php?owner=userX` — this is ATT-1 (unauthorized profile access).
+
+---
+
+## Lab Playbook (Copy-Paste)
+
+**Password hashing — bcrypt (account creation):**
+```php
+$hash = password_hash($plaintext_password, PASSWORD_DEFAULT);  // 60-char bcrypt → store in DB
+```
+
+**Password verification (login):**
+```php
+$is_valid = password_verify($plaintext_password, $stored_hash);  // TRUE / FALSE
+```
+
+**PDO parameterized query — defeats SQL injection (ATT-3/4/5):**
+```php
+$pdo  = new PDO("mysql:host=localhost;dbname=socialnet", $user, $pass);
+$stmt = $pdo->prepare("SELECT * FROM account WHERE username = ?");
+$stmt->execute([$username]);
+$row  = $stmt->fetch(PDO::FETCH_ASSOC);     // single row
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);  // all rows
+```
+
+**Parameterized UPDATE (secure profile edit — ATT-3 fix):**
+```php
+$stmt = $pdo->prepare("UPDATE account SET fullname=?, gender=? WHERE username=?");
+$stmt->execute([$fullname, $gender, $_SESSION['username']]);
+```
+
+**Session lifecycle:**
+```php
+session_start();                    // 1. create or resume session
+session_id();                       // 2. return current PHPSESSID
+$_SESSION['key'] = 'value';         // 3. read/write session data
+session_regenerate_id(true);        // 4. CRITICAL on login (defeats session fixation ATT-7)
+session_destroy();                  // 5. invalidate session (logout)
+```
+
+**Secure login flow:**
+```php
+session_start();
+if (login_successful($username, $password)) {
+    session_regenerate_id(true);           // defeat session fixation!
+    $_SESSION['username'] = $username;    // store authenticated state
+    header("Location: home.php");
+    exit();
+}
+```
+
+**Session check on every protected page:**
+```php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: signin.php");
+    exit();
+}
+```
+
+**Cookie functions (set secure flags):**
+```php
+setcookie('name', 'value', $expiry, '/', '', true, true);  // Secure + HttpOnly
+$_COOKIE['name'];   // read
+header("Set-Cookie: name=value; HttpOnly; Secure");  // manual header
+```
+
+**PHP redirect:**
+```php
+header("Location: /target-page.php");
+exit();   // MUST stop further execution after redirect
+```
+
+**MySQL database/user/grant setup:**
+```bash
+sudo apt-get install mysql-server
+mysql -u root -p
+
+CREATE DATABASE socialnet;
+CREATE USER 'webapp'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON socialnet.* TO 'webapp'@'localhost';
+FLUSH PRIVILEGES;
+```
+
+**Schema (account + friend):**
+```sql
+CREATE TABLE account (
+    id       INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(60) NOT NULL,   -- bcrypt hash, always 60 chars
+    fullname VARCHAR(100),
+    gender   VARCHAR(10)
+);
+CREATE TABLE friend (
+    account_id INT,
+    friend_id  INT,
+    PRIMARY KEY (account_id, friend_id)
+);
+```
+
+**nginx service commands:**
+```bash
+sudo apt-get install nginx
+sudo systemctl start nginx
+sudo systemctl stop nginx
+sudo systemctl status nginx
+sudo ss -tlnp | grep nginx
+# Config: /etc/nginx/nginx.conf , /etc/nginx/sites-available/default
+# Document root: /var/www/html/  (owner: www-data)
+```
+
+**nginx → PHP-FPM integration:**
+```nginx
+location ~ \.php$ {
+    fastcgi_pass unix:/run/php/php8.1-fpm.sock;
+    include fastcgi_params;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+}
+```
+
+**PHP-FPM service commands:**
+```bash
+sudo apt-get install php-fpm
+sudo systemctl start php8.1-fpm
+sudo systemctl status php8.1-fpm
+ps aux | grep php-fpm
+sudo ss -tlnp | grep php
+```
+
+**Debug:**
+```php
+phpinfo();   // all PHP config + environment variables
+```
 
 ---
 

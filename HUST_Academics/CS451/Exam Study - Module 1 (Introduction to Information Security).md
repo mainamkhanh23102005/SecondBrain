@@ -6,9 +6,25 @@
 
 ---
 
-## Executive Summary
+## Quick Lookup Index
 
-Module 1 establishes the conceptual bedrock of the entire course. It defines information security as a **goal** (assuring confidentiality, integrity, and availability of information) and as a **process** (never finished; the attacker–defender cycle never ends). It introduces the **CIA Triad**, the **AAA model**, and the **six types of security controls**. It then catalogues every category of threat actor and every major class of vulnerability and attack vector, and closes with the forensics of social engineering — why humans are the most exploitable component of any system.
+**Sections:**
+1. What Is Information Security?
+2. The CIA Triad
+3. AAA Framework
+4. Types of Security Controls
+5. Cybersecurity vs. Information Security
+6. Threat Actors
+7. Threat Vectors and Attack Surfaces
+8. Vulnerability Categories
+9. Impacts of Attacks
+10. Information Security Resources
+11. Social Engineering
+- Deep Dive: Why Social Engineering Works — Cognitive Psychology
+- Knowledge Check Q&A
+- Graph View Links
+
+**Key Terms:** CIA Triad, Confidentiality, Integrity, Availability, AAA, Authentication, Authorization, Accounting, security controls (Deterrent, Preventive, Detective, Compensating, Corrective, Directive), Cybersecurity, Information Security, threat actor, Black/White/Gray hat, Script Kiddies, Hacktivists, Nation-State, Insiders, Competitors, Criminal Syndicates, Shadow IT, Brokers, Cyberterrorists, APT, threat vector, attack surface, supply chain attack, vulnerability, zero-day, firmware, EOL, misconfiguration, Data Loss, Data Exfiltration, Data Breach, Identity Theft, NIST CSF, PCI DSS, HIPAA, GDPR, ISO 27001, CIS Controls, CVE, NVD, CVSS, TTPs, STIX, social engineering, Authority, Intimidation, Consensus, Scarcity, Urgency, Familiarity, Trust, prepending, Phishing, Spear Phishing, Whaling, Vishing, Smishing, Typosquatting, Pharming, Tailgating, Piggybacking, Shoulder Surfing, Dumpster Diving, System 1/System 2
 
 ---
 
@@ -335,21 +351,6 @@ Social engineers exploit two categories of cognitive bias:
 - **Scarcity heuristic**: limited resources = heightened arousal = reduced reasoning quality.
 
 **Defense implication**: training users to recognize the *pattern* (urgency + authority = red flag) is more effective than attempting to teach every possible social engineering scenario. The goal is to trigger a mental "pause" that re-engages System 2 thinking.
-
----
-
-## Key Takeaways for the Exam
-
-1. **CIA Triad** — Confidentiality, Integrity, Availability — is the measuring stick for every security decision.
-2. **AAA** — Authentication, Authorization, Accounting — governs how access is managed and audited.
-3. **Six security control types** — Deterrent, Preventive, Detective, Compensating, Corrective, Directive.
-4. **Cybersecurity ≠ Information Security**: cybersecurity is a digital subset of the broader information security field.
-5. **State actors** are the most dangerous: APT = Advanced (custom tools) + Persistent (months/years of silent operation).
-6. **Zero-day** vulnerabilities have no patches — behavioral detection is the only defense.
-7. **Supply chain attacks** compromise devices before the victim ever receives them.
-8. **NIST CSF five functions**: Identify → Protect → Detect → Respond → Recover.
-9. **Social engineering** bypasses technology entirely; human psychology is the primary attack surface.
-10. **Security–convenience trade-off** is fundamental — always communicate it when justifying security decisions.
 
 ---
 

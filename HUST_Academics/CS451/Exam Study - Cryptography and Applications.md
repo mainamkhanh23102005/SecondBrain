@@ -6,9 +6,30 @@
 
 ---
 
-## Executive Summary
+## Quick Lookup Index
 
-Cryptography is the science of transforming information so only authorized parties can read it. This document covers the **goals** of cryptography, the distinction between **steganography and cryptography**, classical and modern **cipher types**, the three algorithm families (**hash, symmetric, asymmetric**), real-world protocols (**MAC, HMAC, JWT, digital signatures, SSH, PKI, TLS/SSL, ACME**), and **attacks** on cryptographic systems. The key insight is that modern cryptography is a **hybrid system**: asymmetric cryptography solves the key exchange problem, while symmetric cryptography provides the speed for bulk data encryption.
+**Sections:**
+1. Goals of Cryptography
+2. Steganography vs. Cryptography
+3. Terminology
+4. Cipher Types (By Operation, Classical, Adversarial Models, XOR, OTP, Symmetric Notation)
+5. Stream Ciphers
+6. Block Ciphers (ECB, CBC modes; DES/3DES/AES/Blowfish/Twofish)
+7. Hash Functions (properties, algorithms, sample digests)
+8. Message Authentication Code (MAC) + HMAC
+9. JWT (JSON Web Token)
+10. Asymmetric (Public Key) Cryptography (Hybrid, RSA, ECC, HMAC vs Signature)
+11. Digital Signatures
+12. Key Exchange Protocols (DH, DHE, ECDH, PFS)
+13. SSH Authentication
+14. Public Key Infrastructure (PKI) (Certificate, CA, OpenSSL, ACME)
+15. SSL/TLS and the Handshake
+16. Cryptographic Attacks (Algorithm, Collision/Birthday, Quantum)
+- Deep Dive: Symmetric vs. Asymmetric
+- Knowledge Check Q&A
+- Lab Playbook (Copy-Paste)
+
+**Key Terms:** confidentiality, integrity, authentication, non-repudiation, availability, steganography, plaintext, ciphertext, cleartext, key, cipher, Kerckhoffs, Shannon, stream cipher, block cipher, sponge function, Caesar/shift cipher, substitution cipher, ROT13, ciphertext-only, known-plaintext, chosen-plaintext, chosen-ciphertext, XOR, One-Time Pad, OTP, Gen/Enc/Dec, keystream, RC4, CSS, ECB, CBC, IV, DES, 3DES, AES, Blowfish, Twofish, hash, digest, pre-image resistance, second pre-image, collision resistance, avalanche effect, MD5, SHA-1, SHA-256, SHA-384, SHA-512, SHA-3, RIPEMD-160, MAC, HMAC, ipad, opad, length extension attack, JWT, Header.Payload.Signature, Base64URL, HMACSHA256, JWE, iss/sub/aud/exp/iat, asymmetric, public key, private key, hybrid, RSA, factoring, ECC, elliptic curve discrete log, digital signature, Diffie-Hellman, DH, DHE, ECDH, Perfect Forward Secrecy, PFS, SSH, authorized_keys, PKI, X.509, digital certificate, CA, CRL, CSR, root CA, intermediate CA, DV/OV/EV, ACME, Let's Encrypt, TLS, SSL, handshake, ClientHello, ServerHello, pre-master secret, downgrade attack, frequency analysis, diffusion, confusion, collision, birthday attack, Shor's algorithm, Grover's algorithm, PQC, QKD, OpenSSL, openssl genrsa, openssl req, openssl enc, openssl dgst, openssl x509
 
 ---
 
@@ -617,24 +638,6 @@ A **collision** occurs when two different inputs produce the same hash digest.
 
 ---
 
-## Key Takeaways for the Exam
-
-1. **Cryptography hides meaning; steganography hides existence.**
-2. **OTP** = theoretically unbreakable, but impractical (key = message length, used once only).
-3. **ECB mode** is insecure (identical blocks → identical ciphertext). **CBC** is secure (IV + chaining).
-4. **Hash functions** are one-way: MD5/SHA-1 are **broken**; use SHA-256 or SHA-3.
-5. **HMAC**: $H((K \oplus opad) \| H((K \oplus ipad) \| m))$ — double hash for MAC authenticity.
-6. **JWT**: Header.Payload.Signature — Base64URL-encoded; Signature = HMACSHA256(header + "." + payload, secret).
-7. **Encrypt** with recipient's **public key**; **Sign** with sender's **private key**.
-8. **RSA** = based on factoring; **ECC** = based on elliptic curve discrete log; ECC gives equivalent security with ~6× smaller keys.
-9. **Digital signatures**: sign hash with private key; verify with public key; does NOT encrypt the message.
-10. **PKI**: CA signs certificates binding public key to identity; ACME automates certificate issuance.
-11. **Birthday attack**: collisions found in $O(2^{n/2})$ operations (not $O(2^n)$) — use long digests.
-12. **Hybrid encryption**: asymmetric for key exchange + symmetric for bulk data.
-13. **Downgrade attack**: force a weaker protocol version; mitigated by disabling old protocol versions.
-
----
-
 ## Knowledge Check Q&A
 
 **Q1**: What is the difference between a stream cipher and a block cipher?  
@@ -654,6 +657,152 @@ A **collision** occurs when two different inputs produce the same hash digest.
 
 **Q6**: What is a birthday attack?  
 **A**: An attack exploiting the birthday paradox — finding any collision between two inputs is much easier than finding an input that collides with a specific target. For an $n$-bit digest, only $O(2^{n/2})$ operations are needed.
+
+---
+
+## Lab Playbook (Copy-Paste)
+
+> Placeholders: `<file>` = input/output filename, `<key>` = key file, `<pass>` = password/passphrase, `<bits>` = key size, `<domain>` = CN/hostname. Replace before running.
+
+### RSA / Key Generation
+
+```bash
+# Generate RSA private key (2048-bit)
+openssl genrsa -out private.key 2048
+
+# Generate RSA private key (4096-bit)
+openssl genrsa -out private.key 4096
+
+# Generate ENCRYPTED RSA private key (AES-256, prompts for passphrase)
+openssl genrsa -aes256 -out private.key 2048
+
+# Extract the public key from a private key
+openssl rsa -in private.key -pubout -out public.key
+
+# View private key details
+openssl rsa -in private.key -text -noout
+
+# Generate an EC (elliptic curve) private key (prime256v1 / P-256)
+openssl ecparam -genkey -name prime256v1 -out ec_private.key
+```
+
+### CSR and Certificates (req / x509 / ca)
+
+```bash
+# Generate a Certificate Signing Request (CSR) from existing key
+openssl req -new -key private.key -out request.csr
+
+# Generate CSR non-interactively with subject inline
+openssl req -new -key private.key -out request.csr \
+  -subj "/C=VN/ST=Hanoi/O=HUST/CN=<domain>"
+
+# View CSR contents
+openssl req -text -in request.csr -noout
+
+# Sign the CSR with a CA (CA signs the CSR)
+openssl ca -in request.csr -out certificate.crt
+
+# Generate a SELF-SIGNED certificate (key + cert in one step, 365 days)
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes \
+  -subj "/CN=<domain>"
+
+# Self-sign an existing CSR with an existing key
+openssl x509 -req -in request.csr -signkey private.key -out certificate.crt -days 365
+
+# View certificate contents
+openssl x509 -text -in certificate.crt -noout
+
+# Show only specific cert fields
+openssl x509 -in certificate.crt -noout -subject -issuer -dates -serial
+
+# Inspect a remote server's certificate (TLS)
+openssl s_client -connect <domain>:443 -servername <domain> </dev/null 2>/dev/null | openssl x509 -noout -text
+```
+
+### Symmetric Encryption / Decryption (enc)
+
+```bash
+# Encrypt a file with AES-256-CBC (prompts for password)
+openssl enc -aes-256-cbc -salt -in <file> -out <file>.enc
+
+# Decrypt that file
+openssl enc -d -aes-256-cbc -in <file>.enc -out <file>
+
+# Encrypt with password supplied inline (avoid prompt)
+openssl enc -aes-256-cbc -salt -pbkdf2 -pass pass:<pass> -in <file> -out <file>.enc
+
+# Decrypt with inline password
+openssl enc -d -aes-256-cbc -pbkdf2 -pass pass:<pass> -in <file>.enc -out <file>
+
+# Base64-encode/-decode output (-a flag)
+openssl enc -aes-256-cbc -a -salt -in <file> -out <file>.b64
+```
+
+### Hashing & Digests (dgst)
+
+```bash
+# Compute SHA-256 of a file
+openssl dgst -sha256 <file>
+sha256sum <file>
+
+# Compute MD5 / SHA-1 / SHA-512
+openssl dgst -md5 <file>
+openssl dgst -sha1 <file>
+openssl dgst -sha512 <file>
+
+# Hash a string directly (no trailing newline)
+printf '%s' "<string>" | openssl dgst -sha256
+echo -n "<string>" | sha256sum
+```
+
+### HMAC
+
+```bash
+# HMAC-SHA256 of a file with a secret key
+openssl dgst -sha256 -hmac "<secret>" <file>
+
+# HMAC-SHA256 of a string
+printf '%s' "<message>" | openssl dgst -sha256 -hmac "<secret>"
+
+# JWT signature (HS256): sign base64url(header).base64url(payload) with secret
+printf '%s' "<b64header>.<b64payload>" | openssl dgst -sha256 -hmac "<secret>" -binary | openssl base64 -A | tr '+/' '-_' | tr -d '='
+```
+
+### Hash Cracking / Password Tools
+
+```bash
+# Crack hashes with John the Ripper (auto-detect format)
+john --wordlist=/usr/share/wordlists/rockyou.txt hashes.txt
+john --show hashes.txt
+
+# Crack with hashcat (mode 0 = MD5, 100 = SHA1, 1400 = SHA256, 3200 = bcrypt)
+hashcat -m 0 -a 0 hashes.txt /usr/share/wordlists/rockyou.txt
+hashcat -m 1400 -a 0 hashes.txt /usr/share/wordlists/rockyou.txt --show
+
+# Identify a hash type
+hashid '<hash>'
+
+# Decode/inspect a JWT (split on dots, base64url-decode header & payload)
+echo '<jwt>' | cut -d. -f1 | base64 -d 2>/dev/null
+echo '<jwt>' | cut -d. -f2 | base64 -d 2>/dev/null
+# Brute-force JWT HS256 secret
+john jwt.txt --wordlist=/usr/share/wordlists/rockyou.txt --format=HMAC-SHA256
+```
+
+### Base64 / Encoding Helpers
+
+```bash
+# Base64 encode / decode
+echo -n "<string>" | base64
+echo "<b64>" | base64 -d
+
+# ROT13
+echo "<string>" | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+
+# XOR two hex strings / quick hex
+echo -n "<string>" | xxd -p          # to hex
+echo "<hex>" | xxd -r -p             # from hex
+```
 
 ---
 

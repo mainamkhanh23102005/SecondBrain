@@ -6,9 +6,24 @@
 
 ---
 
-## Executive Summary
+## Quick Lookup Index
 
-Networks are the primary attack surface of modern computing. This document covers the **Internet address system** (MAC, IP, ports, domains), the **ARP and DNS protocols and their vulnerabilities**, **TCP connection security** (sequence numbers, session hijacking), **Denial-of-Service attacks** (SYN flood, Smurf, DDoS), **cryptographic network protection** (IPsec, SSL/SSH), and **firewall and network segregation** (packet filtering, application layer firewalls, iptables). The central insight is that most foundational Internet protocols (ARP, DNS, TCP sequence numbers) were designed without authentication — making them inherently vulnerable to spoofing attacks.
+**Sections:**
+1. Types of Addresses in the Internet (MAC, IP, Port, Domain)
+2. Routing and Address Translation (ARP, DNS, Reverse DNS, BGP)
+3. Threats in Networking (CIA threats, root causes)
+4. Address Resolution Protocol (ARP) (How it works, ARP spoofing, defenses)
+5. Packet Sniffing (promiscuous mode)
+6. TCP Protocol and Session Hijacking (sequence numbers, 3-way handshake, prediction, blind hijacking, RST DoS)
+7. Denial-of-Service (DoS) Attacks (SYN flood, Smurf, DDoS, reflection)
+8. DNS Security (hierarchy, resolution, cache poisoning, pharming)
+9. Cryptographic Network Protection (SSL/TLS, SSH, ISN, IPsec)
+10. Firewall and Network Segregation (firewall types, packet filtering, iptables, whitelist/blacklist)
+- Deep Dive: Why Unauthenticated Protocols Are the Core Problem
+- Knowledge Check Q&A
+- Lab Playbook (Copy-Paste)
+
+**Key Terms:** MAC address, IP address, port, domain name, ARP, NDP, DNS, reverse DNS, BGP, promiscuous mode, packet sniffing, ngrep, telnet, ftp, cleartext, ARP spoofing, ARP poisoning, ARP cache, static ARP, DHCP certification, arpwatch, Dynamic ARP Inspection, DAI, DHCP snooping, TCP, sequence number, ISN, acknowledgment number, SYN, ACK, SYN-ACK, three-way handshake, sequence prediction, RFC 1948, blind session hijacking, session hijacking, RST, MITM, replay, DoS, DDoS, SYN flood, half-open connection, Smurf, ICMP Echo, broadcast address, botnet, reflection, pulsing zombie, amplification, DNS hierarchy, root server, TLD server, authoritative server, recursive resolver, iterative, recursive, TTL, DNS cache poisoning, transaction ID, BIND, pharming, phishing, DNSSEC, IPsec, SSL, TLS, SSH, SFTP, FTPS, firewall, personal firewall, network firewall, packet filtering, stateless, stateful, application layer firewall, proxy server, interceptor, Deep Packet Inspection, DPI, WAF, ModSecurity, iptables, ufw, firewalld, awall, INPUT, OUTPUT, FORWARD, DROP, ACCEPT, REJECT, LOG, default policy, blacklist, whitelist, default-deny, default-accept, netcat, nc, tcpdump
 
 ---
 
@@ -482,22 +497,6 @@ The root cause of most network attacks is that foundational Internet protocols w
 
 ---
 
-## Key Takeaways for the Exam
-
-1. **Four address types**: MAC (Layer 2), IP (Layer 3), IP+Port (Layer 4), Domain name (Application).
-2. **ARP has no authentication** → ARP spoofing redirects all traffic to attacker; defend with static ARP or DAI.
-3. **TCP SYN flood**: spoofed SYN requests exhaust half-open connection state table.
-4. **Smurf attack**: ping broadcast with victim as source → amplification attack.
-5. **DNS has no authentication** → cache poisoning via forged responses; defend with DNSSEC.
-6. **TCP sequence prediction**: old implementations used sequential ISNs; RFC 1948 mandates random ISNs.
-7. **IPsec** operates at network layer — can protect against both session hijacking AND DoS via session reset.
-8. **Stateless vs. stateful packet filtering**: stateful knows connection state; stateless treats each packet independently.
-9. **iptables chains**: INPUT (inbound), OUTPUT (outbound), FORWARD (routing).
-10. **Whitelist > blacklist**: default-deny is more secure than default-accept.
-11. **DNSSEC** adds cryptographic signatures to DNS records — but does NOT encrypt DNS (confidentiality not provided).
-
----
-
 ## Knowledge Check Q&A
 
 **Q1**: What is ARP spoofing and why is it possible?  
@@ -517,6 +516,157 @@ The root cause of most network attacks is that foundational Internet protocols w
 
 **Q6**: How does IPsec provide stronger protection than SSL/TLS for preventing session hijacking?  
 **A**: IPsec operates at the network (IP) layer and authenticates every packet — including the IP header. This prevents IP spoofing and TCP sequence prediction attacks. SSL/TLS operates above TCP and cannot protect against spoofed packets at the network layer.
+
+---
+
+## Lab Playbook (Copy-Paste)
+
+> Placeholders: `<ip>` = target/source IP, `<ip/prefix>` = CIDR (e.g. `192.168.1.0/24`), `<port>` = TCP/UDP port, `<iface>` = interface (e.g. `eth0`), `<domain>` = hostname. Most commands need `sudo`/root.
+
+### iptables — Inspect
+
+```bash
+# List all rules (numeric, no DNS lookups)
+iptables -nL
+
+# List INPUT chain rules with line numbers
+iptables -nL INPUT --line-numbers
+
+# List with packet/byte counters and verbose detail
+iptables -nvL
+
+# Flush (delete) all rules in all chains
+iptables -F
+```
+
+### iptables — Default Policies
+
+```bash
+# Set default policy for a chain (applies when no rule matches)
+iptables -P INPUT ACCEPT
+iptables -P INPUT DROP
+iptables -P OUTPUT ACCEPT
+iptables -P FORWARD DROP
+```
+
+### iptables — Add / Delete Rules (INPUT / OUTPUT / FORWARD)
+
+```bash
+# Append (-A) rule: DROP all TCP from a specific IP/prefix
+iptables -A INPUT -s <ip/prefix> -p tcp -j DROP
+
+# Append: ACCEPT SSH (port 22) from anywhere
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+
+# Append: ACCEPT HTTP/HTTPS
+iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+
+# Insert (-I) rule at top of chain (position 1)
+iptables -I INPUT 1 -s <ip> -j DROP
+
+# REJECT (send ICMP error back) instead of silent DROP
+iptables -A INPUT -p tcp --dport <port> -j REJECT
+
+# LOG matching packets (continues to next rule afterward)
+iptables -A INPUT -s <ip> -j LOG --log-prefix "BLOCKED: "
+
+# Allow already-established / related connections (stateful)
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# Allow loopback
+iptables -A INPUT -i lo -j ACCEPT
+
+# OUTPUT chain: block outbound to an IP
+iptables -A OUTPUT -d <ip> -j DROP
+
+# FORWARD chain: allow routed traffic between subnets
+iptables -A FORWARD -s <ip/prefix> -d <ip/prefix> -j ACCEPT
+
+# Delete a rule by spec (same as -A but with -D), or by line number
+iptables -D INPUT -s <ip> -j DROP
+iptables -D INPUT 2
+```
+
+### iptables — Blacklist vs Whitelist
+
+```bash
+# Blacklist (default-accept): block known-bad
+iptables -P INPUT ACCEPT
+iptables -A INPUT -s 192.168.1.100 -j DROP
+
+# Whitelist (default-deny, more secure): allow only known-good
+iptables -P INPUT DROP
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+```
+
+### Testing Connectivity (netcat)
+
+```bash
+# Server side: listen on a port
+nc -l <port>
+nc -lvp <port>          # verbose, persistent listen
+
+# Client side: connect to a server
+nc <ip> <port>
+
+# Quick port-open check
+nc -zv <ip> <port>
+```
+
+### Packet Sniffing (tcpdump / ngrep)
+
+```bash
+# Capture on an interface (no name resolution)
+tcpdump -i <iface> -n
+
+# Capture only a specific host / port
+tcpdump -i <iface> -n host <ip>
+tcpdump -i <iface> -n port <port>
+
+# Print packet payload in ASCII / hex
+tcpdump -i <iface> -nA port <port>      # ASCII
+tcpdump -i <iface> -nX port <port>      # hex + ASCII
+
+# Write / read a capture file
+tcpdump -i <iface> -w capture.pcap
+tcpdump -r capture.pcap
+
+# Capture cleartext creds (ftp/telnet) with ngrep
+ngrep -d <iface> -q -W byline "USER|PASS" port 21
+```
+
+### ARP / DNS Tools
+
+```bash
+# View / inspect the ARP cache
+arp -a
+ip neigh show
+
+# Add a STATIC ARP entry (defense against spoofing)
+arp -s <ip> <mac>
+ip neigh add <ip> lladdr <mac> dev <iface>
+
+# ARP spoofing with arpspoof (dsniff) — MITM between target and gateway
+echo 1 > /proc/sys/net/ipv4/ip_forward
+arpspoof -i <iface> -t <target_ip> <gateway_ip>
+
+# DNS lookups
+dig <domain>
+dig <domain> +short
+dig @<dns_server> <domain>
+nslookup <domain>
+
+# Reverse DNS
+dig -x <ip>
+
+# Inspect a domain's records / TTL
+dig <domain> ANY
+host <domain>
+```
 
 ---
 

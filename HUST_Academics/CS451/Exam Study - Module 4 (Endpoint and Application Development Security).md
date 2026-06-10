@@ -6,9 +6,18 @@
 
 ---
 
-## Executive Summary
+## Quick Lookup Index
 
-This module covers three interrelated topics: (1) **Threat Intelligence Sources** — where organizations get information about emerging threats; (2) **Securing Endpoint Computers** — the three-stage process of Confirm, Protect, and Harden; and (3) **SecDevOps and Application Development Security** — integrating security into the software development lifecycle. The central insight is that **endpoint security cannot rely on a single tool**: effective defense requires layered controls that confirm the device started securely, protect it from ongoing attacks, and continuously harden it against future threats.
+**Sections:**
+1. Threat Intelligence Sources
+2. Securing Endpoint Computers (Confirm / Protect / Harden)
+3. Creating and Deploying SecDevOps
+- Deep Dive: SecDevOps vs. Traditional Development
+- Deep Dive: The Chain of Trust — Why Boot Security Starts at Hardware
+- Knowledge Check Q&A
+- Graph View Links
+
+**Key Terms:** KRI, IOC, predictive analysis, OSINT, CISCP, AIS, STIX, TAXII, closed source, vetting, vulnerability database, NVD, threat maps, file/code repositories, dark web, clear web, deep web, boot integrity, BIOS, UEFI, Secure Boot, BIOS attack, boot security, chain of trust, hardware root of trust, TPM, HSM, AV, static analysis, dynamic analysis, antimalware, Bayesian filtering, antispyware, secure cookies, SSL/TLS, HTTP Response Headers, HIDS, HIPS, EDR, patch management, forced updates, OS security, least functionality, security template, Tamper Protection, Group Policy, confinement tools, whitelisting, blacklisting, sandbox, quarantine, directory traversal, command injection, software diversity, provisioning, deprovisioning, integrity measurement, waterfall model, agile model, DevOps, SecDevOps, SDLC, 5 Cs, continuous monitoring/validation/integration/delivery/deployment, secure coding, static code analysis, dynamic code analysis, fuzzing
 
 ---
 
@@ -331,22 +340,6 @@ If any link in this chain cannot be verified, the system halts. This is why:
 - **Secure Boot** (UEFI feature) prevents unsigned boot software from running.
 - **TPM (Trusted Platform Module)** stores cryptographic measurements of the boot process — any tampering changes these measurements, triggering a boot failure.
 - **HSM (Hardware Security Module)** provides hardware-based key storage that malware cannot access.
-
----
-
-## Key Takeaways for the Exam
-
-1. **KRI** tracks bounds of normal activity; when exceeded, becomes an **IOC** indicating a potential attack.
-2. **OSINT/CISCP** = open source sharing; **closed source** = proprietary, vetted private networks.
-3. **STIX** = format/language for threat intelligence; **TAXII** = transport protocol for sharing it.
-4. **Three layers of web**: clear → deep → dark.
-5. **Boot integrity chain**: hardware root of trust → UEFI/bootloader → drivers → OS.
-6. **AV**: static analysis (signatures) vs. dynamic analysis (behavior/heuristics).
-7. **HIDS** = detects; **HIPS** = blocks immediately; **EDR** = most powerful (multi-endpoint analytics).
-8. **OS hardening**: disable unused ports/services, remove default passwords, least functionality.
-9. **Confinement tools**: whitelist/blacklist, sandbox, quarantine.
-10. **SecDevOps 5 Cs**: Continuous Monitoring, Validation, Integration, Delivery, Deployment.
-11. **Static code analysis** = before compilation; **dynamic code analysis** = running code; **fuzzing** = random inputs.
 
 ---
 
