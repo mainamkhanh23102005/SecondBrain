@@ -17,9 +17,20 @@ The mechanism is the **virtual function**. From the textbook: *"A virtual functi
 virtual char getLetterGrade() const;
 ```
 
-This is the contrast that examiners test:
-- **Static binding** — *"matching a function call with a function at compile time"* (§15.3). Without `virtual`, the compiler chooses the function from the **pointer's declared type** → it would always call the base version.
-- **Dynamic binding** — with `virtual`, the choice is deferred to **runtime**, based on the **actual object type**. A `GradedActivity*` that really points to a `PassFailActivity` calls `PassFailActivity::getLetterGrade`.
+This is the contrast that examiners test (the lecturer's slides call these **Early Binding** vs **Late Binding**):
+- **Early Binding (Static Typing)** — the slide's wording: *"Method calls are resolved based on the pointer's type, not the actual object it points to."* Without `virtual`, the compiler binds the call at **compile time** to the **pointer's declared type** → it always calls the base version.
+- **Late Binding (Dynamic Binding)** — *"C++ introduces virtual functions to implement late binding."* With `virtual`, the choice is deferred to **runtime**, based on the **actual object type**. A `GradedActivity*` that really points to a `PassFailActivity` calls `PassFailActivity::getLetterGrade`.
+
+The lecturer demonstrates this with a minimal `BaseClass`/`DerivedClass` `display()` example:
+
+```cpp
+class BaseClass    { public: virtual void display(){ cout << "Base";   } };  // virtual!
+class DerivedClass : public BaseClass { public: void display(){ cout << "Derived"; } };
+
+DerivedClass d;
+BaseClass* basePtr = &d;   // a base pointer holding a derived object
+basePtr->display();        // NO virtual → "Base" (early);  WITH virtual → "Derived" (late)
+```
 
 ```
 Same pointer type, different objects → different function runs:
@@ -28,8 +39,8 @@ Same pointer type, different objects → different function runs:
                          │ a PassFailActivity    │   p->getLetterGrade()
                          │ object                │      │
                          └──────────────────────┘      ▼
-   WITHOUT virtual:  decided by the POINTER type → GradedActivity::getLetterGrade  (A/B/C..)  ✗ wrong
-   WITH    virtual:  decided by the OBJECT  type → PassFailActivity::getLetterGrade (P/F)     ✓ right
+   WITHOUT virtual (EARLY binding): decided by the POINTER type → GradedActivity::getLetterGrade  (A/B/C..) ✗
+   WITH    virtual (LATE  binding): decided by the OBJECT  type → PassFailActivity::getLetterGrade (P/F)    ✓
 ```
 
 > **Critical requirement (textbook §15.3):** *"Polymorphism Requires References or Pointers."* If you pass/store an object **by value**, the derived part is sliced off (**object slicing**) and you lose the overridden behaviour. That is exactly why the mystery function uses an **array of pointers**.
@@ -40,6 +51,16 @@ GradedActivity            (numeric score → A/B/C/D/F)
    └── PassFailActivity   (score ≥ minPassingScore → 'P' else 'F')   [overrides getLetterGrade]
           └── PassFailExam (computes the numeric score from #questions & #missed)
 ```
+
+> **Constructor / destructor order (from the slides):** *"When an object of a derived class is created, the base class's constructor is executed first, followed by the derived class's constructor. When it is destroyed, its own destructor is called first, then that of the base class."* So construction runs **base → derived**, and destruction runs **derived → base** (the reverse).
+>
+> ```
+> new PassFailExam(...)        delete a PassFailExam
+>   GradedActivity()             ~PassFailExam()
+>   PassFailActivity()    vs     ~PassFailActivity()
+>   PassFailExam()               ~GradedActivity()
+>   (base → derived)             (derived → base)
+> ```
 
 ---
 

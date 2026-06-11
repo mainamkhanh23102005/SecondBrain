@@ -137,19 +137,23 @@ Bypass it:  previousNode->next = nodePtr->next   (5 now points straight to 15)
 
 ## Q2. Explain the primary purpose of the following functions
 
+> **These are straight from the lecturer's Recursion deck (Ch.19).** Function 1 is the slide's `countNodes(...)` (slide 18) and Function 2 is the slide's `showReverse(...)` (slide 20) — use those exact names in the exam. The lecturer states the algorithms as:
+> - **Count:** *"Pointer starts at head of list. If pointer is NULL, return 0 (base case); else return 1 + number of nodes in the list pointed to by the current node."*
+> - **Reverse display:** *"Pointer starts at head. If the pointer is NULL, return (base case). If not NULL, advance to the next node; upon returning from the recursive call, display the contents of the current node."*
+
 | # | What it really is | Purpose | Note |
 |---|---|---|---|
-| 1 | **Recursive node count** | Returns the number of nodes: `1 + count(next)`, base case `nullptr → 0` | $O(n)$ time, uses $O(n)$ call-stack |
-| 2 | **Recursive reverse-print** | Recurses to the end **first**, then prints while returning → prints values in **reverse order**. Does **not** modify the list | Uses the call stack to remember order |
-| 3 | **Iterative in-place reversal** | Reverses the actual links with three pointers (`prev`, `curr`, `next`), then `head = prev`. The list itself is permanently reversed | $O(n)$ time, $O(1)$ space |
+| 1 | **`countNodes` — recursive node count** | Returns the number of nodes: `1 + countNodes(next)`, base case `nullptr → 0` | $O(n)$ time, uses $O(n)$ call-stack |
+| 2 | **`showReverse` — recursive reverse-display** | Recurses to the end **first**, then displays while returning → prints values in **reverse order**. Does **not** modify the list | Uses the call stack to remember order |
+| 3 | **`reverseList` — iterative in-place reversal** | Reverses the actual links with three pointers (`prev`, `curr`, `next`), then `head = prev`. The list itself is permanently reversed | $O(n)$ time, $O(1)$ space |
 
 ```cpp
-// Function 1 — recursive count
+// Function 1 — countNodes (recursive count)
 if (nodePtr != nullptr) return 1 + countNodes(nodePtr->next);
 else                    return 0;                 // base case
 
-// Function 2 — recursive reverse PRINT (recurse first, then print)
-if (nodePtr != nullptr) { printReverse(nodePtr->next); cout << nodePtr->value << " "; }
+// Function 2 — showReverse (recurse FIRST, then display)
+if (nodePtr != nullptr) { showReverse(nodePtr->next); cout << nodePtr->value << " "; }
 
 // Function 3 — iterative in-place REVERSE of the links
 while (curr != nullptr) {
@@ -164,11 +168,11 @@ head = prev;             // prev is the old tail = new head
 **Function 2 — how the call stack prints in reverse** (recurse first, print on the way back):
 
 ```
-printReverse(10 ▶ 20 ▶ 30)
+showReverse(10 ▶ 20 ▶ 30)
  │  recurse BEFORE printing...
- ├─▶ printReverse(20 ▶ 30)
- │    ├─▶ printReverse(30)
- │    │    ├─▶ printReverse(NULL)  → base case, returns
+ ├─▶ showReverse(20 ▶ 30)
+ │    ├─▶ showReverse(30)
+ │    │    ├─▶ showReverse(NULL)  → base case, returns
  │    │    └─ print 30        ◀── deepest call prints FIRST
  │    └─ print 20
  └─ print 10                  ◀── first call prints LAST
@@ -208,7 +212,7 @@ Finally: head = prev (30)   →   30 ▶ 20 ▶ 10 ▶ ╳
 
 ## Q3. Integrate these functions into the project and run a demo
 
-**Full runnable files:** `code/Topic4_LinkedList/` — `NumberList.{h,cpp}` (the three functions are integrated as `countNodes`, `printReverse`, `reverseList`), `main.cpp`.
+**Full runnable files:** `code/Topic4_LinkedList/` — `NumberList.{h,cpp}` (the three functions are integrated as `countNodes`, `showReverse`, `reverseList`), `main.cpp`.
 **Build & run:**
 ```bash
 g++ -std=c++11 main.cpp NumberList.cpp -o demo && ./demo
@@ -219,7 +223,7 @@ NumberList list;
 for (int x = 1; x <= 5; x++) list.insertNode(x);  // -> 1 2 3 4 5
 list.displayList();
 cout << list.countNodes() << endl;                 // Function 1
-list.printReverse();                               // Function 2
+list.showReverse();                               // Function 2
 list.reverseList();                                // Function 3
 list.displayList();
 ```
@@ -228,7 +232,7 @@ list.displayList();
 ```
 Original list (head -> tail): 1 2 3 4 5
 countNodes()  [Function 1] = 5
-printReverse()[Function 2] = 5 4 3 2 1
+showReverse()[Function 2] = 5 4 3 2 1
 After reverseList() [Function 3]: 5 4 3 2 1
 ```
 

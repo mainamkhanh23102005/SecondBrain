@@ -21,11 +21,11 @@ public:
 
     // --- Integrated mystery functions ---
     int  countNodes(ListNode *nodePtr) const;    // Function 1: recursive count
-    void printReverse(ListNode *nodePtr) const;  // Function 2: recursive reverse-print
+    void showReverse(ListNode *nodePtr) const;  // Function 2: recursive reverse-print
     void reverseList();                          // Function 3: iterative in-place reverse
 
     // Public wrappers so main() can call the recursive ones without touching head
     int  countNodes()   const { return countNodes(head); }
-    void printReverse() const { printReverse(head); }
+    void showReverse() const { showReverse(head); }
 };
 #endif

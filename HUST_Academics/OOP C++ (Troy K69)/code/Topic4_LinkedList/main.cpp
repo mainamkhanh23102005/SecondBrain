@@ -15,8 +15,8 @@ int main()
 
     cout << "countNodes()  [Function 1] = " << list.countNodes() << endl;
 
-    cout << "printReverse()[Function 2] = ";
-    list.printReverse();
+    cout << "showReverse()[Function 2] = ";
+    list.showReverse();
     cout << endl;
 
     list.reverseList();                      // Function 3

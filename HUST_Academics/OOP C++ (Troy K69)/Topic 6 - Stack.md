@@ -11,6 +11,8 @@
 
 **Background (Gaddis §18.1):** *"A stack is a data structure that stores and retrieves items in a last-in-first-out manner."* A stack is **LIFO**: *"the last element inserted into the stack is the first one retrieved."* The textbook's image is a stack of cafeteria plates — *"the first one he or she puts on the stack is the last one taken off."* All access happens at one end, the **top**.
 
+> **Lecturer's terminology (CS256 slides):** *push* = "add a value onto the top of the stack"; *pop* = "remove a value from the top"; *isFull* = "true if the stack has no more space"; *isEmpty* = "true if the stack contains no elements". Implementation can be **static** (fixed size, array — used here) or **dynamic** (variable size, linked list).
+
 This implementation stores the elements in a dynamic array with a single index `top` (= the index of the current top element; **−1 means empty**).
 
 **The array + `top` index:**

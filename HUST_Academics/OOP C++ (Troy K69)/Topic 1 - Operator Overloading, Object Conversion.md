@@ -29,6 +29,19 @@ Key rules from the textbook:
 
 **Object conversion** — *"Special operator functions may be written to convert a class object to any other type"* (Gaddis §14.6). With built-in types, conversions happen automatically (e.g. assigning an `int` to a `double`). For your own class you teach the compiler how to convert your object into another type by writing a **conversion operator** of the form `operator TargetType() const`. After that, the compiler can implicitly (or explicitly) turn your object into that type — e.g. turning a `Point2D` into a `double`.
 
+**Rules from the lecturer's "Notes on Overloaded Operators" slide (Ch.14):**
+- *"Can change the meaning of an operator, but cannot change the number of operands."*
+- *"Only certain operators can be overloaded — cannot overload `?:`, `.`, `.*`, `::`, `sizeof`."*
+- *"`++`/`--` are overloaded differently for prefix vs. postfix."*
+- *"Overloaded **relational** operators should return a `bool`"* → that is why Function 1 (`operator==`) returns `bool`.
+- *"Overloaded **stream** operators `>>`, `<<` must return a reference to the istream/ostream object"* → that is why Function 4 returns `ostream&`.
+
+**Object Conversion — the lecturer's form (Ch.14 slide):** write a conversion operator named `operator TargetType()`. The slide's example converts a `FeetInches` object to an `int`:
+```cpp
+FeetInches::operator int() { return feet; }   // then:  int d = distance;  // distance is a FeetInches
+```
+Our Function 3, `operator double()`, is the same pattern converting a `Point2D` to a `double`.
+
 > **Why it matters:** both features make user-defined types *first-class citizens* — they read and behave like the language's own types, which makes code more intuitive and less error-prone.
 
 ---

@@ -11,6 +11,8 @@
 
 **Background (Gaddis §18.4):** *"A queue is a data structure that stores and retrieves items in a first-in-first-out manner."* A queue gives access to its elements in **FIFO** order, *"like customers standing in a grocery checkout line: the first customer in line is the first one served."* You **enqueue** (add) at the **rear** and **dequeue** (remove) from the **front**.
 
+> **Lecturer's terminology (CS256 slides):** *rear* = "position where elements are added"; *front* = "position from which elements are removed"; *enqueue* = "add an element to the rear"; *dequeue* = "remove an element from the front". Implementation can be **static** (fixed size, array — used here) or **dynamic** (variable size, linked list).
+
 This implementation uses a **circular array** with three trackers: `front` (index *one before* the first element, starts at −1), `rear` (index of the last element), and `numItems` (current count).
 
 **Picture the array as a ring** — after the last index, you wrap back to index 0:

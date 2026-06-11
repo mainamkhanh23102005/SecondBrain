@@ -17,7 +17,12 @@
 
 - **`catch`** — *"The try block is immediately followed by one or more catch blocks, which are the exception handlers. A catch block starts with the keyword catch, followed by a set of parentheses containing the definition of an exception parameter"* (§16.1). The runtime picks the **first catch whose type matches** the thrown object.
 
-How they work together: code in the `try` runs normally; if a called function `throw`s, the rest of the `try` is skipped and control jumps to the matching `catch`. Matching is **by type**, which is why custom exception classes (even empty ones) are useful — their *type* identifies the error. A `catch(...)` matches **any** exception and must be placed **last** (anything after it is unreachable).
+**Flow of control (the lecturer's exact 3 steps, Ch.16 slide 6):**
+1. A function that throws an exception is **called from within a `try` block**.
+2. If the function throws, **the function terminates and the `try` block is immediately exited** (the remaining statements in the `try` are skipped).
+3. A matching **`catch` block is searched for immediately after the `try`**. If one matches the thrown type, it runs; **if no matching `catch` is found, the program terminates.**
+
+Matching is **by type**, which is why custom exception classes (even empty ones) are useful — their *type* identifies the error. A `catch(...)` matches **any** exception and must be placed **last** (anything after it is unreachable).
 
 **The control flow — two paths through a try/catch:**
 
@@ -43,6 +48,18 @@ How they work together: code in the `try` runs normally; if a called function `t
   └──────────────────────┬────────────────────────┘
                          ▼  continue after the try
 ```
+
+> **Designing the exception class (slides 11 & 14):** an exception class may have **no members** — *"used only to signal an error"* (exactly our `class NegativeWidth { };`) — or it may **carry data** to pass error details to the `catch`. The data version stores a value and exposes it:
+> ```cpp
+> class NegativeWidth {
+>     double value;
+> public:
+>     NegativeWidth(double val) { value = val; }
+>     double getValue() const { return value; }   // catch reads e.getValue()
+> };
+> // throw NegativeWidth(w);   →   catch (Rectangle::NegativeWidth e) { cout << e.getValue(); }
+> ```
+> A single class *"can have more than one exception class"* — which is exactly why `Rectangle` defines both `NegativeWidth` and `NegativeLength`.
 
 ---
 
