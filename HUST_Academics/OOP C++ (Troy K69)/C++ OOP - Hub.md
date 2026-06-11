@@ -20,6 +20,8 @@ The actual **runnable code** lives in the [`code/`](code) folder, one subfolder 
 
 ## The 6 Topics
 
+> Each `code/TopicN_.../` folder has a **`README.md`** code walkthrough — every file, each function explained, and the execution flow when you run the demo.
+
 | # | Note | Code folder | Build command |
 |---|---|---|---|
 | 1 | [[Topic 1 - Operator Overloading, Object Conversion\|Operator Overloading & Object Conversion]] | `code/Topic1_OperatorOverloading/` | `g++ -std=c++11 main.cpp -o demo` |
