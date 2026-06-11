@@ -21,6 +21,17 @@ This is the contrast that examiners test:
 - **Static binding** — *"matching a function call with a function at compile time"* (§15.3). Without `virtual`, the compiler chooses the function from the **pointer's declared type** → it would always call the base version.
 - **Dynamic binding** — with `virtual`, the choice is deferred to **runtime**, based on the **actual object type**. A `GradedActivity*` that really points to a `PassFailActivity` calls `PassFailActivity::getLetterGrade`.
 
+```
+Same pointer type, different objects → different function runs:
+
+   GradedActivity* p ──▶ ┌──────────────────────┐
+                         │ a PassFailActivity    │   p->getLetterGrade()
+                         │ object                │      │
+                         └──────────────────────┘      ▼
+   WITHOUT virtual:  decided by the POINTER type → GradedActivity::getLetterGrade  (A/B/C..)  ✗ wrong
+   WITH    virtual:  decided by the OBJECT  type → PassFailActivity::getLetterGrade (P/F)     ✓ right
+```
+
 > **Critical requirement (textbook §15.3):** *"Polymorphism Requires References or Pointers."* If you pass/store an object **by value**, the derived part is sliced off (**object slicing**) and you lose the overridden behaviour. That is exactly why the mystery function uses an **array of pointers**.
 
 The hierarchy in this project:
@@ -54,6 +65,25 @@ void mysteryFunction()
     for (int i = 0; i < SIZE; i++) delete ptrArray[i];  // free each object
     delete[] ptrArray;                                   // free the pointer array
 }
+```
+
+**Memory picture — one array, two different object types:**
+
+```
+   ptrArray (array of GradedActivity*)
+   ┌──────────┬──────────┐
+   │ ptr[0] ● │ ptr[1] ● │   (on the heap: new GradedActivity*[2])
+   └────┼─────┴────┼─────┘
+        │          │
+        ▼          ▼
+  ┌──────────────┐  ┌──────────────────┐
+  │ PassFailExam │  │ PassFailActivity │   ← actual objects (also on the heap)
+  │ score = 75   │  │ score = 75       │
+  └──────────────┘  └──────────────────┘
+        │                  │
+   ptr[i]->getLetterGrade() picks each object's OWN version (virtual):
+        ▼                  ▼
+   'F' (75 < 80)      'F' (75 < 80)     ← pass/fail logic, NOT base A/B/C..
 ```
 
 **Primary purpose:** it **demonstrates runtime polymorphism through a container of base-class pointers**. A single uniform loop drives objects of *different* concrete types, and because `getLetterGrade()` is `virtual`, each element automatically runs **its own** version (dynamic binding). It also shows the matching **two-step cleanup** for dynamic memory: `delete` each object, then `delete[]` the array of pointers.

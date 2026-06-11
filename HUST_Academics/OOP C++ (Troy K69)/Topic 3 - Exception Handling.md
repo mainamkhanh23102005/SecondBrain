@@ -19,6 +19,31 @@
 
 How they work together: code in the `try` runs normally; if a called function `throw`s, the rest of the `try` is skipped and control jumps to the matching `catch`. Matching is **by type**, which is why custom exception classes (even empty ones) are useful — their *type* identifies the error. A `catch(...)` matches **any** exception and must be placed **last** (anything after it is unreachable).
 
+**The control flow — two paths through a try/catch:**
+
+```
+  ┌─────────── NORMAL PATH (no error) ───────────┐
+  │  try {                                        │
+  │      setWidth(val);   ✓                       │
+  │      setLength(val);  ✓                       │
+  │  }                                            │
+  │  catch(NegativeWidth) { ... }  ── skipped     │
+  │  catch(...)           { ... }  ── skipped     │
+  └──────────────────────┬───────────────────────┘
+                         ▼  continue after the try
+
+
+  ┌─────────── ERROR PATH (setWidth throws) ──────┐
+  │  try {                                         │
+  │      setWidth(val);   ✗ THROW NegativeWidth ──┼──┐  rest of try abandoned
+  │      setLength(val);   ··· never runs          │  │  (setLength skipped!)
+  │  }                                             │  │
+  │  catch(NegativeWidth) { setWidth(0); } ◀───────┼──┘  jump to matching catch
+  │  catch(...)           { ... }  ── not reached  │
+  └──────────────────────┬────────────────────────┘
+                         ▼  continue after the try
+```
+
 ---
 
 ## Q2. Explain the primary purpose of the following function
