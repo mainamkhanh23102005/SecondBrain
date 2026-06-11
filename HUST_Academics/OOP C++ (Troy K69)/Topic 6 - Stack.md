@@ -13,13 +13,44 @@
 
 This implementation stores the elements in a dynamic array with a single index `top` (= the index of the current top element; **−1 means empty**).
 
+**The array + `top` index:**
+
+```
+index:    0     1     2     3     4
+        ┌────┬────┬────┬────┬────┐
+        │ 5  │ 10 │ 15 │    │    │   stackSize = 5
+        └────┴────┴────┴────┴────┘
+          ▲           ▲
+        bottom       top = 2   (the element you can pop)
+
+  empty stack:  top = -1     full stack:  top = stackSize - 1 (= 4)
+```
+
 **`push(num)` — add to the top.**
 1. If `isFull()`, report the stack is full.
 2. Otherwise increment first, then store: `top++; stackArray[top] = num;`.
 
+```
+push(20)         top++  →  3, then write at index 3
+        ┌────┬────┬────┬────┬────┐
+        │ 5  │ 10 │ 15 │ 20 │    │
+        └────┴────┴────┴────┴────┘
+                            ▲
+                          top = 3
+```
+
 **`pop(num)` — remove from the top.**
 1. If `isEmpty()`, report the stack is empty.
 2. Otherwise read first, then shrink: `num = stackArray[top]; top--;`.
+
+```
+pop()    read stackArray[3]=20, then top--  →  2
+        ┌────┬────┬────┬────┬────┐
+        │ 5  │ 10 │ 15 │(20)│    │   (20) still in memory but
+        └────┴────┴────┴────┴────┘    logically gone (top moved back)
+                       ▲
+                     top = 2
+```
 
 **`isFull()`** → returns `top == stackSize - 1` (the top index reached the last slot).
 **`isEmpty()`** → returns `top == -1` (no valid element yet).
@@ -49,6 +80,39 @@ if (k < 1 || k > top + 1) return false;     // validate: k in 1..(#elements)
 int targetIndex = top - k + 1;              // "k from top" -> array index
 for (int i = targetIndex; i < top; i++) stackArray[i] = stackArray[i + 1];
 top--;
+```
+
+**Function 2 — `removeBottom()` shifts everything down by one:**
+
+```
+start:  ┌────┬────┬────┬────┐          top = 3
+        │ 5  │ 10 │ 15 │ 20 │
+        └────┴────┴────┴────┘
+          ▲ remove the bottom (index 0)
+
+shift:  stackArray[0]=stackArray[1], [1]=[2], [2]=[3]   (each slides left)
+        ┌────┬────┬────┬────┐
+        │ 10 │ 15 │ 20 │(20)│   then top--  → 2
+        └────┴────┴────┴────┘
+                       ▲ top = 2   result: 10 15 20
+```
+
+**Function 3 — `removeKthFromTop(k)` maps "k from top" to an index, then shifts:**
+
+```
+stack:  index   0    1    2    3
+              ┌────┬────┬────┬────┐     top = 3
+              │ 10 │ 15 │ 20 │ 25 │
+              └────┴────┴────┴────┘
+   k from top:  4    3    2    1
+                          ▲
+   removeKthFromTop(2):  targetIndex = top - k + 1 = 3 - 2 + 1 = 2  → value 20
+
+shift the elements ABOVE index 2 down:  stackArray[2] = stackArray[3]
+              ┌────┬────┬────┬────┐
+              │ 10 │ 15 │ 25 │(25)│   then top--  → 2
+              └────┴────┴────┴────┘
+                            ▲ top = 2   result: 10 15 25
 ```
 
 > **The teaching point:** push/pop are O(1) because they touch only the top, but Functions 2 and 3 deliberately remove from the **bottom/middle**, which an array stack cannot do cheaply — every element above the hole must be **shifted down** to keep storage contiguous, making them **O(n)**. The index math in Function 3 is the favourite oral question: the top element is at index `top` and counts as k=1, so the k-th from the top is at `top - k + 1`; the guard `k > top + 1` works because `top + 1` is the number of elements (top is 0-based, starting at −1).

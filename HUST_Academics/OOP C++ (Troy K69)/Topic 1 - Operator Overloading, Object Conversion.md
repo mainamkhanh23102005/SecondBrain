@@ -11,10 +11,21 @@
 
 **Operator overloading** — *"C++ allows you to redefine how standard operators work when used with class objects"* (Gaddis §14.5). C++ already knows how to apply operators like `+`, `==`, or `<<` to **primitive types**, but it does **not** know what they mean for a class you define. Operator overloading lets you supply that meaning by writing a special member (or friend) function whose name is the keyword `operator` followed by the symbol — e.g. `operator+`. That function then runs automatically every time the operator is used with an object of the class, so your class behaves as naturally as a built-in type (`p3 = p1 + p2;` instead of `p3 = p1.add(p2);`).
 
+**What "the operator runs a function" really means** — the compiler rewrites the operator into a function call:
+
+```
+   You write:            Compiler calls:                Who is the left operand?
+ ─────────────────   ────────────────────────────   ───────────────────────────
+   p1 + p2           p1.operator+(p2)                p1  (a Point2D)  → MEMBER ok
+   10 + p1           operator+(10, p1)               10  (an int)     → must be FRIEND
+   cout << p1        operator<<(cout, p1)            cout (an ostream)→ must be FRIEND
+   p1 == p2          p1.operator==(p2)               p1  (a Point2D)  → MEMBER ok
+```
+
 Key rules from the textbook:
 - You **cannot create new operators** and you **cannot change the number of operands** an operator takes (its arity), nor its precedence/associativity.
 - At least one operand must be a **class object** (you cannot redefine `int + int`).
-- Whether you write it as a **member** or a **friend** depends on the *left operand* (see Q2, Functions 2 and 4).
+- Whether you write it as a **member** or a **friend** depends on the *left operand* (see the table above, and Q2, Functions 2 and 4).
 
 **Object conversion** — *"Special operator functions may be written to convert a class object to any other type"* (Gaddis §14.6). With built-in types, conversions happen automatically (e.g. assigning an `int` to a `double`). For your own class you teach the compiler how to convert your object into another type by writing a **conversion operator** of the form `operator TargetType() const`. After that, the compiler can implicitly (or explicitly) turn your object into that type — e.g. turning a `Point2D` into a `double`.
 
@@ -31,6 +42,20 @@ Key rules from the textbook:
 | 3 | `operator double() const` → `x*x + y*y` | **Conversion operator** (`Point2D` → `double`) | Converts the point to a `double` equal to its **squared magnitude** $x^2+y^2$ (squared distance from origin; squared to avoid a `sqrt`) |
 | 4 | `friend ostream& f(ostream& os, const Point2D& p)` | **`operator<<`** (stream insertion) | Lets you write `cout << p;`. Returns `ostream&` so calls can be **chained** (`cout << a << b`). Must be a friend because the left operand is `ostream` |
 | 5 | `int& f(int index)` returning a **reference** | **Indexed accessor** (like `operator[]`) | Returns a **modifiable reference** to `x` (index 0) or `y` (index 1) so the caller can both read *and write* (`p.at(0) = 100;`); throws `out_of_range` for any other index |
+
+**Why Function 5 returns a *reference* (`int&`) — it becomes an lvalue you can assign to:**
+
+```
+   p1.at(0) = 100;
+
+   ┌─ p1 ──────────┐
+   │  x:  3  ◀──────┼─────  at(0) returns a REFERENCE to x (not a copy),
+   │  y:  3        │        so "= 100" writes straight into p1.x
+   └───────────────┘
+
+   returns int  (a copy)   → p1.at(0) = 100;  ✗ assigns to a temporary, error
+   returns int& (an alias) → p1.at(0) = 100;  ✓ modifies the real member
+```
 
 > **The single most important idea here:** a member operator's left operand is always the object (`*this`). When the left operand is *not* your class — an `int` (Function 2) or an `ostream` (Function 4) — the operator **must be a non-member**, declared `friend` so it can still reach the private `x`/`y`.
 
