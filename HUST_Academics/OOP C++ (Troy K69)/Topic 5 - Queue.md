@@ -1,4 +1,4 @@
-# Topic 5 — Queue (Circular Array)
+	# Topic 5 — Queue (Circular Array)
 
 **Questions source:** `5 - Queue/Questions.txt`
 **Runnable code:** `code/Topic5_Queue/` (IntQueue.{h,cpp} + main.cpp)
@@ -76,11 +76,11 @@ This is the whole point of a circular queue: index `0` was freed by the dequeues
 
 ## Q2. Explain the primary purpose of the following functions
 
-| # | What it really is | Purpose |
-|---|---|---|
-| 1 | **`countOccurrences(target)`** | Counts how many items equal `target`, visiting each logical element via `(front+1+i) % queueSize`. Read-only, $O(n)$ |
-| 2 | **`reverseQueue()`** | Reverses the queue **in place** by swapping the i-th element from the front with the i-th from the rear, using modular indices. Loops `numItems/2` times |
-| 3 | **`enqueueFront(num)`** | Inserts a new element at the **front** (front insertion): writes `queueArray[front] = num`, then moves `front` **backward** with `(front - 1 + queueSize) % queueSize`. $O(1)$ |
+| #   | What it really is              | Purpose                                                                                                                                                                        |
+| --- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1   | **`countOccurrences(target)`** | Counts how many items equal `target`, visiting each logical element via `(front+1+i) % queueSize`. Read-only, $O(n)$                                                           |
+| 2   | **`reverseQueue()`**           | Reverses the queue **in place** by swapping the i-th element from the front with the i-th from the rear, using modular indices. Loops `numItems/2` times                       |
+| 3   | **`enqueueFront(num)`**        | Inserts a new element at the **front** (front insertion): writes `queueArray[front] = num`, then moves `front` **backward** with `(front - 1 + queueSize) % queueSize`. $O(1)$ |
 
 ```cpp
 // Function 1
