@@ -131,7 +131,11 @@ plt.tight_layout()
 plt.show()
 ```
 
-**Observation:** The two distributions do not align. The predicted distribution peaks noticeably lower (to the left of) the actual distribution — the model systematically *underestimates* car prices. This gap is visible but not precisely quantified by a chart alone, which is why **RMSE** is introduced in Lesson 2.9.
+**Result:**
+
+![[MLZ_S2_L08_distribution_comparison.png]]
+
+> **Reading the chart:** The red bars (PRED) cluster around $\log(\text{price}) \approx 9.8$ and spike sharply on the left at $\approx 8$ — an artifact of zero-filled rows whose missing `engine_hp`/`engine_cylinders` pull predictions toward the baseline $w_0$. The blue bars (TARGET) are centred further right at $\approx 10.5$–$11$, matching the actual price distribution. The two peaks do **not** align: the model systematically *underestimates* car prices. This gap is visible but not precisely quantified by a chart alone, which is why **RMSE** is introduced in Lesson 2.9.
 
 ### 2.6 Dimensions Reference
 
