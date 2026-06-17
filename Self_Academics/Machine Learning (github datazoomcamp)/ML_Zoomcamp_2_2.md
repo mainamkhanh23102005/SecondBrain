@@ -339,4 +339,4 @@ The same accessor works on `Index` objects (including `df.columns`), which is wh
 **Previous:** [[ML_Zoomcamp_1_9]]
 **Next:** [[MLZ_S2_L03_Exploratory_Data_Analysis]]
 >>>>>>> 4e0b62081cbb4de5280aecd60424a255a9cd6ec1
-**Hub:** [[Machine Learning (github DataTalksClub)]]
+**Hub:** [[Machine Learning (github datazoomcamp)]]

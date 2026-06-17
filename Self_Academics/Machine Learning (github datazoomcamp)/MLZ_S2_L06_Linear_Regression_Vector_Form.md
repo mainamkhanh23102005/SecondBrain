@@ -208,4 +208,4 @@ If you omit the ones column:
 
 **Previous:** [[MLZ_S2_L05_Linear_Regression]]
 **Next:** [[MLZ_S2_L07_Training_Linear_Regression]]
-**Hub:** [[Machine Learning (github DataTalksClub)]]
+**Hub:** [[Machine Learning (github datazoomcamp)]]
