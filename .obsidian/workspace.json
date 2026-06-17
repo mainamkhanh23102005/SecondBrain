@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HUST_Academics/OOP C++ (Troy K69)/Topic 5 - Queue.md",
+                "file": "Self_Academics/Machine Learning (github DataTalksClub)/MLZ_S2_L07_Training_Linear_Regression.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Topic 5 - Queue"
+              "title": "MLZ_S2_L07_Training_Linear_Regression"
             }
           }
         ]
@@ -196,11 +196,13 @@
   },
   "active": "4d53f795367e7826",
   "lastOpenFiles": [
+    "Self_Academics/AI_Engineering/ML_Zoomcamp/MLZ_S2_L04_Validation_Framework.md",
+    "Self_Academics/AI_Engineering/MCP_Building_with_Claude_API.md",
+    "HUST_Academics/OOP C++ (Troy K69)/Topic 5 - Queue.md",
     "HUST_Academics/OOP C++ (Troy K69)/Topic 3 - Exception Handling.md",
     "HUST_Academics/OOP C++ (Troy K69)/code/Topic2_Polymorphism/README.md",
     "HUST_Academics/OOP C++ (Troy K69)/code/Topic4_LinkedList/README.md",
     "HUST_Academics/OOP C++ (Troy K69)/Topic 4 - Linked List.md",
-    "HUST_Academics/OOP C++ (Troy K69)/Topic 5 - Queue.md",
     "HUST_Academics/OOP C++ (Troy K69)/Topic 6 - Stack.md",
     "HUST_Academics/OOP C++ (Troy K69)/code/Topic6_Stack/main.exe",
     "HUST_Academics/OOP C++ (Troy K69)/code/Topic6_Stack/a.exe",
@@ -230,8 +232,6 @@
     "Inbox/Week3-more about class.md",
     "Inbox/Week10-linked_list.md",
     "Inbox/chapter18 Stack and Queue.md",
-    "Inbox/Chapter16.md",
-    "Inbox/Chapter 19 Recursion.md",
     "_agent/ocr_temp/wad/page_17.png",
     "_agent/ocr_temp/wad/page_16.png",
     "_agent/ocr_temp/wad/page_15.png",
