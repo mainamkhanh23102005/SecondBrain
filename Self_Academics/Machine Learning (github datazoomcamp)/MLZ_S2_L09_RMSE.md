@@ -190,4 +190,4 @@ Without RMSE, "improvement" would be subjective. With it, every decision is data
 
 **Previous:** [[MLZ_S2_L08_Baseline_Model_For_Car_Price_Prediction]]
 **Next:** [[MLZ_S2_L10_Computing_RMSE_on_Validation_Data]]
-**Hub:** [[Machine Learning (github DataTalksClub)]]
+**Hub:** [[Machine Learning (github datazoomcamp)]]

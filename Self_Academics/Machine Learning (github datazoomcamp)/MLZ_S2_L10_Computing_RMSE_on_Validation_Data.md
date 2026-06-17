@@ -192,4 +192,4 @@ Because this lesson uses zero-filling (not mean-filling), there is no leakage â€
 
 **Previous:** [[MLZ_S2_L09_RMSE]]
 **Next:** [[MLZ_S2_L11_Feature_Engineering]]
-**Hub:** [[Machine Learning (github DataTalksClub)]]
+**Hub:** [[Machine Learning (github datazoomcamp)]]

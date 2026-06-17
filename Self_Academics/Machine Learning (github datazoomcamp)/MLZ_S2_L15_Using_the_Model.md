@@ -244,4 +244,4 @@ For production systems, a proper cross-validation procedure would re-tune $r$ on
 
 **Previous:** [[MLZ_S2_L14_Tuning_the_Model]]
 **Next:** [[MLZ_S2_L16_Session_2_Summary]]
-**Hub:** [[Machine Learning (github DataTalksClub)]]
+**Hub:** [[Machine Learning (github datazoomcamp)]]

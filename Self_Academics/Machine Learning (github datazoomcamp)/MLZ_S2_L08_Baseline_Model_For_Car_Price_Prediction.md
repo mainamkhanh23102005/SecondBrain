@@ -256,4 +256,4 @@ It is a single number, computed identically on any dataset, sensitive to large e
 
 **Previous:** [[MLZ_S2_L07_Training_Linear_Regression]]
 **Next:** [[MLZ_S2_L09_RMSE]]
-**Hub:** [[Machine Learning (github DataTalksClub)]]
+**Hub:** [[Machine Learning (github datazoomcamp)]]

@@ -330,5 +330,5 @@ print(f"Predicted: ${price:,.0f}")
 ## Graph View Links
 
 **Previous:** [[MLZ_S2_L15_Using_the_Model]]
-**Next:** [[Machine Learning (github DataTalksClub)]]
-**Hub:** [[Machine Learning (github DataTalksClub)]]
+**Next:** [[Machine Learning (github datazoomcamp)]]
+**Hub:** [[Machine Learning (github datazoomcamp)]]

@@ -264,4 +264,4 @@ For the ML Zoomcamp car dataset ($m \approx 11{,}914$ rows, $n \approx 15$ featu
 
 **Previous:** [[MLZ_S2_L06_Linear_Regression_Vector_Form]]
 **Next:** [[MLZ_S2_L08_Baseline_Model_For_Car_Price_Prediction]]
-**Hub:** [[Machine Learning (github DataTalksClub)]]
+**Hub:** [[Machine Learning (github datazoomcamp)]]

@@ -251,4 +251,4 @@ Without regularization, two perfectly collinear features $x_j$ and $x_k$ can hav
 
 **Previous:** [[MLZ_S2_L12_Categorical_Variables]]
 **Next:** [[MLZ_S2_L14_Tuning_the_Model]]
-**Hub:** [[Machine Learning (github DataTalksClub)]]
+**Hub:** [[Machine Learning (github datazoomcamp)]]

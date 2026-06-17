@@ -184,4 +184,4 @@ Every iteration of this loop produces a concrete RMSE improvement. The validatio
 
 **Previous:** [[MLZ_S2_L13_Regularization]]
 **Next:** [[MLZ_S2_L15_Using_the_Model]]
-**Hub:** [[Machine Learning (github DataTalksClub)]]
+**Hub:** [[Machine Learning (github datazoomcamp)]]

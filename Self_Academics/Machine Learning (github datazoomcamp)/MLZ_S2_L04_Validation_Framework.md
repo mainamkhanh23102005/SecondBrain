@@ -197,4 +197,4 @@ $$\hat{\text{price}} = e^{\hat{y}_{\log}} - 1 = \texttt{np.expm1}(\hat{y}_{\log}
 
 **Previous:** [[MLZ_S2_L03_Exploratory_Data_Analysis]]
 **Next:** [[MLZ_S2_L05_Linear_Regression]]
-**Hub:** [[Machine Learning (github DataTalksClub)]]
+**Hub:** [[Machine Learning (github datazoomcamp)]]

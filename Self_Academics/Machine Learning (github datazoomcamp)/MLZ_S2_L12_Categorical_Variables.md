@@ -259,4 +259,4 @@ The categories dict tells `prepare_x` which values to one-hot encode. If it were
 
 **Previous:** [[MLZ_S2_L11_Feature_Engineering]]
 **Next:** [[MLZ_S2_L13_Regularization]]
-**Hub:** [[Machine Learning (github DataTalksClub)]]
+**Hub:** [[Machine Learning (github datazoomcamp)]]

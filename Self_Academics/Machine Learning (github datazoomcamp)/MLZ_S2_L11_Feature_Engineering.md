@@ -218,4 +218,4 @@ This illustrates a key ML principle: **a domain-informed feature beats raw algor
 
 **Previous:** [[MLZ_S2_L10_Computing_RMSE_on_Validation_Data]]
 **Next:** [[MLZ_S2_L12_Categorical_Variables]]
-**Hub:** [[Machine Learning (github DataTalksClub)]]
+**Hub:** [[Machine Learning (github datazoomcamp)]]

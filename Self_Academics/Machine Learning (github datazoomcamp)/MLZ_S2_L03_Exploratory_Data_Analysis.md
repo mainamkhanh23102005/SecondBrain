@@ -171,4 +171,4 @@ Missing values don't block EDA, but they **will** block model training. Algorith
 
 **Previous:** [[ML_Zoomcamp_2_2]]
 **Next:** [[MLZ_S2_L04_Validation_Framework]]
-**Hub:** [[Machine Learning (github DataTalksClub)]]
+**Hub:** [[Machine Learning (github datazoomcamp)]]
